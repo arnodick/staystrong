@@ -85,6 +85,10 @@ for (var a = 0; a < r_width; a++)                               // loops through
                         // TODO: functions for creating terrain, to customize each piece, and remove create code from them
                         create_creature(a, b, oEnemy, '$', c_red, oBlood);
                     }
+                    else if (a == 12 and b == 6)
+                    {
+                        create_thing(a, b, oSmash, '!', c_blue, oRoad);
+                    }
                     else
                     {
                         map[a, b] = instance_create(a, b, wall[irandom(2)]);

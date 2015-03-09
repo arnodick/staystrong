@@ -11,6 +11,7 @@
     <sound>sound\sndDeath</sound>
     <sound>sound\sndBloop</sound>
     <sound>sound\sndSwish</sound>
+    <sound>sound\sndPickup</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
@@ -27,6 +28,8 @@
     <script>scripts\screen_shake_init.gml</script>
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
+    <script>scripts\create_thing.gml</script>
+    <script>scripts\create_terrain.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
     <script>scripts\check_room_change.gml</script>
@@ -69,6 +72,7 @@
   <objects name="objects">
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>
+    <object>objects\oSmash</object>
     <object>objects\oEnemy</object>
     <object>objects\oGrass</object>
     <object>objects\oWall</object>
