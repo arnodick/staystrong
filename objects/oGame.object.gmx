@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
+global.debug = true;
+
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
@@ -50,8 +52,6 @@ turn = false;                           // if true, a turn will be taken. should
 
 draw_set_font(font2);
 draw_set_halign(fa_left);
-
-global.debug = false;
 
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 </string>
@@ -191,6 +191,15 @@ if (global.debug == true)
     }
     
     inst_string = "Instance cnt = " + string(instance_count);
+    rooms_string = "Room \# = " + string(room_count);
+    if instance_exists(oPlayer)
+    {
+        smashes_string = "Smashes = " + string(oPlayer.smashes);
+    }
+    else
+    {
+        smashes_string = "Smashes = ur dead ;)";
+    }
 }
 </string>
           </argument>
@@ -259,11 +268,16 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_set_colour(c_red);
-    draw_text(32, 32, fps_string);
+    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
     
-    //draw the number of instances, below fps count
-    draw_text(32, 64, inst_string);
+    //draw the number of instances
+    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    
+    //draw the number of rooms
+    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    
+    //draw the number of rooms
+    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
 }
 </string>
           </argument>

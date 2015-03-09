@@ -5,15 +5,7 @@ if (object_index == oPlayer)
 {
     if cant_move == false
     {
-        if cell_next.object_index == oSmash
-        {
-            smashes += 1;
-            audio_play_sound(sndPickup, 1, false);
-            with (cell_next)
-            {
-                instance_destroy();
-            }
-        }
+        check_smash(cell_next.object_index)
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;

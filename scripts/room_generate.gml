@@ -87,7 +87,14 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     }
                     else if (a == 12 and b == 6)
                     {
-                        create_thing(a, b, oSmash, '!', c_blue, oRoad);
+                        if oPlayer.smashes == 0
+                        {
+                            create_thing(a, b, oSmash, '!', c_blue, oRoad);
+                        }
+                        else
+                        {
+                            map[a, b] = instance_create(a, b, oGrass);
+                        }
                     }
                     else
                     {
