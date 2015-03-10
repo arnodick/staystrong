@@ -5,7 +5,7 @@ if (object_index == oPlayer)
 {
     if cant_move == false
     {
-        check_smash(cell_next.object_index)
+        check_smash(cell_next)
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;

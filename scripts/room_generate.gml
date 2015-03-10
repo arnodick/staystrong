@@ -6,6 +6,49 @@ with(oThing)                                                    // destroys all 
     }
 }
 
+var enemy_count = irandom_range(3, 5);
+if room_count == 0
+{
+    enemy_count = 1;
+}
+for (var i = 0; i < enemy_count; i++)
+{
+    for (var j = 0; j < 2; j++)
+    {
+        if (j == 0)
+        {
+            enemy_pos[i, j] = irandom_range(2, r_width - 3);
+        }
+        else if (j == 1)
+        {
+            enemy_pos[i, j] = irandom_range(2, r_height - 3);
+        }
+    }
+}
+var smashes_count = 0;
+if smashes == 0
+{
+    smashes_count += 1;
+}
+if room_count mod 5 == 0
+{
+    smashes_count += 1;
+}
+for (var p = 0; p < smashes_count; p++)
+{
+    for (var t = 0; t < 2; t++)
+    {
+        if (t == 0)
+        {
+            smashes_pos[p, t] = irandom_range(2, r_width - 3);
+        }
+        else if (t == 1)
+        {
+            smashes_pos[p, t] = irandom_range(2, r_height - 3);
+        }
+    }
+}
+
 for (var a = 0; a < r_width; a++)                               // loops through each cell of the map array
 {
     for (var b = 0; b < r_height; b++)
@@ -13,132 +56,69 @@ for (var a = 0; a < r_width; a++)                               // loops through
         map_update[a, b] = 0;
         if          (a == 0 or a == r_width - 1 or b == 0 or b == r_height - 1)
         {
-            if      (argument0 == -1)
-            {
-                map[a, b] = instance_create(a, b, oSpace);
-            }
-            else if (argument0 == 0)
-            {
-                if (a == r_width - 1)
-                {
-                    map[a, b] = instance_create(a, b, oSuperwall);
-                }
-                else
-                {
-                    map[a, b] = instance_create(a, b, oSpace);
-                }
-            }
-            else if (argument0 == 1)
-            {
-                if (a == 0)
-                {
-                    map[a, b] = instance_create(a, b, oSuperwall);
-                }
-                else
-                {
-                    map[a, b] = instance_create(a, b, oSpace);
-                }
-            }
-            else if (argument0 == 2)
-            {
-                if (b == r_height - 1)
-                {
-                    map[a, b] = instance_create(a, b, oSuperwall);
-                }
-                else
-                {
-                    map[a, b] = instance_create(a, b, oSpace);
-                }
-            }
-            else if (argument0 == 3)
-            {
-                if (b == 0)
-                {
-                    map[a, b] = instance_create(a, b, oSuperwall);
-                }
-                else
-                {
-                    map[a, b] = instance_create(a, b, oSpace);
-                }
-            }
+            room_generate_OOB_edges(argument0, a, b);
         }
         else if      (a == 1 or a == r_width - 2)
         {
-            if (argument0 == 0 or argument0 == 1 or argument0 == -1)
-            {
-                map[a, b] = instance_create(a, b, oSpace);
-            }
-            else
-            {
-                map[a, b] = instance_create(a, b, oWall);
-            }
+            room_generate_LR_edges(argument0, a, b);
         }
         else if     (b == 1 or b == r_height - 2)
         {
-            if (argument0 == 2 or argument0 == 3 or argument0 == -1)
-            {
-                map[a, b] = instance_create(a, b, oSpace);
-            }
-            else
-            {
-                map[a, b] = instance_create(a, b, oWall);
-            }
+            room_generate_TB_edges(argument0, a, b);
         }
         else                                                    // assigns proc objects to each cell
         {
             switch(room_count)                                      // specific actions for each room
             {
                 case 0:                                             // room 0
-                    if (a == 5 and b == 5)
+                    if      ( a == ( floor(r_width/2) - 2 ) )
                     {
-                        map[a, b] = instance_create(a, b, oSpace);
-                        // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood); // spawns NPC at middle of room
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( a == (floor(r_width/2) - 1) )
+                    {
+                        map[a, b] =  instance_create(a, b, oRoad);
+                    }
+                    else if ( a == (floor(r_width/2)    ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( b == ( floor(r_height/2) - 2 ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( b == (floor(r_height/2) - 1) )
+                    {
+                        map[a, b] =  instance_create(a, b, oRoad);
+                    }
+                    else if ( b == (floor(r_height/2)    ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
                     }
                     else
                     {
                         map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     }
+                    if (a == enemy_pos[0, 0] and b == enemy_pos[0, 1])
+                    {
+                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
+                    }
                     break;
                 default:                                            // room 1
-                    if (a == 5 and b == 5)
+                    map[a, b] = instance_create(a, b, wall[irandom(2)]);
+                    for(var k = 0; k < enemy_count; k++)
                     {
-                        map[a, b] = instance_create(a, b, oSpace);
-                        // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
+                        if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
+                        {
+                            create_creature(a, b, oEnemy, '$', c_red, oBlood);
+                        }
                     }
-                    else if (a == 8 and b == 3)
+                    for(var q = 0; q < smashes_count; q++)
                     {
-                        map[a, b] = instance_create(a, b, oSpace);
-                        // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
-                    }
-                    else if (a == 9 and b == 2)
-                    {
-                        map[a, b] = instance_create(a, b, oSpace);
-                        // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
-                    }
-                    else if (a == 5 and b == 7)
-                    {
-                        map[a, b] = instance_create(a, b, oSpace);
-                        // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
-                    }
-                    else if (a == 12 and b == 6)
-                    {
-                        if smashes == 0
+                        if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                         {
                             create_thing(a, b, oSmash, '!', c_blue, oRoad);
                         }
-                        else
-                        {
-                            map[a, b] = instance_create(a, b, oGrass);
-                        }
-                    }
-                    else
-                    {
-                        map[a, b] = instance_create(a, b, wall[irandom(2)]);
                     }
                     break;
             }
