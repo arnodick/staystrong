@@ -4,8 +4,8 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
-  <parentName>oThing</parentName>
+  <persistent>0</persistent>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,23 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attributes
-event_inherited();
+            <string>texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
-// Basic attributes
-char = '@'; //graphic
-colour_init = c_white; //colour
-colour = merge_colour(colour_init, c_black, y/48);
+tile_size = 10;
 
-// Player attributes + variables
+room_dimensions(220, 160);
 
-oGame.map[x, y] = instance_create(x, y, oSpace);
+draw_set_font(font2);
+draw_set_halign(fa_left);
 
-move_init(8);
-move_run_init();
-check_creature_init();
+title_string = "PRESS START";
 
-audio_listener_orientation(0,1,0,0,0,1);
+
 </string>
           </argument>
         </arguments>
@@ -64,16 +59,33 @@ audio_listener_orientation(0,1,0,0,0,1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controls
-
-//colour = merge_colour(colour_init, c_black, y/48);
-if (keyboard_check(vk_space))
+            <string>if (keyboard_check(vk_enter) ==  true)
 {
-    draw_random_char();
+    room_goto(rRoom);
 }
-move_key();
-check_creature();
-audio_listener_position(x, y, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text_colour(20, 20, title_string, c_red, c_red, c_red, c_red, 1);
 </string>
           </argument>
         </arguments>

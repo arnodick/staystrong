@@ -80,3 +80,10 @@ if move_collision(x_pos, y_pos) == true
 {
     move_rand();
 }
+else if (point_distance(x, y, oPlayer.x, oPlayer.y) <= 6)
+{
+    if ( irandom(20) <= 1 )
+    {
+        audio_play_sound_at(sndAlert, x, y, 0, 3, 6, 1, false, 1);
+    }
+}

@@ -12,6 +12,7 @@
     <sound>sound\sndBloop</sound>
     <sound>sound\sndSwish</sound>
     <sound>sound\sndPickup</sound>
+    <sound>sound\sndAlert</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
@@ -84,8 +85,10 @@
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
     <object>objects\oGame</object>
+    <object>objects\oTitle</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rTitle</room>
     <room>rooms\rRoom</room>
   </rooms>
   <constants number="2">
