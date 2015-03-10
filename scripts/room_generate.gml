@@ -13,7 +13,54 @@ for (var a = 0; a < r_width; a++)                               // loops through
         map_update[a, b] = 0;
         if          (a == 0 or a == r_width - 1 or b == 0 or b == r_height - 1)
         {
+            if      (argument0 == -1)
+            {
+                map[a, b] = instance_create(a, b, oSpace);
+            }
+            else if (argument0 == 0)
+            {
+                if (a == r_width - 1)
+                {
+                    map[a, b] = instance_create(a, b, oSuperwall);
+                }
+                else
+                {
                     map[a, b] = instance_create(a, b, oSpace);
+                }
+            }
+            else if (argument0 == 1)
+            {
+                if (a == 0)
+                {
+                    map[a, b] = instance_create(a, b, oSuperwall);
+                }
+                else
+                {
+                    map[a, b] = instance_create(a, b, oSpace);
+                }
+            }
+            else if (argument0 == 2)
+            {
+                if (b == r_height - 1)
+                {
+                    map[a, b] = instance_create(a, b, oSuperwall);
+                }
+                else
+                {
+                    map[a, b] = instance_create(a, b, oSpace);
+                }
+            }
+            else if (argument0 == 3)
+            {
+                if (b == 0)
+                {
+                    map[a, b] = instance_create(a, b, oSuperwall);
+                }
+                else
+                {
+                    map[a, b] = instance_create(a, b, oSpace);
+                }
+            }
         }
         else if      (a == 1 or a == r_width - 2)
         {
@@ -42,13 +89,6 @@ for (var a = 0; a < r_width; a++)                               // loops through
             switch(room_count)                                      // specific actions for each room
             {
                 case 0:                                             // room 0
-                    if (a == r_width / 2 and b == r_height / 2)
-                    {
-                        //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
-                        map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
-                                                                    // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                    // NOTE: make this spot a proper variable, not a constant
-                    }
                     if (a == 5 and b == 5)
                     {
                         map[a, b] = instance_create(a, b, oSpace);
@@ -87,7 +127,7 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     }
                     else if (a == 12 and b == 6)
                     {
-                        if oPlayer.smashes == 0
+                        if smashes == 0
                         {
                             create_thing(a, b, oSmash, '!', c_blue, oRoad);
                         }
@@ -101,15 +141,6 @@ for (var a = 0; a < r_width; a++)                               // loops through
                         map[a, b] = instance_create(a, b, wall[irandom(2)]);
                     }
                     break;
-                    /*
-                case 2:                                             // room 2
-                    map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                    break;
-                    
-                default:                           
-                    map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                    break;
-                    */
             }
         }
         if (map_update[a, b] == 0)

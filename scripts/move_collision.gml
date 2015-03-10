@@ -18,17 +18,20 @@ if (object_index == oPlayer)
         move_timer = true;
         move_timer_count = oGame.shake_count_max_bump;
         step_count = 0;
-        if smashes > 0
+        if oGame.smashes > 0
         {
-            var cell_next = oGame.map_update[argument0, argument1]
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
-            audio_play_sound(cell_next.dead_sound, 1, false);
-            with (cell_next)
+            var cell_next = oGame.map_update[argument0, argument1];
+            if (cell_next.object_index != oSuperwall)
             {
-                instance_destroy();
+                oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
+                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                audio_play_sound(cell_next.dead_sound, 1, false);
+                with (cell_next)
+                {
+                    instance_destroy();
+                }
+                oGame.smashes -= 1;
             }
-            smashes -= 1;
         }
     }
     oGame.turn = true;

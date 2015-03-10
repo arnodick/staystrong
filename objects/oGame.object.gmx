@@ -50,6 +50,8 @@ turn = false;                           // if true, a turn will be taken. should
 
 //instance_create(0, 0, oScreen);
 
+smashes = 3;
+
 draw_set_font(font2);
 draw_set_halign(fa_left);
 
@@ -192,14 +194,7 @@ if (global.debug == true)
     
     inst_string = "Instance cnt = " + string(instance_count);
     rooms_string = "Room \# = " + string(room_count);
-    if instance_exists(oPlayer)
-    {
-        smashes_string = "Smashes = " + string(oPlayer.smashes);
-    }
-    else
-    {
-        smashes_string = "Smashes = ur dead ;)";
-    }
+    smashes_string = "Smashes = " + string(smashes);
 }
 </string>
           </argument>
