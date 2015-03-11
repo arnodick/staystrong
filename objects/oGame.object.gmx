@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-global.debug = false;
+global.debug = true;
 
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
@@ -58,6 +58,10 @@ turn_timer = 0;
 //instance_create(0, 0, oScreen);
 
 smashes = 3;
+if (global.debug == true)
+{
+    smashes = 200;
+}
 smashed = 0;
 
 draw_set_font(font2);
@@ -226,6 +230,8 @@ if (global.debug == true)
     rooms_string = "Room \# = " + string(room_count);
     smashes_string = "Smashes = " + string(smashes);
     smashed_string = "Trees Smashed = " + string(smashed);
+    trees_string = "Trees # = " + string(instance_number(oTree));
+    rubble_string = "Rubble # = " + string(instance_number(oRubble));
 }
 </string>
           </argument>
@@ -307,6 +313,12 @@ if (global.debug == true)
     
     //draw the number of trees smashed
     draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    
+    //draw the number of trees smashed
+    draw_text_ext_colour(10, 77, trees_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    
+    //draw the number of trees smashed
+    draw_text_ext_colour(10, 99, rubble_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
 }
 </string>
           </argument>

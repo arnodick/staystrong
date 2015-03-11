@@ -15,12 +15,15 @@ if instance_exists(argument0)
         {
             if move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).object_index == oPlayer
             {
-                oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos] = instance_create(x_pos + x_dist / (abs(x_dist)), y_pos, oPlayer.dead);
-                oGame.map_update[x_pos + x_dist / (abs(x_dist)), y_pos] = oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos]; // TODO: this code makes the game crash when you kill yourself for some reason?
-                audio_play_sound(oPlayer.dead_sound, 1, false);
-                with (oPlayer)
+                if global.debug == false
                 {
-                   instance_destroy();
+                    oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos] = instance_create(x_pos + x_dist / (abs(x_dist)), y_pos, oPlayer.dead);
+                    oGame.map_update[x_pos + x_dist / (abs(x_dist)), y_pos] = oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                    audio_play_sound(oPlayer.dead_sound, 1, false);
+                    with (oPlayer)
+                    {
+                       instance_destroy();
+                    }
                 }
             }
             else if (y_pos != obj_y)
@@ -39,12 +42,15 @@ if instance_exists(argument0)
         {
             if move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).object_index == oPlayer
             {
-                oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))] = instance_create(x_pos, y_pos + y_dist / (abs(y_dist)), oPlayer.dead);
-                oGame.map_update[x_pos, y_pos + y_dist / (abs(y_dist))] = oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))]; // TODO: this code makes the game crash when you kill yourself for some reason?
-                audio_play_sound(oPlayer.dead_sound, 1, false);
-                with (oPlayer)
+                if global.debug == false
                 {
-                   instance_destroy();
+                    oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))] = instance_create(x_pos, y_pos + y_dist / (abs(y_dist)), oPlayer.dead);
+                    oGame.map_update[x_pos, y_pos + y_dist / (abs(y_dist))] = oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                    audio_play_sound(oPlayer.dead_sound, 1, false);
+                    with (oPlayer)
+                    {
+                       instance_destroy();
+                    }
                 }
             }
             else if (x_pos != obj_x)

@@ -145,14 +145,18 @@ if instance_exists(oTree)
     }
     for (var v = 0; v < smashed; v += 1)
     {
-        var tree_rand = irandom(instance_number(oTree));
+        var tree_rand = floor(random(instance_number(oTree))); // needed to do this bc it was finding old trees from past rooms that no longer exists. TODO: maybe just reinitialize tree[] every room?
         var temp_tree = tree[tree_rand];
-        map[temp_tree.x, temp_tree.y] = instance_create(temp_tree.x, temp_tree.y, oRubble);
-        map_update[temp_tree.x, temp_tree.y] = map[temp_tree.x, temp_tree.y];
+        var tree_x = temp_tree.x, tree_y = temp_tree.y;
+        map[tree_x, tree_y] = instance_create(tree_x, tree_y, oRubble);
+        map_update[tree_x, tree_y] = map[tree_x, tree_y];
+        //  BUG: this causes the game to crash when it randomly selects a tree that's already been destroyed
         with(tree[tree_rand])
         {
             instance_destroy();
         }
+        tree[tree_rand] = map[tree_x, tree_y];
+        
     }
 }
 generate = false;                                               // set generate to false, so room doesn't keep regenerating
