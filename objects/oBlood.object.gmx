@@ -28,7 +28,7 @@
             <string>///Attributes
 event_inherited();
 
-char = 'x';
+char = '~';
 colour = c_red;
 
 cell_adj[0] = oGame.map[x       ,  y - 1    ];

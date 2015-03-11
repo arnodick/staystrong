@@ -26,6 +26,10 @@ if (object_index == oPlayer)
                 oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
                 oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
                 audio_play_sound(cell_next.dead_sound, 1, false);
+                if (cell_next.object_index == oTree)
+                {
+                    oGame.smashed += 1;
+                }
                 with (cell_next)
                 {
                     instance_destroy();
@@ -49,5 +53,9 @@ else
         oGame.map_update[x, y] = id;    // NOW it updates the active cell with you, whether you moved or not
     }
 
+}
+if bloody == true
+{
+    bloody_timer -= 1;
 }
 return cant_move;

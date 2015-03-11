@@ -42,18 +42,23 @@ ground[1] = oGrass;
 ground[2] = oSpace;
 
 wall[0] = oRoad;
-wall[1] = oWall;
+wall[1] = oTree;
 wall[2] = oSpace;
+
+tree[100] = 0;
 
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
 generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 turn = false;                           // if true, a turn will be taken. should only happen when player tries to move
+turn_timer_init = 10;
+turn_timer = 0;
 
 //instance_create(0, 0, oScreen);
 
 smashes = 3;
+smashed = 0;
 
 draw_set_font(font2);
 draw_set_halign(fa_left);
@@ -137,6 +142,28 @@ check_room_change();
 
 turn = false;
 
+if (!instance_exists(oPlayer) )
+{
+    if turn_timer &lt;= 0
+    {
+        turn_timer = turn_timer_init;
+        turn = true;
+    }
+    else
+    {
+        turn_timer -= 1;
+        turn = false;
+    }
+    if !instance_exists(oMessage)
+    {
+        create_message(10, 10, "PRESS ENTER");
+    }
+    if keyboard_check(vk_enter)
+    {
+        room_restart();
+    }
+}
+
 game_quit();
 </string>
           </argument>
@@ -198,6 +225,7 @@ if (global.debug == true)
     inst_string = "Instance cnt = " + string(instance_count);
     rooms_string = "Room \# = " + string(room_count);
     smashes_string = "Smashes = " + string(smashes);
+    smashed_string = "Trees Smashed = " + string(smashed);
 }
 </string>
           </argument>
@@ -266,16 +294,19 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
     
     //draw the number of instances
-    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.5);
+    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    
+    //draw the number of trees smashed
+    draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
 }
 </string>
           </argument>

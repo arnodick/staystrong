@@ -28,11 +28,13 @@
             <string>///Variables
 event_inherited();
 
-char = '|';
+char = '*';
 
-hue = colour_get_hue(c_gray) + (irandom(60) - 20);
-val = colour_get_value(c_gray) + (irandom(100) - 50);
-colour = make_colour_hsv(hue, colour_get_saturation(c_gray), val);
+hue = colour_get_hue(c_olive) + (irandom(60) - 20);
+val = colour_get_value(c_olive) + (irandom(100) - 50);
+colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
+
+dead = oRubble;
 
 //colour = merge_colour(colour, c_black, y/48);
 

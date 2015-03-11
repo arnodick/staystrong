@@ -67,6 +67,7 @@
     <script>scripts\room_generate_OOB_edges.gml</script>
     <script>scripts\room_generate_LR_edges.gml</script>
     <script>scripts\room_generate_TB_edges.gml</script>
+    <script>scripts\create_message.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -80,11 +81,14 @@
     <object>objects\oSmash</object>
     <object>objects\oEnemy</object>
     <object>objects\oGrass</object>
+    <object>objects\oTree</object>
     <object>objects\oWall</object>
+    <object>objects\oWallH</object>
     <object>objects\oSuperwall</object>
     <object>objects\oRoad</object>
     <object>objects\oSpace</object>
     <object>objects\oStamped</object>
+    <object>objects\oRubble</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
     <object>objects\oGame</object>

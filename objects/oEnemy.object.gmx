@@ -55,7 +55,13 @@ check_creature_init();
             <kind>1</kind>
             <string>///Controller
 
-if instance_exists(oPlayer)
+if (instance_exists(oBlood) and bloody == false)
+{
+    {
+        move_type(mt_obj, oBlood);
+    }
+}
+else if instance_exists(oPlayer)
 {
     move_type(mt_obj, oPlayer);
 }

@@ -25,19 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
+            <string>///Attributes
 event_inherited();
 
-char = '|';
+chars[0] = "'";
+chars[1] = ';';
+chars[2] = ',';
+chars[3] = '`';
+chars[4] = '"';
 
-hue = colour_get_hue(c_gray) + (irandom(60) - 20);
-val = colour_get_value(c_gray) + (irandom(100) - 50);
-colour = make_colour_hsv(hue, colour_get_saturation(c_gray), val);
-
-//colour = merge_colour(colour, c_black, y/48);
-
-
-solid = true;
+char = chars[irandom(4)];
+colour = c_gray;
+colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
         </arguments>

@@ -6,7 +6,11 @@ with(oThing)                                                    // destroys all 
     }
 }
 
-var enemy_count = irandom_range(3, 5);
+var enemy_count = 2;
+if (smashes > 0)
+{
+    enemy_count = irandom_range(3, 5);
+}
 if room_count == 0
 {
     enemy_count = 1;
@@ -28,11 +32,11 @@ for (var i = 0; i < enemy_count; i++)
 var smashes_count = 0;
 if smashes == 0
 {
-    smashes_count += 1;
+    smashes_count += (irandom(1) + 1);
 }
 if room_count mod 5 == 0
 {
-    smashes_count += 1;
+    smashes_count += (irandom(2) + 2);
 }
 for (var p = 0; p < smashes_count; p++)
 {
@@ -95,13 +99,17 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     {
                         map[a, b] =  instance_create(a, b, oSpace);
                     }
+                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 3) and b == (r_height - 3)) or (a == (r_width - 3) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 3)) )
+                    {
+                        map[a, b] =  instance_create(a, b, oWall);
+                    }
                     else
                     {
                         map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     }
                     if (a == enemy_pos[0, 0] and b == enemy_pos[0, 1])
                     {
-                        create_creature(a, b, oEnemy, '$', c_red, oBlood);
+                        create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
                     }
                     break;
                 default:                                            // room 1
@@ -110,7 +118,7 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     {
                         if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                         {
-                            create_creature(a, b, oEnemy, '$', c_red, oBlood);
+                            create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
                         }
                     }
                     for(var q = 0; q < smashes_count; q++)
@@ -126,6 +134,24 @@ for (var a = 0; a < r_width; a++)                               // loops through
         if (map_update[a, b] == 0)
         {
             map_update[a, b] = map[a, b];
+        }
+    }
+}
+if instance_exists(oTree)
+{
+    for (var z = 0; z < instance_number(oTree); z += 1)
+    {
+        tree[z] = instance_find(oTree, z);
+    }
+    for (var v = 0; v < smashed; v += 1)
+    {
+        var tree_rand = irandom(instance_number(oTree));
+        var temp_tree = tree[tree_rand];
+        map[temp_tree.x, temp_tree.y] = instance_create(temp_tree.x, temp_tree.y, oRubble);
+        map_update[temp_tree.x, temp_tree.y] = map[temp_tree.x, temp_tree.y];
+        with(tree[tree_rand])
+        {
+            instance_destroy();
         }
     }
 }

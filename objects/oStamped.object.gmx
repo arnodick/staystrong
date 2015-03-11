@@ -28,7 +28,7 @@
             <string>///Attributes
 event_inherited();
 
-char = '-';
+char = '_';
 colour = c_gray;
 colour = merge_colour(colour, c_black, y/48);
 </string>
