@@ -13,7 +13,7 @@ if instance_exists(argument0)
     {
         if move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).solid == true
         {
-            if move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).object_index == oPlayer
+            if (move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).object_index == oPlayer)
             {
                 if global.debug == false
                 {
@@ -24,6 +24,23 @@ if instance_exists(argument0)
                     {
                        instance_destroy();
                     }
+                }
+            }
+            else if (colour == c_blue)
+            {
+                var cell_next = oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos];
+                if (cell_next.object_index != oSuperwall)
+                {
+                    oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos] = instance_create(x_pos + x_dist / (abs(x_dist)), y_pos, cell_next.dead);
+                    oGame.map_update[x_pos + x_dist / (abs(x_dist)), y_pos] = oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos];
+                }
+                if (!audio_is_playing(cell_next.dead_sound))
+                {
+                    audio_play_sound(cell_next.dead_sound, 1, false);
+                }
+                with (cell_next)
+                {
+                    instance_destroy();
                 }
             }
             else if (y_pos != obj_y)
@@ -40,7 +57,7 @@ if instance_exists(argument0)
     {
         if move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).solid == true
         {
-            if move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).object_index == oPlayer
+            if (move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).object_index == oPlayer)
             {
                 if global.debug == false
                 {
@@ -51,6 +68,23 @@ if instance_exists(argument0)
                     {
                        instance_destroy();
                     }
+                }
+            }
+            else if (colour == c_blue)
+            {
+                var cell_next = oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))];
+                if (cell_next.object_index != oSuperwall)
+                {
+                    oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))] = instance_create(x_pos, y_pos + y_dist / (abs(y_dist)), cell_next.dead);
+                    oGame.map_update[x_pos, y_pos + y_dist / (abs(y_dist))] = oGame.map[x_pos, y_pos + y_dist / (abs(y_dist))];
+                }
+                if (!audio_is_playing(cell_next.dead_sound))
+                {
+                    audio_play_sound(cell_next.dead_sound, 1, false);
+                }
+                with (cell_next)
+                {
+                    instance_destroy();
                 }
             }
             else if (x_pos != obj_x)

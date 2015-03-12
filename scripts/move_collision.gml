@@ -5,7 +5,7 @@ if (object_index == oPlayer)
 {
     if cant_move == false
     {
-        check_smash(cell_next)
+        check_smash(cell_next);
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;
@@ -20,12 +20,15 @@ if (object_index == oPlayer)
         step_count = 0;
         if oGame.smashes > 0
         {
-            var cell_next = oGame.map_update[argument0, argument1];
+            //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)
             {
                 oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
                 oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
-                audio_play_sound(cell_next.dead_sound, 1, false);
+                if (!audio_is_playing(cell_next.dead_sound))
+                {
+                    audio_play_sound(cell_next.dead_sound, 1, false);
+                }
                 if (cell_next.object_index == oTree)
                 {
                     oGame.smashed += 1;
@@ -46,6 +49,7 @@ else
     {
         if cant_move == false // if destination cell is not solid, move into it
         {
+            check_smash(cell_next);
             oGame.map_update[x, y] = oGame.map[x, y];   // swaps the current cell on the active grid for its sister in the terrain grid
             x = argument0;   // sets your position to the destination cell
             y = argument1;   // but we still haven't actually moved you into the active grid yet!!

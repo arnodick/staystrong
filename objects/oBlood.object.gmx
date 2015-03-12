@@ -31,6 +31,19 @@ event_inherited();
 char = '~';
 colour = c_red;
 
+if instance_exists(oEnemy)
+{
+    amount = instance_number(oEnemy);
+    if amount &gt; 1
+    {
+        amount -= 1;
+    }
+}
+else
+{
+    amount = 2;
+}
+
 cell_adj[0] = oGame.map[x       ,  y - 1    ];
 cell_adj[1] = oGame.map[x + 1   ,  y - 1    ];
 cell_adj[2] = oGame.map[x + 1   ,  y        ];
@@ -75,6 +88,20 @@ cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
 if random(100) &lt; 1
 {
     cell_adj[irandom_range(0, 7)].colour = c_red;
+}
+
+if amount &lt;= 0
+{
+    if instance_exists(oPlayer)
+    {
+        oGame.map[x, y] = instance_create(x, y, oRoad);
+        //oGame.map_update[x, y] = oGame.map[x, y];
+        instance_destroy();
+    }
+    else
+    {
+        amount = 1;
+    }
 }
 </string>
           </argument>

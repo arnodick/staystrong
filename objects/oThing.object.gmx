@@ -31,7 +31,7 @@
 hp = 1;                                                             // TODO: do we NEED this for every object? could just change terrain to solid = false and different char
 char = '#';                                                         // the default symbol displayed for the object. will be set by a function usually
 colour_init = c_maroon;                                             // default colour. will also be changed by function most likely
-//colour = merge_colour(colour_init, c_black, y/oGame.r_height);      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
+colour = colour_init;      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 dead_sound = sndCrash;

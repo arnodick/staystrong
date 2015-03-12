@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-global.debug = true;
+global.debug = false;
 
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
@@ -60,7 +60,7 @@ turn_timer = 0;
 smashes = 3;
 if (global.debug == true)
 {
-    smashes = 200;
+    smashes = 3;
 }
 smashed = 0;
 
@@ -300,25 +300,25 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of instances
-    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 77, trees_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 77, trees_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 99, rubble_string, 12, 200, c_blue, c_blue, c_blue, c_blue, 0.3);
+    draw_text_ext_colour(10, 99, rubble_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
 }
 </string>
           </argument>

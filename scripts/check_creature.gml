@@ -19,6 +19,10 @@ if (cell_current.object_index == oGrass)
 }
 if (cell_current.object_index == oBlood)
 {
+    if bloody == false
+    {
+        cell_current.amount -= 1;
+    }
     bloody = true;
 }
 bloody_check();
