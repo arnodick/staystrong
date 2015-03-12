@@ -60,7 +60,7 @@ turn_timer = 0;
 smashes = 3;
 if (global.debug == true)
 {
-    smashes = 3;
+    smashes = 300;
 }
 smashed = 0;
 
@@ -314,7 +314,7 @@ if (global.debug == true)
     //draw the number of trees smashed
     draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
-    //draw the number of trees smashed
+    //draw the number of trees 
     draw_text_ext_colour(10, 77, trees_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed

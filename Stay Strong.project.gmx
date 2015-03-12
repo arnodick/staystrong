@@ -30,7 +30,7 @@
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\create_thing.gml</script>
-    <script>scripts\create_terrain.gml</script>
+    <script>scripts\room_generate_terrain.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
     <script>scripts\check_room_change.gml</script>
@@ -93,6 +93,7 @@
     <object>objects\oMessage</object>
     <object>objects\oGame</object>
     <object>objects\oTitle</object>
+    <object>objects\oExit</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rTitle</room>

@@ -74,6 +74,45 @@ for (var a = 0; a < r_width; a++)                               // loops through
         {
             switch(room_count)                                      // specific actions for each room
             {
+                case -1:
+                    if      ( a == ( floor(r_width/2) - 2 ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( a == (floor(r_width/2) - 1) )
+                    {
+                        map[a, b] =  instance_create(a, b, oRoad);
+                    }
+                    else if ( a == (floor(r_width/2)    ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( b == ( floor(r_height/2) - 2 ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( b == (floor(r_height/2) - 1) )
+                    {
+                        map[a, b] =  instance_create(a, b, oRoad);
+                    }
+                    else if ( b == (floor(r_height/2)    ) )
+                    {
+                        map[a, b] =  instance_create(a, b, oSpace);
+                    }
+                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
+                    {
+                        //map[a, b] = instance_create(a, b, oWall);
+                        map[a, b] = room_generate_terrain(a, b, oWall, 'X', c_dkgray, oRubble);
+                    }
+                    else
+                    {
+                        map[a, b] = instance_create(a, b, ground[irandom(2)]);
+                    }
+                    if (a == enemy_pos[0, 0] and b == enemy_pos[0, 1])
+                    {
+                        create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
+                    }
+                    break;
                 case 0:                                             // room 0
                     if      ( a == ( floor(r_width/2) - 2 ) )
                     {
@@ -99,9 +138,10 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     {
                         map[a, b] =  instance_create(a, b, oSpace);
                     }
-                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 3) and b == (r_height - 3)) or (a == (r_width - 3) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 3)) )
+                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
-                        map[a, b] =  instance_create(a, b, oWall);
+                        //map[a, b] = instance_create(a, b, oWall);
+                        map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
                     }
                     else
                     {

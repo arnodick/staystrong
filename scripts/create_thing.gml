@@ -10,4 +10,4 @@ thing.char = argument3;
 thing.colour_init = argument4;
 thing.colour = merge_colour(argument4, c_black, y/oGame.r_height);
 thing.dead = argument5;
-return id;
+return thing;
