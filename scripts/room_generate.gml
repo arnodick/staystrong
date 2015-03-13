@@ -34,6 +34,10 @@ if smashes == 0
 {
     smashes_count += (irandom(1) + 1);
 }
+if room_count mod 3 == 0
+{
+    smashes_count += (irandom(1) + 2);
+}
 if room_count mod 5 == 0
 {
     smashes_count += (irandom(2) + 2);
@@ -147,14 +151,14 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     {
                         map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     }
-                    if (a == enemy_pos[0, 0] and b == enemy_pos[0, 1])
-                    {
-                        create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
-                    }
+
                     break;
                 default:                                            // room 1
                     map[a, b] = instance_create(a, b, wall[irandom(2)]);
-                    for(var k = 0; k < enemy_count; k++)
+                    
+                    break;
+            }
+            for(var k = 0; k < enemy_count; k++)
                     {
                         if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                         {
@@ -168,8 +172,6 @@ for (var a = 0; a < r_width; a++)                               // loops through
                             create_thing(a, b, oSmash, '!', c_blue, oRoad);
                         }
                     }
-                    break;
-            }
         }
         if (map_update[a, b] == 0)
         {
@@ -179,12 +181,12 @@ for (var a = 0; a < r_width; a++)                               // loops through
 }
 if instance_exists(oTree)
 {
-    for (var z = 0; z < instance_number(oTree); z += 1)
-    {
-        tree[z] = instance_find(oTree, z);
-    }
     for (var v = 0; v < smashed; v += 1)
     {
+        for (var z = 0; z < instance_number(oTree); z += 1)
+        {
+            tree[z] = instance_find(oTree, z);
+        }
         var tree_rand = floor(random(instance_number(oTree))); // needed to do this bc it was finding old trees from past rooms that no longer exists. TODO: maybe just reinitialize tree[] every room?
         var temp_tree = tree[tree_rand];
         var tree_x = temp_tree.x, tree_y = temp_tree.y;

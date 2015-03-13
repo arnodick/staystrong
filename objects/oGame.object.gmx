@@ -57,7 +57,7 @@ turn_timer = 0;
 
 //instance_create(0, 0, oScreen);
 
-smashes = 3;
+smashes = 0;
 if (global.debug == true)
 {
     smashes = 300;

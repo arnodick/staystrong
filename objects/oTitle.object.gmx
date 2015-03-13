@@ -32,11 +32,10 @@ tile_size = 10;
 room_dimensions(220, 160);
 
 draw_set_font(font2);
-draw_set_halign(fa_left);
+draw_set_halign(fa_center);
 
-title_string = "PRESS START";
-
-
+title_string = "STAY STRONG PPL";
+start_string = "PRESS ENTER";
 </string>
           </argument>
         </arguments>
@@ -85,7 +84,8 @@ title_string = "PRESS START";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text_colour(20, 20, title_string, c_red, c_red, c_red, c_red, 1);
+            <string>draw_text_colour(room_width/2, room_height/2     , title_string, c_red, c_red, c_red, c_red, 1);
+draw_text_colour(room_width/2, room_height/2 + 10, start_string, c_red, c_red, c_red, c_red, 1);
 </string>
           </argument>
         </arguments>
