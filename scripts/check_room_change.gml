@@ -7,6 +7,14 @@ if instance_exists(oPlayer)
     var side = check_OOB(oPlayer.x, oPlayer.y, r_width - 2, r_height - 2);
     switch(side)
     {
+        case -2:
+            generate = false;
+            with(oThing)
+            {
+                instance_destroy();
+            }
+            room_goto(rEnd);
+            break;
         case -1:                // not OOB, do nothing
         {
             //generate = false;

@@ -73,6 +73,7 @@
     <font>fonts\fontScore</font>
     <font>fonts\fontScore_italic</font>
     <font>fonts\font2</font>
+    <font>fonts\font2it</font>
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
@@ -90,14 +91,16 @@
     <object>objects\oStamped</object>
     <object>objects\oRubble</object>
     <object>objects\oBlood</object>
+    <object>objects\oExit</object>
     <object>objects\oMessage</object>
     <object>objects\oGame</object>
     <object>objects\oTitle</object>
-    <object>objects\oExit</object>
+    <object>objects\oEnd</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rTitle</room>
     <room>rooms\rRoom</room>
+    <room>rooms\rEnd</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">41968.6761868403</constant>

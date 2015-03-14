@@ -57,7 +57,7 @@ dead_sound = sndCrash;
 if (cell_current.object_index == oPlayer)
 {
     oGame.generate = true;
-    oGame.room_count = -1;
+    global.room_count = -1;
 }
 </string>
           </argument>

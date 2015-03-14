@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oThing</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,11 +25,41 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
-char = '/';
-colour = c_gray;
-//colour = merge_colour(colour, c_black, y/48);
+tile_size = 10;
+
+room_dimensions(220, 160);
+
+draw_set_font(font2);
+draw_set_halign(fa_center);
+
+title_string = "YOU MADE IT";
+start_string = "PRESS ENTER";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text_colour(room_width/2, room_height/2     , title_string, c_red, c_red, c_red, c_red, 1);
+draw_text_colour(room_width/2, room_height/2 + 10, start_string, c_red, c_red, c_red, c_red, 1);
 </string>
           </argument>
         </arguments>

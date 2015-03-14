@@ -1,6 +1,6 @@
 if ((argument0.object_index == oSmash) and (object_index == oPlayer))
 {
-    oGame.smashes += 2;
+    oGame.smashes += 1;
     audio_play_sound(sndPickup, 1, false);
     with (argument0)
     {

@@ -26,12 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-global.debug = false;
+global.debug = true;
 
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
-room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
+global.room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
 tile_size = 10;                     // the size of each cell on the screen. (mess with this to get weird overlapping effects)
 
 room_dimensions(220, 160);
@@ -68,6 +68,7 @@ draw_set_font(font2);
 draw_set_halign(fa_left);
 
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
+global.win = false;
 </string>
           </argument>
         </arguments>
@@ -227,7 +228,7 @@ if (global.debug == true)
     }
     
     inst_string = "Instance cnt = " + string(instance_count);
-    rooms_string = "Room \# = " + string(room_count);
+    rooms_string = "Room \# = " + string(global.room_count);
     smashes_string = "Smashes = " + string(smashes);
     smashed_string = "Trees Smashed = " + string(smashed);
     trees_string = "Trees # = " + string(instance_number(oTree));

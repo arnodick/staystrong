@@ -11,7 +11,7 @@ if (smashes > 0)
 {
     enemy_count = irandom_range(3, 5);
 }
-if room_count == 0
+if global.room_count == 0
 {
     enemy_count = 1;
 }
@@ -34,11 +34,11 @@ if smashes == 0
 {
     smashes_count += (irandom(1) + 1);
 }
-if room_count mod 3 == 0
+if global.room_count mod 3 == 0
 {
     smashes_count += (irandom(1) + 2);
 }
-if room_count mod 5 == 0
+if global.room_count mod 5 == 0
 {
     smashes_count += (irandom(2) + 2);
 }
@@ -76,46 +76,16 @@ for (var a = 0; a < r_width; a++)                               // loops through
         }
         else                                                    // assigns proc objects to each cell
         {
-            switch(room_count)                                      // specific actions for each room
+            switch(global.room_count)                                      // specific actions for each room
             {
                 case -1:
-                    if      ( a == ( floor(r_width/2) - 2 ) )
-                    {
-                        map[a, b] =  instance_create(a, b, oSpace);
-                    }
-                    else if ( a == (floor(r_width/2) - 1) )
-                    {
-                        map[a, b] =  instance_create(a, b, oRoad);
-                    }
-                    else if ( a == (floor(r_width/2)    ) )
-                    {
-                        map[a, b] =  instance_create(a, b, oSpace);
-                    }
-                    else if ( b == ( floor(r_height/2) - 2 ) )
-                    {
-                        map[a, b] =  instance_create(a, b, oSpace);
-                    }
-                    else if ( b == (floor(r_height/2) - 1) )
-                    {
-                        map[a, b] =  instance_create(a, b, oRoad);
-                    }
-                    else if ( b == (floor(r_height/2)    ) )
-                    {
-                        map[a, b] =  instance_create(a, b, oSpace);
-                    }
-                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
-                    {
-                        //map[a, b] = instance_create(a, b, oWall);
-                        map[a, b] = room_generate_terrain(a, b, oWall, 'X', c_dkgray, oRubble);
-                    }
-                    else
-                    {
-                        map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                    }
-                    if (a == enemy_pos[0, 0] and b == enemy_pos[0, 1])
-                    {
-                        create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
-                    }
+                    map[a, b] = room_generate_terrain(
+                        a, 
+                        b, 
+                        oGrass, 
+                        '/', 
+                        ( make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colour_get_saturation(c_green), (colour_get_value(c_green) + (irandom(60) - 30)) ) ), 
+                        oRubble);
                     break;
                 case 0:                                             // room 0
                     if      ( a == ( floor(r_width/2) - 2 ) )
@@ -151,7 +121,6 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     {
                         map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     }
-
                     break;
                 default:                                            // room 1
                     map[a, b] = instance_create(a, b, wall[irandom(2)]);
@@ -159,19 +128,19 @@ for (var a = 0; a < r_width; a++)                               // loops through
                     break;
             }
             for(var k = 0; k < enemy_count; k++)
-                    {
-                        if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
-                        {
-                            create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
-                        }
-                    }
-                    for(var q = 0; q < smashes_count; q++)
-                    {
-                        if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
-                        {
-                            create_thing(a, b, oSmash, '!', c_blue, oRoad);
-                        }
-                    }
+            {
+                if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
+                {
+                    create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
+                }
+            }
+            for(var q = 0; q < smashes_count; q++)
+            {
+                if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
+                {
+                    create_thing(a, b, oSmash, '!', c_blue, oRoad);
+                }
+            }
         }
         if (map_update[a, b] == 0)
         {
@@ -202,7 +171,13 @@ if instance_exists(oTree)
     }
 }
 generate = false;                                               // set generate to false, so room doesn't keep regenerating
-room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
+
+if global.room_count == -1
+{
+    global.win = true;
+}
+
+global.room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                 // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
                                                                 
 //map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
