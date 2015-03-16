@@ -35,7 +35,7 @@ draw_set_font(font2);
 draw_set_halign(fa_center);
 
 title_string = "YOU MADE IT";
-start_string = "PRESS ENTER";
+start_string = "IT TOOK U " + string(global.final_score) + " ROOMS#GOOD JOB";
 </string>
           </argument>
         </arguments>
@@ -58,8 +58,8 @@ start_string = "PRESS ENTER";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text_colour(room_width/2, room_height/2     , title_string, c_red, c_red, c_red, c_red, 1);
-draw_text_colour(room_width/2, room_height/2 + 10, start_string, c_red, c_red, c_red, c_red, 1);
+            <string>draw_text_colour(room_width/2, room_height/2 - 10, title_string, c_red, c_red, c_red, c_red, 1);
+draw_text_colour(room_width/2, room_height/2 , start_string, c_red, c_red, c_red, c_red, 1);
 </string>
           </argument>
         </arguments>

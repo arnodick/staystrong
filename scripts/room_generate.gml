@@ -15,6 +15,10 @@ if global.room_count == 0
 {
     enemy_count = 1;
 }
+if global.room_count == -1
+{
+    enemy_count = 0;
+}
 for (var i = 0; i < enemy_count; i++)
 {
     for (var j = 0; j < 2; j++)

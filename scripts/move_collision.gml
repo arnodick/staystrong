@@ -23,8 +23,7 @@ if (object_index == oPlayer)
             //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)
             {
-                
-                if (instance_number(oTree) == 1)
+                if ( (instance_number(oTree) == 1) and (cell_next.object_index == oTree) )
                 {
                     oGame.map[argument0, argument1] = instance_create(argument0, argument1, oExit);
                     oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];

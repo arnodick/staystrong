@@ -67,8 +67,15 @@ smashed = 0;
 draw_set_font(font2);
 draw_set_halign(fa_left);
 
+font[0] = font2;
+font[1] = font2it;
+
+font_timer_init = 30;
+font_timer = font_timer_init;
+
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 global.win = false;
+global.final_score = 0;
 </string>
           </argument>
         </arguments>
@@ -161,7 +168,7 @@ if (!instance_exists(oPlayer) )
     }
     if !instance_exists(oMessage)
     {
-        create_message(10, 10, "PRESS ENTER");
+        create_message(10, 10, "U DIDN'T MAKE IT#PRESS ENTER");
     }
     if keyboard_check(vk_enter)
     {

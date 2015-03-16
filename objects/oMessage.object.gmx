@@ -32,7 +32,7 @@ message_length = string_length(message_string);
 window_length = (message_length * font_size);
 window_height = font_size * 2;
 window_centre[0] = room_width/2;
-window_centre[1] = room_height/2;
+window_centre[1] = room_height/2 - 10;
 window_left = window_centre[0] - window_length;
 window_right = window_centre[0] + window_length;
 window_top = window_centre[1] - window_height;
@@ -103,7 +103,7 @@ draw_set_alpha(0.6);
 draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
 draw_set_alpha(1);
-draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
+draw_text_colour(window_centre[0], window_centre[1] - 10, message_string, c_white, c_white, c_white, c_white, 1);
 draw_set_halign(fa_left); //NOTE: remove this to make the screen actually shift when the tells you to shift things around
 </string>
           </argument>

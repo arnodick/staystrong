@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>char = '~';                                                         // the default symbol displayed for the object. will be set by a function usually
-colour_init = c_blue;                                             // default colour. will also be changed by function most likely
+            <string>char = '&amp;';                                                         // the default symbol displayed for the object. will be set by a function usually
+colour_init = c_yellow;                                             // default colour. will also be changed by function most likely
 colour = colour_init;      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 dead_sound = sndCrash;
+
+global.final_score = global.room_count;
 </string>
           </argument>
         </arguments>
