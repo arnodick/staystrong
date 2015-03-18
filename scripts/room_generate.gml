@@ -46,6 +46,10 @@ if global.room_count mod 5 == 0
 {
     smashes_count += (irandom(2) + 2);
 }
+if ( (argument0 == 0) or (argument0 == 1) )
+{
+    smashes_count += irandom(3);
+}
 for (var p = 0; p < smashes_count; p++)
 {
     for (var t = 0; t < 2; t++)
