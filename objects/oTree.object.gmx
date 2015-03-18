@@ -30,10 +30,18 @@ event_inherited();
 
 char = '*';
 
-hue = colour_get_hue(c_olive) + (irandom(60) - 20);
-val = colour_get_value(c_olive) + (irandom(100) - 50);
-colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
-
+if global.room_horizontal == true
+{
+    hue = colour_get_hue(c_purple) + (irandom(60) - 20);
+    val = colour_get_value(c_purple) + (irandom(100) - 50);
+    colour = make_colour_hsv(hue, colour_get_saturation(c_purple), val);
+}
+else
+{
+    hue = colour_get_hue(c_olive) + (irandom(60) - 20);
+    val = colour_get_value(c_olive) + (irandom(100) - 50);
+    colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
+}
 dead = oRubble;
 
 //colour = merge_colour(colour, c_black, y/48);

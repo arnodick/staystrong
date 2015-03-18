@@ -1,3 +1,4 @@
+
 with(oThing)                                                    // destroys all the oThings in the room except the player
 {
     if (object_index != oPlayer)
@@ -49,6 +50,7 @@ if global.room_count mod 5 == 0
 if ( (argument0 == 0) or (argument0 == 1) )
 {
     smashes_count += irandom(3);
+    global.room_horizontal = true;
 }
 for (var p = 0; p < smashes_count; p++)
 {
