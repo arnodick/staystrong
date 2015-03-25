@@ -12,6 +12,10 @@ if (smashes > 0)
 {
     enemy_count = irandom_range(3, 5);
 }
+if global.last_room_smashes == 0
+{
+    enemy_count = 5;
+}
 if global.room_count == 0
 {
     enemy_count = 1;
@@ -35,6 +39,7 @@ for (var i = 0; i < enemy_count; i++)
     }
 }
 var smashes_count = 0;
+global.last_room_smashes = smashes;
 if smashes == 0
 {
     smashes_count += (irandom(1) + 1);
