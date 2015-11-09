@@ -29,7 +29,6 @@
 event_inherited();
 
 move_init(30); // waits 30 steps after each move it makes
-move_run_init();
 check_creature_init();
 </string>
           </argument>

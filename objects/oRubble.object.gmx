@@ -35,7 +35,7 @@ chars[3] = '`';
 chars[4] = '"';
 
 char = chars[irandom(4)];
-colour = c_gray;
+colour = make_colour_rgb(120, 75, 0);
 colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>

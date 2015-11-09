@@ -18,56 +18,57 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\textfile_length.gml</script>
-    <script>scripts\textfile_readlines.gml</script>
-    <script>scripts\menu_init.gml</script>
-    <script>scripts\menu_create.gml</script>
-    <script>scripts\menu_select.gml</script>
-    <script>scripts\menu_confirm.gml</script>
-    <script>scripts\menu_buttons.gml</script>
+    <scripts name="Text files">
+      <script>scripts\textfile_length.gml</script>
+      <script>scripts\textfile_readlines.gml</script>
+    </scripts>
+    <scripts name="Menus">
+      <script>scripts\menu_init.gml</script>
+      <script>scripts\menu_create.gml</script>
+      <script>scripts\menu_select.gml</script>
+      <script>scripts\menu_confirm.gml</script>
+      <script>scripts\menu_buttons.gml</script>
+    </scripts>
     <script>scripts\screen_shake.gml</script>
     <script>scripts\screen_shake_init.gml</script>
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
-    <script>scripts\create_thing.gml</script>
-    <script>scripts\room_generate_terrain.gml</script>
-    <script>scripts\create_creature.gml</script>
-    <script>scripts\check_OOB.gml</script>
-    <script>scripts\check_room_change.gml</script>
-    <script>scripts\check_creature_init.gml</script>
-    <script>scripts\check_creature.gml</script>
-    <script>scripts\check_smash.gml</script>
+    <scripts name="Create things">
+      <script>scripts\create_thing.gml</script>
+      <script>scripts\create_creature.gml</script>
+      <script>scripts\create_message.gml</script>
+    </scripts>
+    <scripts name="Checks">
+      <script>scripts\check_OOB.gml</script>
+      <script>scripts\check_room_change.gml</script>
+      <script>scripts\check_creature.gml</script>
+      <script>scripts\check_smash.gml</script>
+      <script>scripts\check_creature_init.gml</script>
+    </scripts>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\key_arrows_check_pressed.gml</script>
-    <script>scripts\move_init.gml</script>
-    <script>scripts\move_type.gml</script>
-    <script>scripts\move_key.gml</script>
-    <script>scripts\move_rand.gml</script>
-    <script>scripts\move_dir_object.gml</script>
-    <script>scripts\move_halt.gml</script>
-    <script>scripts\move_collision.gml</script>
-    <script>scripts\move_collision_check.gml</script>
-    <script>scripts\move_stopped.gml</script>
-    <script>scripts\move_pos_prev_init.gml</script>
-    <script>scripts\move_pos_prev.gml</script>
-    <script>scripts\move_step_dir.gml</script>
-    <script>scripts\move_run_init.gml</script>
-    <script>scripts\move_run_dir.gml</script>
-    <script>scripts\move_run_start.gml</script>
-    <script>scripts\move_coll_run.gml</script>
-    <script>scripts\move_stop.gml</script>
+    <scripts name="Movement">
+      <script>scripts\move_init.gml</script>
+      <script>scripts\move_type.gml</script>
+      <script>scripts\move_key.gml</script>
+      <script>scripts\move_rand.gml</script>
+      <script>scripts\move_dir_object.gml</script>
+      <script>scripts\move_halt.gml</script>
+      <script>scripts\move_collision.gml</script>
+      <script>scripts\move_collision_check.gml</script>
+    </scripts>
+    <scripts name="Room gen">
+      <script>scripts\room_dimensions.gml</script>
+      <script>scripts\room_generate.gml</script>
+      <script>scripts\room_generate_terrain.gml</script>
+      <script>scripts\room_generate_OOB_edges.gml</script>
+      <script>scripts\room_generate_LR_edges.gml</script>
+      <script>scripts\room_generate_TB_edges.gml</script>
+    </scripts>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
-    <script>scripts\game_quit.gml</script>
-    <script>scripts\thing_place.gml</script>
     <script>scripts\draw_random_char_init.gml</script>
     <script>scripts\draw_random_char.gml</script>
-    <script>scripts\room_dimensions.gml</script>
-    <script>scripts\room_generate.gml</script>
-    <script>scripts\room_generate_OOB_edges.gml</script>
-    <script>scripts\room_generate_LR_edges.gml</script>
-    <script>scripts\room_generate_TB_edges.gml</script>
-    <script>scripts\create_message.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -77,8 +78,8 @@
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
-    <object>objects\oGame</object>
     <object>objects\oStart</object>
+    <object>objects\oGame</object>
     <object>objects\oEnd</object>
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>

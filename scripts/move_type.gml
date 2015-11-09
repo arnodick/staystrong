@@ -18,7 +18,9 @@ if (oGame.turn == true)
             break;
     }
 }
+/*
 else
 {
     move_stopped();
 }
+*/

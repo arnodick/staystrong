@@ -39,7 +39,7 @@ window_right = window_centre[0] + window_length;
 window_top = window_centre[1] - window_height;
 window_bot = window_centre[1] + window_height;
 
-parent = 0;
+//parent = 0;
 </string>
           </argument>
         </arguments>
@@ -74,12 +74,12 @@ message_length = string_length(message_string);
 window_length = (message_length * font_size);
 window_left = window_centre[0] - window_length;
 window_right = window_centre[0] + window_length;
-*/
 
 if (!instance_exists(parent))
 {
     instance_destroy();
 }
+*/
 </string>
           </argument>
         </arguments>

@@ -61,7 +61,7 @@ start_string = "PRESS ENTER";
           <argument>
             <kind>1</kind>
             <string>///Game controls
-if (keyboard_check(vk_enter) ==  true)
+if (keyboard_check(vk_enter))
 {
     room_goto(rGame);
 }

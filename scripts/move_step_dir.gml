@@ -19,7 +19,8 @@ if (key_arrows_check_pressed() == true)
     }
     move_collision(x_pos, y_pos);
 }
+/*
 else
 {
-    move_stop();
 }
+*/

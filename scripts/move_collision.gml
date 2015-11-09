@@ -46,7 +46,10 @@ if (object_index == oPlayer)
                 {
                     instance_destroy();
                 }
-                oPlayer.smashes -= 1;
+                if (global.debug == false)
+                {
+                    oPlayer.smashes -= 1;
+                }
             }
         }
     }

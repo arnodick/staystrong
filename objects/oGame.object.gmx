@@ -30,7 +30,7 @@
 draw_set_halign(fa_left);
 
 global.final_score = 0;
-global.debug = true;
+global.debug = false;
 
 room_dimensions(220, 160);
 
@@ -44,6 +44,7 @@ smashed = 0;
 last_room_smashes = 1;  //the amount of smashes player had last turn. if 0, lots of enemies
 win = false;
 
+//arrays for room gen. TODO: get rid of all of these
 tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
@@ -148,7 +149,7 @@ if (!instance_exists(oPlayer) )
         //turn = false;
     }
     
-    if !instance_exists(oMessage)
+    if (!instance_exists(oMessage))
     {
         create_message(10, 10, "U DIDN'T MAKE IT#PRESS ENTER");
     }
@@ -167,7 +168,10 @@ if (keyboard_check_pressed(ord('D')))
     global.debug = !global.debug;
 }
 
-game_quit();
+if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
+{
+    game_end();
+}
 </string>
           </argument>
         </arguments>
