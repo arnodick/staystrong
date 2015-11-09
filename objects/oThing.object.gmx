@@ -28,7 +28,7 @@
             <string>///Variables
 // anything that will be a variable in the map array
 // gives all in-game objects these values:
-hp = 1;                                                             // TODO: do we NEED this for every object? could just change terrain to solid = false and different char
+hp = 1;
 char = '#';                                                         // the default symbol displayed for the object. will be set by a function usually
 colour_init = c_maroon;                                             // default colour. will also be changed by function most likely
 colour = colour_init;      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.

@@ -77,25 +77,26 @@
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
+    <object>objects\oGame</object>
+    <object>objects\oTitle</object>
+    <object>objects\oEnd</object>
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>
+    <object>objects\oItem</object>
     <object>objects\oSmash</object>
     <object>objects\oEnemy</object>
-    <object>objects\oGrass</object>
     <object>objects\oTree</object>
     <object>objects\oWall</object>
     <object>objects\oWallH</object>
     <object>objects\oSuperwall</object>
     <object>objects\oRoad</object>
+    <object>objects\oGrass</object>
     <object>objects\oSpace</object>
     <object>objects\oStamped</object>
     <object>objects\oRubble</object>
     <object>objects\oBlood</object>
     <object>objects\oExit</object>
     <object>objects\oMessage</object>
-    <object>objects\oGame</object>
-    <object>objects\oTitle</object>
-    <object>objects\oEnd</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rTitle</room>

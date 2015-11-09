@@ -26,15 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-global.debug = false;
-
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
+
+global.debug = false;
 
 global.room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
 global.room_horizontal = false;
 global.last_room_smashes = 1;
-tile_size = 10;                     // the size of each cell on the screen. (mess with this to get weird overlapping effects)
+global.tile_size = 10;                     // the size of each cell on the screen. (mess with this to get weird overlapping effects)
 
 room_dimensions(220, 160);
 
@@ -280,12 +280,12 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     {
         var cell = map_update[a, b];    // captures the current cell of the array in a temp var
         //draw_set_font(font[cell.italic]);
-        draw_text_colour ( a * tile_size + shake /*+ cell.anim*/, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_text_colour ( a * global.tile_size + shake /*+ cell.anim*/, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
                                         // draws the cell's font with the cell's colour to it's proper spot on the screen
                                         // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function
         if shaking == true              // checks if shake is on, if so, draws shake-offset characters
         {
-            draw_text_colour ( a * tile_size - shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
+            draw_text_colour ( a * global.tile_size - shake, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
                                         // draws a faint double in the opposite direciton of the opaque characters
         }
     }

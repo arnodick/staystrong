@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
-
-tile_size = 10;
-
+            <string>///Settings
 room_dimensions(220, 160);
 
 draw_set_font(font2);

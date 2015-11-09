@@ -3,6 +3,6 @@
 // NOTE: YOU NEED THE screen_shake_check FUNCTION IN YOUR GAME'S STEP EVENT FOR THIS TO WORK
 if shaking == true
 {
-    draw_text_colour ( a * tile_size - shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
+    draw_text_colour ( a * global.tile_size - shake, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
                             // draws a faint double in the opposite direciton of the opaque characters
 }
