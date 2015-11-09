@@ -77,8 +77,8 @@
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
+    <object>objects\oStart</object>
     <object>objects\oGame</object>
-    <object>objects\oTitle</object>
     <object>objects\oEnd</object>
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>

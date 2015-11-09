@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,20 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>font_size = font_get_size(fontScore);
-message_string = "A";
-message_length = string_length(message_string);
+            <string>///Settings
+randomize();                        // gives a random seed EVERY time the game is run
+texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
-window_length = (message_length * font_size);
-window_height = font_size * 2;
-window_centre[0] = room_width/2;
-window_centre[1] = room_height/2 - 10;
-window_left = window_centre[0] - window_length;
-window_right = window_centre[0] + window_length;
-window_top = window_centre[1] - window_height;
-window_bot = window_centre[1] + window_height;
+global.tile_size = 10;              // the size of each cell on the screen. (mess with this to get weird overlapping effects)
 
-parent = 0;
+room_dimensions(220, 160);
+
+draw_set_font(font2);
+draw_set_halign(fa_center);
+
+
+title_string = "STAY STRONG";
+start_string = "PRESS ENTER";
 </string>
           </argument>
         </arguments>
@@ -62,19 +62,9 @@ parent = 0;
           <argument>
             <kind>1</kind>
             <string>
-if keyboard_check_pressed(vk_space)
+if (keyboard_check(vk_enter) ==  true)
 {
-    message_string = message_string + "!";
-}
-
-message_length = string_length(message_string);
-window_length = (message_length * font_size);
-window_left = window_centre[0] - window_length;
-window_right = window_centre[0] + window_length;
-
-if !instance_exists(parent)
-{
-    instance_destroy();
+    room_goto(rRoom);
 }
 </string>
           </argument>
@@ -98,13 +88,9 @@ if !instance_exists(parent)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_center);
-draw_set_alpha(0.6);
-draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
-draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
-draw_set_alpha(1);
-draw_text_colour(window_centre[0], window_centre[1] - 10, message_string, c_white, c_white, c_white, c_white, 1);
-draw_set_halign(fa_left); //NOTE: remove this to make the screen actually shift when the tells you to shift things around
+            <string>///Text
+draw_text_colour(room_width/2, room_height/2 - 10, title_string, c_red, c_red, c_red, c_red, 1);
+draw_text_colour(room_width/2, room_height/2 , start_string, c_red, c_red, c_red, c_red, 1);
 </string>
           </argument>
         </arguments>
