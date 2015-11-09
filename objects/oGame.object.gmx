@@ -26,55 +26,38 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
+//TODO: make left alignment unnecessary
+draw_set_halign(fa_left);
 
-global.debug = false;
-
-global.room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
-global.room_horizontal = false;
-global.last_room_smashes = 1;
+global.final_score = 0;
+global.debug = true;
 
 room_dimensions(220, 160);
 
-// array of objects for proc generation
-ground[0] = oRoad;
-ground[1] = oGrass;
-ground[2] = oSpace;
+room_count = 0;     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
+room_horizontal = false;    //horizontal rooms have diff colours, more enemies, powerups, etc
+generate = true;    // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
-wall[0] = oRoad;
-wall[1] = oTree;
-wall[2] = oSpace;
+turn = false;   // if true, a turn will be taken. should only happen when player tries to move
+turn_timer_dead = 0;    //real time timer for when player dies                 
+smashed = 0;
+last_room_smashes = 1;  //the amount of smashes player had last turn. if 0, lots of enemies
+win = false;
 
-tree[100] = 0;
-
+tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
-generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
-turn = false;                           // if true, a turn will be taken. should only happen when player tries to move
-turn_timer_init = 10;
-turn_timer = 0;
+instance_create(r_width/2, r_height/2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 
-//instance_create(0, 0, oScreen);
-
-smashes = 0;
-if (global.debug == true)
-{
-    smashes = 300;
-}
-smashed = 0;
-
-draw_set_font(font2);
-draw_set_halign(fa_left);
-
+/*
+//animation stuff(?)
 font[0] = font2;
 font[1] = font2it;
 
 font_timer_init = 30;
 font_timer = font_timer_init;
-
-global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
-global.win = false;
-global.final_score = 0;
+*/
 </string>
           </argument>
         </arguments>
@@ -149,22 +132,22 @@ inst_string = "Instance # = " + string(instance_count);
 
 //Map Generate
 
-check_room_change();
-
 turn = false;
 
 if (!instance_exists(oPlayer) )
 {
-    if turn_timer &lt;= 0
+    //when player is dead, automatically take turns every 6 gamesteps
+    if (turn_timer_dead &lt;= 0)
     {
-        turn_timer = turn_timer_init;
+        turn_timer_dead = 6;
         turn = true;
     }
     else
     {
-        turn_timer -= 1;
-        turn = false;
+        turn_timer_dead -= 1;
+        //turn = false;
     }
+    
     if !instance_exists(oMessage)
     {
         create_message(10, 10, "U DIDN'T MAKE IT#PRESS ENTER");
@@ -173,6 +156,10 @@ if (!instance_exists(oPlayer) )
     {
         room_restart();
     }
+}
+else
+{
+    check_room_change();
 }
 
 if (keyboard_check_pressed(ord('D')))
@@ -239,8 +226,15 @@ if (global.debug == true)
     }
     
     inst_string = "Instance cnt = " + string(instance_count);
-    rooms_string = "Room \# = " + string(global.room_count);
-    smashes_string = "Smashes = " + string(smashes);
+    rooms_string = "Room \# = " + string(room_count);
+    if (instance_exists(oPlayer))
+    {
+        smashes_string = "Smashes = " + string(oPlayer.smashes);
+    }
+    else
+    {
+        smashes_string = "0";
+    }
     smashed_string = "Trees Smashed = " + string(smashed);
     trees_string = "Trees # = " + string(instance_number(oTree));
     rubble_string = "Rubble # = " + string(instance_number(oRubble));
@@ -268,15 +262,12 @@ if (global.debug == true)
           <argument>
             <kind>1</kind>
             <string>///Draw
-//draw_set_font(fontScore);               // sets the font (NOTE: can this just happen once? does it need to happen every step?)
-//draw_set_halign(fa_left);               // aligns all the text to the left
 
 for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
     for (var b = 0; b &lt; r_height; b++)
     {
         var cell = map_update[a, b];    // captures the current cell of the array in a temp var
-        //draw_set_font(font[cell.italic]);
         draw_text_colour ( a * global.tile_size + shake /*+ cell.anim*/, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
                                         // draws the cell's font with the cell's colour to it's proper spot on the screen
                                         // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function

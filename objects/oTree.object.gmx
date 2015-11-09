@@ -30,7 +30,7 @@ event_inherited();
 
 char = '*';
 
-if global.room_horizontal == true
+if (oGame.room_horizontal == true)
 {
     hue = colour_get_hue(c_purple) + (irandom(60) - 20);
     val = colour_get_value(c_purple) + (irandom(100) - 50);
@@ -45,7 +45,6 @@ else
 dead = oRubble;
 
 //colour = merge_colour(colour, c_black, y/48);
-
 
 solid = true;
 </string>

@@ -47,7 +47,7 @@ if instance_exists(oPlayer)
     }
 }
 
-if generate == true
+if (generate == true)
 {
     room_generate(side);
 }

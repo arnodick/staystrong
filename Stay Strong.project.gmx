@@ -99,8 +99,8 @@
     <object>objects\oMessage</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rTitle</room>
-    <room>rooms\rRoom</room>
+    <room>rooms\rStart</room>
+    <room>rooms\rGame</room>
     <room>rooms\rEnd</room>
   </rooms>
   <constants number="2">

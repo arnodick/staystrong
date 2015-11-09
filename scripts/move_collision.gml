@@ -18,7 +18,7 @@ if (object_index == oPlayer)
         move_timer = true;
         move_timer_count = oGame.shake_count_max_bump;
         step_count = 0;
-        if oGame.smashes > 0
+        if (oPlayer.smashes > 0)
         {
             //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)
@@ -46,7 +46,7 @@ if (object_index == oPlayer)
                 {
                     instance_destroy();
                 }
-                oGame.smashes -= 1;
+                oPlayer.smashes -= 1;
             }
         }
     }

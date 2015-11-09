@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>font_size = font_get_size(fontScore);
+            <string>///Settings
+font_size = font_get_size(font2);
 message_string = "A";
 message_length = string_length(message_string);
 
@@ -61,7 +62,9 @@ parent = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///Destroy if message sender dies
+/*
+//dynamic messages
 if keyboard_check_pressed(vk_space)
 {
     message_string = message_string + "!";
@@ -71,8 +74,9 @@ message_length = string_length(message_string);
 window_length = (message_length * font_size);
 window_left = window_centre[0] - window_length;
 window_right = window_centre[0] + window_length;
+*/
 
-if !instance_exists(parent)
+if (!instance_exists(parent))
 {
     instance_destroy();
 }
@@ -98,7 +102,8 @@ if !instance_exists(parent)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_center);
+            <string>///Draw message
+draw_set_halign(fa_center);
 draw_set_alpha(0.6);
 draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);

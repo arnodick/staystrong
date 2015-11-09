@@ -6,7 +6,7 @@ var side = -1;
 if argument0 < 1
 {
     side = 0;               // left side
-    if global.win == true
+    if oGame.win == true
     {
         side = -2;
     }
@@ -14,7 +14,7 @@ if argument0 < 1
 else if argument0 > (argument2)
 {
     side = 1;               // right side
-    if global.win == true
+    if oGame.win == true
     {
         side = -2;
     }
@@ -22,7 +22,7 @@ else if argument0 > (argument2)
 if argument1 < 1
 {
     side = 2;               // top side
-    if global.win == true
+    if oGame.win == true
     {
         side = -2;
     }
@@ -30,7 +30,7 @@ if argument1 < 1
 else if argument1 > (argument3)
 {
     side = 3;               // bottom side
-    if global.win == true
+    if oGame.win == true
     {
         side = -2;
     }

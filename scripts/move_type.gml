@@ -3,7 +3,7 @@
 //argument1 = object to move towards, if applicable (if not, just put -1 or something)
 
 //TODO make this function take a variable amount of variables, so you only put a 2nd variable in when you are chasing an object
-if oGame.turn == true
+if (oGame.turn == true)
 {
     switch(argument0)
     {

@@ -37,6 +37,12 @@ colour = merge_colour(colour_init, c_black, y/48);
 
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
+smashes = 0;
+if (global.debug == true)
+{
+    smashes = 300;
+}
+
 move_init(8);
 move_run_init();
 check_creature_init();
