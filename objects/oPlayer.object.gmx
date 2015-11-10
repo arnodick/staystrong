@@ -75,7 +75,8 @@ if (keyboard_check(vk_space))
     draw_random_char();
 }
 */
-move(move_type.key, -1);
+//move(move_type.key, -1);
+move_key();
 check_creature();
 audio_listener_position(x, y, 0);
 </string>
