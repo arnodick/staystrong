@@ -1,4 +1,4 @@
-// create_creature(x, y, oType, char, colour, oDead)
+// create_creature(x, y, oObject, char, colour, oDead)
 
 var creature = create_thing(argument0, argument1, argument2, argument3, argument4, argument5);
 

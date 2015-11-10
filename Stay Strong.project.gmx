@@ -18,6 +18,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\assets_init.gml</script>
     <scripts name="Text files">
       <script>scripts\textfile_length.gml</script>
       <script>scripts\textfile_readlines.gml</script>
@@ -29,13 +30,10 @@
       <script>scripts\menu_confirm.gml</script>
       <script>scripts\menu_buttons.gml</script>
     </scripts>
-    <script>scripts\screen_shake.gml</script>
-    <script>scripts\screen_shake_init.gml</script>
-    <script>scripts\screen_shake_check.gml</script>
-    <script>scripts\screen_shake_draw.gml</script>
     <scripts name="Create things">
       <script>scripts\create_thing.gml</script>
       <script>scripts\create_creature.gml</script>
+      <script>scripts\create_item.gml</script>
       <script>scripts\create_message.gml</script>
     </scripts>
     <scripts name="Checks">
@@ -45,8 +43,6 @@
       <script>scripts\check_creature.gml</script>
       <script>scripts\check_smash.gml</script>
     </scripts>
-    <script>scripts\key_arrows_check.gml</script>
-    <script>scripts\key_arrows_check_pressed.gml</script>
     <scripts name="Movement">
       <script>scripts\move_init.gml</script>
       <script>scripts\move.gml</script>
@@ -64,6 +60,12 @@
       <script>scripts\room_generate_LR_edges.gml</script>
       <script>scripts\room_generate_TB_edges.gml</script>
     </scripts>
+    <script>scripts\screen_shake.gml</script>
+    <script>scripts\screen_shake_init.gml</script>
+    <script>scripts\screen_shake_check.gml</script>
+    <script>scripts\screen_shake_draw.gml</script>
+    <script>scripts\key_arrows_check.gml</script>
+    <script>scripts\key_arrows_check_pressed.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
     <script>scripts\draw_random_char_init.gml</script>

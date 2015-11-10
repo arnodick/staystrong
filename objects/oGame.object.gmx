@@ -242,6 +242,7 @@ if (global.debug == true)
     smashed_string = "Trees Smashed = " + string(smashed);
     trees_string = "Trees # = " + string(instance_number(oTree));
     rubble_string = "Rubble # = " + string(instance_number(oRubble));
+    item_string = "Items = " + string(oPlayer.items);
 }
 </string>
           </argument>
@@ -307,25 +308,28 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_text_ext_colour(10, 11, fps_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 10, fps_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of instances
-    draw_text_ext_colour(10, 22, inst_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 20, inst_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 33, rooms_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 30, rooms_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 44, smashes_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 40, smashes_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 55, smashed_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 50, smashed_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees 
-    draw_text_ext_colour(10, 77, trees_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 60, trees_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 99, rubble_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 70, rubble_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    
+    //draw player's items
+    draw_text_ext_colour(10, 80, item_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
 }
 </string>
           </argument>

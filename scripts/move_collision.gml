@@ -5,7 +5,6 @@ if (object_index == oPlayer)
 {
     if (cant_move == false)
     {
-        check_smash(cell_next);
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;
@@ -16,7 +15,8 @@ if (object_index == oPlayer)
         audio_play_sound(sndBump, 1, false);
         //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
         step_count = 0;
-        if (oPlayer.smashes > 0)
+        //if (oPlayer.smashes > 0)
+        if ( (oPlayer.items & item_type.smash) == item_type.smash )
         {
             //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)

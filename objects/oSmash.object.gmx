@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Variables
 event_inherited();
+item_type = $1;
 </string>
           </argument>
         </arguments>

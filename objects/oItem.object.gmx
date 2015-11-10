@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///INITS
 event_inherited();
-item_type = 0;
+item_type = $0;
 </string>
           </argument>
         </arguments>

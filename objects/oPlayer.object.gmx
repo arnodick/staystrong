@@ -37,6 +37,7 @@ colour = merge_colour(colour_init, c_black, y/48);
 
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
+items = $0;
 smashes = 0;
 
 move_init(8);
@@ -78,6 +79,7 @@ if (keyboard_check(vk_space))
 //move(move_type.key, -1);
 move_key();
 check_creature();
+check_smash(oGame.map_update[x, y]);
 audio_listener_position(x, y, 0);
 </string>
           </argument>
