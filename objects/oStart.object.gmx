@@ -38,6 +38,15 @@ draw_set_halign(fa_center);
 
 title_string = "STAY STRONG";
 start_string = "PRESS ENTER";
+
+//constants for move() input
+//basically just nmemonic so you don't have to remember 0 = key movement, 1 = rand, etc
+enum move_type
+{
+    key,
+    rand,
+    obj
+}
 </string>
           </argument>
         </arguments>

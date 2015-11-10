@@ -57,16 +57,16 @@ check_creature_init();
 if (instance_exists(oBlood) and bloody == false)
 {
     {
-        move_type(mt_obj, oBlood);
+        move(move_type.obj, oBlood);
     }
 }
 else if instance_exists(oPlayer)
 {
-    move_type(mt_obj, oPlayer);
+    move(move_type.obj, oPlayer);
 }
 else
 {
-    move_type(mt_rand, -1);
+    move(move_type.rand, -1);
 }
 
 check_creature();

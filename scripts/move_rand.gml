@@ -1,5 +1,3 @@
-move_halt(move_timer_max);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
-
 var x_pos = x, y_pos = y, dir = irandom(4); // sets the direction of us to 1 of 4 directions
             // TODO: make this more direct, less variables            
 

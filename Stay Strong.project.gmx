@@ -49,11 +49,10 @@
     <script>scripts\key_arrows_check_pressed.gml</script>
     <scripts name="Movement">
       <script>scripts\move_init.gml</script>
-      <script>scripts\move_type.gml</script>
+      <script>scripts\move.gml</script>
       <script>scripts\move_key.gml</script>
       <script>scripts\move_rand.gml</script>
-      <script>scripts\move_dir_object.gml</script>
-      <script>scripts\move_halt.gml</script>
+      <script>scripts\move_object.gml</script>
       <script>scripts\move_collision.gml</script>
       <script>scripts\move_collision_check.gml</script>
     </scripts>
