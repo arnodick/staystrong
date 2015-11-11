@@ -8,13 +8,18 @@ if (oGame.turn == true)
     switch(argument0)
     {
         case 0: // keyboard controls
-            move_key();
+            move_dir = move_key(move_dir);
             break;
         case 1: // random movement
-            move_rand();
+            move_dir = move_rand(move_dir);
             break;
         case 2: // move towards object
-            move_object(argument1);
+            move_dir = move_object(move_dir, argument1);
             break;
+    }
+    move_collision(x + move_dir[0], y + move_dir[1]);
+    if (object_index == oPlayer)
+    {
+        //oGame.map_update[x, y] = oPlayer;
     }
 }

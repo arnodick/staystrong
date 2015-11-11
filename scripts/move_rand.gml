@@ -1,20 +1,26 @@
-var x_pos = x, y_pos = y, dir = irandom(4); // sets the direction of us to 1 of 4 directions
-            // TODO: make this more direct, less variables            
+//sets a direction randomly. returns an array with x and y direction
+//argument0[0] = x direction
+//argument0[1] = y direction
+
+argument0[0] = 0;
+argument0[1] = 0;
+
+var dir = irandom(4); // sets the direction of us to 1 of 4 directions          
 
 switch(dir) // sets the position to checked based on our direction
 {
 case 0:
-    x_pos = x - move_distance;
+    argument0[0] = -move_distance;
     break;
 case 1:
-    x_pos = x + move_distance;
+    argument0[0] = move_distance;
     break;
 case 2:
-    y_pos = y - move_distance;
+    argument0[1] = -move_distance;
     break;
 case 3:
-    y_pos = y + move_distance;
+    argument0[1] = move_distance;
     break;
 }
 
-move_collision(x_pos, y_pos);
+return argument0;
