@@ -16,7 +16,7 @@ if (object_index == oPlayer)
         //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
         step_count = 0;
         //if (oPlayer.smashes > 0)
-        if ( (oPlayer.items & item_type.smash) == item_type.smash )
+        if ( (oPlayer.items & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
         {
             //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)
@@ -59,7 +59,6 @@ else
     {
         if cant_move == false // if destination cell is not solid, move into it
         {
-            check_smash(cell_next);
             oGame.map_update[x, y] = oGame.map[x, y];   // swaps the current cell on the active grid for its sister in the terrain grid
             x = argument0;   // sets your position to the destination cell
             y = argument1;   // but we still haven't actually moved you into the active grid yet!!

@@ -25,7 +25,8 @@ if instance_exists(argument0)
                     }
                 }
             }
-            else if (colour == c_blue)
+            //else if (colour == c_blue)
+            else if ( (items & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
             {
                 var cell_next = oGame.map[x_pos + x_dist / (abs(x_dist)), y_pos];
                 if (cell_next.object_index != oSuperwall)

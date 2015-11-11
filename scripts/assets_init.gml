@@ -7,10 +7,10 @@ enum move_type
     rand,
     obj
 }
-//binary constants for different item types
+//constants for different item types
 enum item_type
 {
-    smash = 1,
-    wait = 2,
-    invincible = 4
+    smash,
+    wait,
+    invincible
 }

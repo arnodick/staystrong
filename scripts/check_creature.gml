@@ -26,3 +26,4 @@ if (cell_current.object_index == oBlood)
     bloody = true;
 }
 bloody_check();
+check_smash();

@@ -79,8 +79,13 @@ if (keyboard_check(vk_space))
 //move(move_type.key, -1);
 move_key();
 check_creature();
-check_smash(oGame.map_update[x, y]);
 audio_listener_position(x, y, 0);
+
+if (smashes &lt;= 0)
+{
+    items = 0;  //TOOD: make this use binary negation without crashing GM
+    colour = colour_init;
+}
 </string>
           </argument>
         </arguments>
