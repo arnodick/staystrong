@@ -86,6 +86,7 @@
     <object>objects\oThing</object>
     <object>objects\oItem</object>
     <object>objects\oSmash</object>
+    <object>objects\oCreature</object>
     <object>objects\oPlayer</object>
     <object>objects\oEnemy</object>
     <object>objects\oTree</object>
