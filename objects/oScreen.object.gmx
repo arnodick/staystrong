@@ -25,25 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Settings
-randomize();                        // gives a random seed EVERY time the game is run
-texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
-if !(instance_exists(oScreen))
-{
-    instance_create(0, 0, oScreen);
-}
-
-global.tile_size = 10;              // the size of each cell on the screen. (mess with this to get weird overlapping effects)
-
-room_dimensions(220, 160);
-
-draw_set_font(font2);
-draw_set_halign(fa_center);
-
-title_string = "STAY STRONG";
-start_string = "PRESS ENTER";
-
-assets_init();
+            <string>///Screen Init
+screen = -1;
+shake_timer = 0;
+shake = 0;
 </string>
           </argument>
         </arguments>
@@ -66,17 +51,20 @@ assets_init();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Game controls
-if (keyboard_check(vk_enter))
+            <string>///Screen Shakiation
+//if shake_timer is positive, shakes the screen and decrements shake_timer
+
+if (shake_timer &gt; 0)
 {
-    room_goto(rGame);
+    shake = (random_range(-shake_timer, shake_timer))/2;    //div by 2 so shake not to drastic
+    shake_timer -= 1;
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -93,9 +81,48 @@ if (keyboard_check(vk_enter))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Text
-draw_text_colour(room_width/2, room_height/2 - 10, title_string, c_red, c_red, c_red, c_red, 1);
-draw_text_colour(room_width/2, room_height/2 , start_string, c_red, c_red, c_red, c_red, 1);
+            <string>/// Reset Drawing to Screen
+surface_reset_target();
+
+// Draws the screen surface, which has had all the objects' images written to it during normal draw events
+draw_surface_ext(screen, shake, 0, 1, 1, 0, c_white, 1);
+//sweet stretchy shake. will need to reposition draw surface so that its origin is in middle of screen to do this right.
+//draw_surface_ext(screen, 0, 0, 1 + shake/20, 1, 0, c_white, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set Drawing to Surface
+
+// If the screen surface is destroyed (b/c of alt+enter for example) then:
+// Re-create the screen surface
+if !surface_exists(screen)
+{
+    screen = surface_create(room_width, room_height);
+}
+
+// If the screen surface does exist, then:
+// Clear the screen of last step's images, 
+surface_set_target(screen);
+draw_clear(0);  // Removing draw_clear makes this into a painting game!
 </string>
           </argument>
         </arguments>

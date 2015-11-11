@@ -11,7 +11,7 @@ if (object_index == oPlayer)
     }
     else
     {
-        screen_shake(oGame.shake_count_max_bump, 4);
+        screen_shake(10);
         audio_play_sound(sndBump, 1, false);
         //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
         step_count = 0;

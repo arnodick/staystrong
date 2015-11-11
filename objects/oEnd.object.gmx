@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Settings
+if !(instance_exists(oScreen))
+{
+    instance_create(0, 0, oScreen);
+}
 
 room_dimensions(220, 160);
 

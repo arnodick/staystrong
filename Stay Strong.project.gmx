@@ -61,9 +61,6 @@
       <script>scripts\room_generate_TB_edges.gml</script>
     </scripts>
     <script>scripts\screen_shake.gml</script>
-    <script>scripts\screen_shake_init.gml</script>
-    <script>scripts\screen_shake_check.gml</script>
-    <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\key_arrows_check_pressed.gml</script>
     <script>scripts\bloody_init.gml</script>
@@ -80,14 +77,15 @@
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
+    <object>objects\oScreen</object>
     <object>objects\oStart</object>
     <object>objects\oGame</object>
     <object>objects\oEnd</object>
     <object>objects\oThing</object>
-    <object>objects\oItem</object>
-    <object>objects\oSmash</object>
     <object>objects\oPlayer</object>
     <object>objects\oEnemy</object>
+    <object>objects\oItem</object>
+    <object>objects\oSmash</object>
     <object>objects\oTree</object>
     <object>objects\oWall</object>
     <object>objects\oWallH</object>

@@ -25,7 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
+            <string>///Settings
+if !(instance_exists(oScreen))
+{
+    instance_create(0, 0, oScreen);
+}
+
 //TODO: make left alignment unnecessary
 draw_set_halign(fa_left);
 
@@ -79,32 +84,12 @@ font_timer = font_timer_init;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Screen Shake Init
-screen_shake_init();                // initializes variables for screen shake
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Debug init
 fps_timer_init = 60;
 fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
+
+debug_colour = c_red;
 
 inst_string = "Instance # = " + string(instance_count);
 </string>
@@ -129,9 +114,8 @@ inst_string = "Instance # = " + string(instance_count);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Map Processing
-
-//Map Generate
+            <string>///Game Controller
+// checks if player is alive, changes rooms, etc.
 
 turn = false;
 
@@ -172,28 +156,6 @@ if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
 {
     game_end();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Screen Shake
-screen_shake_check();   // checks if the screen is set to shake, then sets shake values
 </string>
           </argument>
         </arguments>
@@ -266,21 +228,18 @@ if (global.debug == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw
+            <string>///Draw Instances
+//draws all the instances in the room on a grid
 
 for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
     for (var b = 0; b &lt; r_height; b++)
     {
-        var cell = map_update[a, b];    // captures the current cell of the array in a temp var
-        draw_text_colour ( a * global.tile_size + shake /*+ cell.anim*/, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
-                                        // draws the cell's font with the cell's colour to it's proper spot on the screen
-                                        // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function
-        if shaking == true              // checks if shake is on, if so, draws shake-offset characters
-        {
-            draw_text_colour ( a * global.tile_size - shake, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
-                                        // draws a faint double in the opposite direciton of the opaque characters
-        }
+        // captures the current cell of the array in a temp var
+        var cell = map_update[a, b];
+        // draws the cell's colour, character, etc.
+        //TODO: put draw position calculations in the object, rather than in draw?
+        draw_text_colour ( a * global.tile_size /*+ cell.anim*/, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
 </string>
@@ -308,28 +267,31 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_text_ext_colour(10, 10, fps_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 10, fps_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of instances
-    draw_text_ext_colour(10, 20, inst_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 20, inst_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 30, rooms_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 30, rooms_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 40, smashes_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 40, smashes_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 50, smashed_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 50, smashed_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of trees 
-    draw_text_ext_colour(10, 60, trees_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 60, trees_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 70, rubble_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw player's items
-    draw_text_ext_colour(10, 80, item_string, 12, 200, c_white, c_white, c_white, c_white, 0.3);
+    draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //num of screen objects
+    draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
 }
 </string>
           </argument>

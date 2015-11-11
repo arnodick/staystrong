@@ -35,8 +35,6 @@ colour = colour_init;      // TODO: prob won't need this if sprites are used. ch
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 dead_sound = sndCrash;
-
-draw_random_char_init();
 </string>
           </argument>
         </arguments>
