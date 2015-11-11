@@ -1,25 +1,3 @@
-if (object_index == oPlayer)
-{
-    move_key();
-}
-else if (object_index == oEnemy)
-{
-    if (instance_exists(oBlood) and bloody == false)
-    {
-        {
-            move(move_type.obj, oBlood);
-        }
-    }
-    else if instance_exists(oPlayer)
-    {
-        move(move_type.obj, oPlayer);
-    }
-    else
-    {
-        move(move_type.rand, -1);
-    }
-}
-
 var cell_current = oGame.map[x, y];
 
 if (cell_current.object_index == oGrass)

@@ -47,6 +47,12 @@ if (object_index == oPlayer)
                 if (global.debug == false)
                 {
                     oPlayer.smashes -= 1;
+
+                }
+                if (smashes <= 0)
+                {
+                    items = items ^ int_to_bin(item_type.smash);
+                    colour = colour_init;
                 }
             }
         }

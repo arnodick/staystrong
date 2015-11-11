@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oCreature</parentName>
+  <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -37,8 +37,11 @@ colour = merge_colour(colour_init, c_black, y/48);
 
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
-items = $0;
+items = $2;
 smashes = 0;
+
+move_init(8);
+check_creature_init();
 
 audio_listener_orientation(0,1,0,0,0,1);
 </string>
@@ -74,15 +77,9 @@ if (keyboard_check(vk_space))
 }
 */
 //move(move_type.key, -1);
-
+move_key();
+check_creature();
 audio_listener_position(x, y, 0);
-
-if (smashes &lt;= 0)
-{
-    items = 0;  //TOOD: make this use binary negation without crashing GM
-    colour = colour_init;
-}
-
 </string>
           </argument>
         </arguments>
