@@ -19,6 +19,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\assets_init.gml</script>
+    <script>scripts\screen_shake.gml</script>
     <scripts name="Text files">
       <script>scripts\textfile_length.gml</script>
       <script>scripts\textfile_readlines.gml</script>
@@ -41,7 +42,13 @@
       <script>scripts\check_room_change.gml</script>
       <script>scripts\check_creature_init.gml</script>
       <script>scripts\check_creature.gml</script>
+      <script>scripts\check_bloody_init.gml</script>
+      <script>scripts\check_bloody.gml</script>
       <script>scripts\check_smash.gml</script>
+    </scripts>
+    <scripts name="Controls">
+      <script>scripts\key_arrows_check.gml</script>
+      <script>scripts\key_arrows_check_pressed.gml</script>
     </scripts>
     <scripts name="Movement">
       <script>scripts\move_init.gml</script>
@@ -60,21 +67,14 @@
       <script>scripts\room_generate_LR_edges.gml</script>
       <script>scripts\room_generate_TB_edges.gml</script>
     </scripts>
-    <script>scripts\screen_shake.gml</script>
-    <script>scripts\key_arrows_check.gml</script>
-    <script>scripts\key_arrows_check_pressed.gml</script>
-    <script>scripts\bloody_init.gml</script>
-    <script>scripts\bloody_check.gml</script>
-    <script>scripts\draw_random_char_init.gml</script>
-    <script>scripts\draw_random_char.gml</script>
-    <script>scripts\int_to_bin.gml</script>
+    <scripts name="Misc">
+      <script>scripts\draw_random_char_init.gml</script>
+      <script>scripts\draw_random_char.gml</script>
+      <script>scripts\int_to_bin.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fontScore</font>
-    <font>fonts\fontScore_italic</font>
-    <font>fonts\font2</font>
-    <font>fonts\font2it</font>
-    <font>fonts\fontLib</font>
+    <font>fonts\font</font>
   </fonts>
   <objects name="objects">
     <object>objects\oScreen</object>

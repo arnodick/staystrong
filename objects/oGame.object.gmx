@@ -54,7 +54,8 @@ tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
-instance_create(r_width/2, r_height/2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
+//TODO: put this in room gen. is causing problems with updting map properly
+instance_create(r_width/2, r_height/2, oPlayer);
 
 /*
 //animation stuff(?)
@@ -89,7 +90,7 @@ fps_timer_init = 60;
 fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
 
-debug_colour = c_red;
+debug_colour = c_white;
 
 inst_string = "Instance # = " + string(instance_count);
 </string>
@@ -118,6 +119,10 @@ inst_string = "Instance # = " + string(instance_count);
 // checks if player is alive, changes rooms, etc.
 
 turn = false;
+if (key_arrows_check_pressed())
+{
+    turn = true;
+}
 
 if (!instance_exists(oPlayer) )
 {
@@ -202,9 +207,12 @@ if (global.debug == true)
         smashes_string = "0";
     }
     smashed_string = "Trees Smashed = " + string(smashed);
-    trees_string = "Trees # = " + string(instance_number(oTree));
-    rubble_string = "Rubble # = " + string(instance_number(oRubble));
-    item_string = "Items = " + string(oPlayer.items);
+    trees_string = "Trees \# = " + string(instance_number(oTree));
+    rubble_string = "Rubble \# = " + string(instance_number(oRubble));
+    if (instance_exists(oPlayer))
+    {
+        item_string = "Items = " + string(oPlayer.items);
+    }
 }
 </string>
           </argument>

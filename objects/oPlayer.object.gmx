@@ -75,7 +75,7 @@ audio_listener_orientation(0,1,0,0,0,1);
 
 */
 //move(move_type.key, -1);
-move_key();
+move(move_type.key, -1);
 check_creature();
 audio_listener_position(x, y, 0);
 </string>

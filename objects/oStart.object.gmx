@@ -37,7 +37,7 @@ global.tile_size = 10;              // the size of each cell on the screen. (mes
 
 room_dimensions(220, 160);
 
-draw_set_font(font2);
+draw_set_font(font);
 draw_set_halign(fa_center);
 
 title_string = "STAY STRONG";

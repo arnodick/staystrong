@@ -8,14 +8,13 @@ if (object_index == oPlayer)
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;
+        oGame.map_update[x, y] = id;    // NOW it updates the active cell with you, whether you moved or not
     }
     else
     {
         screen_shake(10);
         audio_play_sound(sndBump, 1, false);
         //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-        step_count = 0;
-        //if (oPlayer.smashes > 0)
         if ( (oPlayer.items & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
         {
             //var cell_next = oGame.map_update[argument0, argument1];
@@ -47,7 +46,6 @@ if (object_index == oPlayer)
                 if (global.debug == false)
                 {
                     oPlayer.smashes -= 1;
-
                 }
                 if (smashes <= 0)
                 {
@@ -57,7 +55,7 @@ if (object_index == oPlayer)
             }
         }
     }
-    oGame.turn = true;
+
 }
 else
 {
@@ -73,6 +71,8 @@ else
     }
 
 }
+
+//TODO: just put this in the oGame code? or somewhere
 if bloody == true
 {
     bloody_timer -= 1;
