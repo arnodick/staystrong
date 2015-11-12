@@ -41,7 +41,7 @@ room_dimensions(220, 160);
 
 room_count = 0;     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
 room_horizontal = false;    //horizontal rooms have diff colours, more enemies, powerups, etc
-generate = true;    // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
+generate = false;    // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
 turn = false;   // if true, a turn will be taken. should only happen when player tries to move
 turn_timer_dead = 0;    //real time timer for when player dies                 

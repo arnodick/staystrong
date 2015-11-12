@@ -67,7 +67,7 @@ if (shake_timer &gt; 0)
 
 timer += timer_switch;
 //sin = expand, cos = contract
-xscale = abs(sin(timer/50));
+xscale = abs(sin(timer/20));
 if (xscale &gt;= 0.99)
 {
     xscale = 1;

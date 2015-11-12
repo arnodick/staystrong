@@ -160,20 +160,20 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     map[a, b] = instance_create(a, b, choose(oRoad, oTree, oSpace) );
                     break;
             }
-            //place enemies in map TODO: do i need arrays for this?
-            for(var k = 0; k < enemy_count; k++)
-            {
-                if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
-                {
-                    create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
-                }
-            }
             //place smashes in room TODO: do i need arrays for this?
             for(var q = 0; q < smashes_count; q++)
             {
                 if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                 {
                     create_thing(a, b, oSmash, '!', c_blue, oRoad);
+                }
+            }
+            //place enemies in map TODO: do i need arrays for this?
+            for(var k = 0; k < enemy_count; k++)
+            {
+                if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
+                {
+                    create_creature(a, b, oEnemy, '$', c_maroon, oBlood);
                 }
             }
         }
