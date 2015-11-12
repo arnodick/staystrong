@@ -40,6 +40,7 @@ room_dimensions(220, 160);
 draw_set_font(font);
 draw_set_halign(fa_center);
 
+start = false;
 title_string = "STAY STRONG";
 start_string = "PRESS ENTER";
 
@@ -69,7 +70,14 @@ assets_init();
             <string>///Game controls
 if (keyboard_check(vk_enter))
 {
-    room_goto(rGame);
+    start = true;
+}
+if start
+{
+    if (oScreen.timer &lt;= 0)
+    {
+        room_goto(rGame);
+    }
 }
 </string>
           </argument>

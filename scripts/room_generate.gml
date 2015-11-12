@@ -2,10 +2,10 @@
 //argument0 = side of room used to exit (0=left, 1=right, 2=top, 3=bottom)
 with(oThing)    // destroys all the oThings in the room except the player
 {
-    if (object_index != oPlayer)
-    {
+    //if (object_index != oPlayer)
+    //{
         instance_destroy();
-    }
+    //}
 }
 
 //sets amount of enemies
@@ -79,6 +79,9 @@ for (var p = 0; p < smashes_count; p++)
         }
     }
 }
+
+
+//while !(instance_exists(oPlayer))
 
 // generates the map terrain, enemies and items, puts them in map and map_update arrays
 // TODO: will have to reverse a and b
@@ -167,6 +170,12 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     create_thing(a, b, oSmash, '!', c_blue, oRoad);
                 }
             }
+            /*
+            if !(instance_exists(oPlayer))
+            {
+                create_thing(room_width/2, room_width/2, oPlayer, 'T', c_yellow, oBlood);
+            }
+            */
         }
         // copy map cells to map_update cells if map_update cell is empty
         if (map_update[a, b] == 0)

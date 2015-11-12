@@ -18,8 +18,4 @@ if (oGame.turn == true)
             break;
     }
     move_collision(x + move_dir[0], y + move_dir[1]);
-    if (object_index == oPlayer)
-    {
-        //oGame.map_update[x, y] = oPlayer;
-    }
 }

@@ -26,9 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>///Screen Init
-screen = -1;
-shake_timer = 0;
-shake = 0;
+screen = -1;    //screen surface will be assigned to this
+shake_timer = 0;    //how long to shake for
+shake = 0;  //how much distance to shake by
+timer = 0;  //generic timer for sin and cos calcs
+timer_switch = 1;
+
+xscale = 1;
+yscale = 1;
 </string>
           </argument>
         </arguments>
@@ -59,6 +64,19 @@ if (shake_timer &gt; 0)
     shake = (random_range(-shake_timer, shake_timer))/2;    //div by 2 so shake not to drastic
     shake_timer -= 1;
 }
+
+timer += timer_switch;
+//sin = expand, cos = contract
+xscale = abs(sin(timer/50));
+if (xscale &gt;= 0.99)
+{
+    xscale = 1;
+    timer_switch = 0;
+}
+if (keyboard_check_pressed(vk_enter))
+{
+    timer_switch = -1;
+}
 </string>
           </argument>
         </arguments>
@@ -85,7 +103,7 @@ if (shake_timer &gt; 0)
 surface_reset_target();
 
 // Draws the screen surface, which has had all the objects' images written to it during normal draw events
-draw_surface_ext(screen, shake, 0, 1, 1, 0, c_white, 1);
+draw_surface_ext(screen, shake, 0, xscale, yscale, 0, c_white, 1);
 //sweet stretchy shake. will need to reposition draw surface so that its origin is in middle of screen to do this right.
 //draw_surface_ext(screen, 0, 0, 1 + shake/20, 1, 0, c_white, 1);
 </string>

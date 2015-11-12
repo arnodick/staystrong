@@ -28,14 +28,16 @@
             <string>///Attributes
 event_inherited();
 
+/*
 // Basic attributes
 char = '@'; //graphic
 colour_init = c_white; //colour
 colour = merge_colour(colour_init, c_black, y/48);
+*/
 
 // Player attributes + variables
 
-oGame.map[x, y] = instance_create(x, y, oSpace);
+//oGame.map[x, y] = instance_create(x, y, oSpace);
 
 items = $0;
 smashes = 0;

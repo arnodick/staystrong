@@ -55,7 +55,7 @@ enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
 //TODO: put this in room gen. is causing problems with updting map properly
-instance_create(r_width/2, r_height/2, oPlayer);
+//instance_create(r_width/2, r_height/2, oPlayer);
 
 /*
 //animation stuff(?)
@@ -145,6 +145,7 @@ if (!instance_exists(oPlayer) )
     if keyboard_check(vk_enter)
     {
         room_restart();
+        audio_stop_all();
     }
 }
 else
@@ -212,6 +213,12 @@ if (global.debug == true)
     if (instance_exists(oPlayer))
     {
         item_string = "Items = " + string(oPlayer.items);
+        if (instance_exists(oEnemy))
+        {
+            var enemy = instance_nearest(oPlayer.x, oPlayer.y, oEnemy);
+            dir_string = string( (point_direction(enemy.x, enemy.y, oPlayer.x, oPlayer.y) div 90 ) );
+            dir_mod = string( ((point_direction(enemy.x, enemy.y, oPlayer.x, oPlayer.y) div 45 )) mod 2 );
+        }
     }
 }
 </string>
@@ -300,6 +307,12 @@ if (global.debug == true)
     
     //num of screen objects
     draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //enemy dieciton
+    draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //keys
+    draw_text_ext_colour(10, 110, " &gt; = " + string(vk_right) + " ^ = " + string(vk_up) + " &lt; = " + string(vk_left) + " | = " + string(vk_down), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
 }
 </string>
           </argument>

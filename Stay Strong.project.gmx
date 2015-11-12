@@ -73,7 +73,6 @@
       <script>scripts\int_to_bin.gml</script>
     </scripts>
   </scripts>
-  <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\font</font>
   </fonts>
