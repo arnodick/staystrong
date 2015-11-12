@@ -14,12 +14,13 @@ enum item_type
     wait,
     invincible
 }
-
-enum room_side
+//constants for attributes of the map
+enum map_grid
 {
-    right,
-    up,
-    left,
-    down,
-    middle = -1
+    right_side,
+    top_side,
+    left_side,
+    bottom_side,
+    middle = -1,
+    tile_size = 10
 }

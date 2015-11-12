@@ -1,4 +1,7 @@
+move_init();
+check_bloody_init();
+
 solid = true;
 dead = oBlood;
 dead_sound = sndDeath;
-check_bloody_init();
+items = $0;

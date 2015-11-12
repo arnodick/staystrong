@@ -187,7 +187,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 
 if !(instance_exists(oPlayer))
 {
-    create_thing(r_width/2, r_height/2, oPlayer, 'T', c_yellow, oBlood);
+    create_creature(r_width/2, r_height/2, oPlayer, 'T', c_yellow, oBlood);
 }
 else
 {

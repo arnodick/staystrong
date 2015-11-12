@@ -33,8 +33,6 @@ if !(instance_exists(oScreen))
     instance_create(0, 0, oScreen);
 }
 
-global.tile_size = 10;              // the size of each cell on the screen. (mess with this to get weird overlapping effects)
-
 room_dimensions(220, 160);
 
 draw_set_font(font);

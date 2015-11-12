@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oThing</parentName>
+  <parentName>oCreature</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,11 +27,7 @@
             <kind>1</kind>
             <string>///Attributes
 event_inherited();
-
-move_init(30); // waits 30 steps after each move it makes
-check_creature_init();
-
-items = $0;
+//check_creature_init();
 </string>
           </argument>
         </arguments>
@@ -59,19 +55,26 @@ items = $0;
 if (instance_exists(oBlood) and bloody == false)
 {
     {
-        move(move_type.obj, oBlood);
+        //move(move_type.obj, oBlood);
+        move_type = move_type.obj;
+        move_target = oBlood;
     }
 }
 else if instance_exists(oPlayer)
 {
-    move(move_type.obj, oPlayer);
+    //move(move_type.obj, oPlayer);
+    move_type = move_type.obj;
+    move_target = oPlayer;
 }
 else
 {
-    move(move_type.rand, -1);
+    //move(move_type.rand, -1);
+    move_type = move_type.rand;
+    move_target = -1;
 }
 
-check_creature();
+event_inherited();
+//check_creature();
 </string>
           </argument>
         </arguments>

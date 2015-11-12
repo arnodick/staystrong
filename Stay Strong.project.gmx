@@ -82,6 +82,7 @@
     <object>objects\oGame</object>
     <object>objects\oEnd</object>
     <object>objects\oThing</object>
+    <object>objects\oCreature</object>
     <object>objects\oPlayer</object>
     <object>objects\oEnemy</object>
     <object>objects\oItem</object>

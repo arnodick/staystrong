@@ -54,7 +54,7 @@ tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
-room_generate(room_side.middle);
+room_generate(map_grid.middle);
 
 //TODO: put this in room gen. is causing problems with updting map properly
 //instance_create(r_width/2, r_height/2, oPlayer);
@@ -221,6 +221,12 @@ if (global.debug == true)
             dir_string = string( (point_direction(enemy.x, enemy.y, oPlayer.x, oPlayer.y) div 90 ) );
             dir_mod = string( ((point_direction(enemy.x, enemy.y, oPlayer.x, oPlayer.y) div 45 )) mod 2 );
         }
+        else
+        {
+            var enemy = 0;
+            dir_string = 0;
+            dir_mod = 0;
+        }
     }
 }
 </string>
@@ -256,7 +262,7 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
         var cell = map_update[a, b];
         // draws the cell's colour, character, etc.
         //TODO: put draw position calculations in the object, rather than in draw?
-        draw_text_colour ( a * global.tile_size /*+ cell.anim*/, b * global.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_text_colour ( a * map_grid.tile_size /*+ cell.anim*/, b * map_grid.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
 </string>
@@ -313,8 +319,8 @@ if (global.debug == true)
     //enemy dieciton
     draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
-    //keys
-    draw_text_ext_colour(10, 110, " &gt; = " + string(vk_right) + " ^ = " + string(vk_up) + " &lt; = " + string(vk_left) + " | = " + string(vk_down), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //player's move_type
+    draw_text_ext_colour(10, 110, "Move_type = " + string(oPlayer.move_type), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
 }
 </string>
           </argument>
