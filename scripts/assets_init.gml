@@ -14,3 +14,12 @@ enum item_type
     wait,
     invincible
 }
+
+enum room_side
+{
+    right,
+    up,
+    left,
+    down,
+    middle = -1
+}

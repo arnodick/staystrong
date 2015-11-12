@@ -2,17 +2,20 @@
 //argument0 = side of room used to exit (0=left, 1=right, 2=top, 3=bottom)
 with(oThing)    // destroys all the oThings in the room except the player
 {
-    //if (object_index != oPlayer)
-    //{
+    if (object_index != oPlayer)
+    {
         instance_destroy();
-    //}
+    }
 }
 
 //sets amount of enemies
 var enemy_count = 2;    //default 2 enemies
-if (oPlayer.smashes > 0)    //if you have smashes, 3 - 5 enemies
+if (instance_exists(oPlayer))
 {
-    enemy_count = irandom_range(3, 5);
+    if (oPlayer.smashes > 0)    //if you have smashes, 3 - 5 enemies
+    {
+        enemy_count = irandom_range(3, 5);
+    }
 }
 if (oGame.last_room_smashes == 0)   // if you had no smashes last room, 5 enemies
 {
@@ -45,10 +48,13 @@ for (var i = 0; i < enemy_count; i++)
 
 //sets amount of smashes
 var smashes_count = 0;  //default no smashes
-oGame.last_room_smashes = oPlayer.smashes;  //set last room's smashes to amount of smashes player has now
-if (oPlayer.smashes == 0)
+if (instance_exists(oPlayer))
 {
-    smashes_count += (irandom(1) + 1);  // if out of smashes, get 1 or 2 smashes min
+    oGame.last_room_smashes = oPlayer.smashes;  //set last room's smashes to amount of smashes player has now
+    if (oPlayer.smashes == 0)
+    {
+        smashes_count += (irandom(1) + 1);  // if out of smashes, get 1 or 2 smashes min
+    }
 }
 if ( (oGame.room_count mod 3) == 0) // if in room divisble by 3, extra 2 or 3 smashes spawn
 {
@@ -170,12 +176,6 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     create_thing(a, b, oSmash, '!', c_blue, oRoad);
                 }
             }
-            /*
-            if !(instance_exists(oPlayer))
-            {
-                create_thing(room_width/2, room_width/2, oPlayer, 'T', c_yellow, oBlood);
-            }
-            */
         }
         // copy map cells to map_update cells if map_update cell is empty
         if (map_update[a, b] == 0)
@@ -183,6 +183,15 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             map_update[a, b] = map[a, b];
         }
     }
+}
+
+if !(instance_exists(oPlayer))
+{
+    create_thing(r_width/2, r_height/2, oPlayer, 'T', c_yellow, oBlood);
+}
+else
+{
+    map_update[oPlayer.x, oPlayer.y] = oPlayer;
 }
 
 //convert random trees into rubble for each tree that has been smashed

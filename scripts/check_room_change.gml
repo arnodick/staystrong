@@ -17,7 +17,7 @@ if instance_exists(oPlayer)
             break;
         case -1:                // not OOB, do nothing
         {
-            //generate = false;
+            //generate = true;
             break;
         }
         case 0:                 // exited left side

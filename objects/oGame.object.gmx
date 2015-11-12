@@ -54,6 +54,8 @@ tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
+room_generate(room_side.middle);
+
 //TODO: put this in room gen. is causing problems with updting map properly
 //instance_create(r_width/2, r_height/2, oPlayer);
 
@@ -142,10 +144,10 @@ if (!instance_exists(oPlayer) )
     {
         create_message(10, 10, "U DIDN'T MAKE IT#PRESS ENTER");
     }
-    if keyboard_check(vk_enter)
+    if keyboard_check_pressed(vk_enter)
     {
-        room_restart();
         audio_stop_all();
+        room_restart();
     }
 }
 else
