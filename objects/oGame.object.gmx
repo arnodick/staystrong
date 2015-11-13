@@ -314,13 +314,13 @@ if (global.debug == true)
     draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
-    draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //enemy dieciton
-    draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //player's move_type
-    draw_text_ext_colour(10, 110, "Move_type = " + string(oPlayer.move_type), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 110, "Move_type = " + string(oPlayer.move_type), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
 }
 </string>
           </argument>

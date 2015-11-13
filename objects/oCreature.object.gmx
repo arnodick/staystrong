@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Inits
 event_inherited();
-check_creature_init();
+init_creature();
 </string>
           </argument>
         </arguments>
@@ -51,7 +51,7 @@ check_creature_init();
           <argument>
             <kind>1</kind>
             <string>///Creature behaviour
-check_creature();
+do_creature();
 </string>
           </argument>
         </arguments>

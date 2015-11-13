@@ -1,7 +1,7 @@
 move(move_type, move_target);
 
 var cell_current = oGame.map[x, y];
-
+//TODO: put all these into respective oObjects
 if (cell_current.object_index == oGrass)
 {
     audio_play_sound(sndSwish, 1, false);
@@ -21,4 +21,3 @@ if (cell_current.object_index == oBlood)
     bloody = true;
 }
 check_bloody();
-check_smash();
