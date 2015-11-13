@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Attributes
-event_inherited();
-
 //TODO: make init_player and do_player functions
 smashes = 0;
 
@@ -37,7 +35,7 @@ audio_listener_orientation(0,1,0,0,0,1);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,7 +53,7 @@ audio_listener_orientation(0,1,0,0,0,1);
           <argument>
             <kind>1</kind>
             <string>///Controls
-event_inherited();
+do_creature();
 audio_listener_position(x, y, 0);
 
 //colour = merge_colour(colour_init, c_black, y/48);

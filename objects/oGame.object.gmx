@@ -56,9 +56,6 @@ smashes_pos[2, 2] = 0;
 
 room_generate(map_grid.middle);
 
-//TODO: put this in room gen. is causing problems with updting map properly
-//instance_create(r_width/2, r_height/2, oPlayer);
-
 /*
 //animation stuff(?)
 font[0] = font2;
@@ -100,6 +97,33 @@ inst_string = "Instance # = " + string(instance_count);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>turn = false;
+if (key_arrows_check_pressed())
+{
+    turn = true;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -120,11 +144,7 @@ inst_string = "Instance # = " + string(instance_count);
             <string>///Game Controller
 // checks if player is alive, changes rooms, etc.
 
-turn = false;
-if (key_arrows_check_pressed())
-{
-    turn = true;
-}
+
 
 if (!instance_exists(oPlayer) )
 {
