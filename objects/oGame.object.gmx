@@ -34,6 +34,7 @@ if !(instance_exists(oScreen))
 //TODO: make left alignment unnecessary
 draw_set_halign(fa_left);
 
+global.game_timer = 1;
 global.final_score = 0;
 global.debug = false;
 
@@ -114,8 +115,11 @@ inst_string = "Instance # = " + string(instance_count);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>turn = false;
-if (key_arrows_check_pressed())
+            <string>///Turn Switch
+//NOTE: need this in step begin for HTML5
+//which processes instances in order of when they were created
+turn = false;
+if (key_arrows_check_pressed() or keyboard_check_pressed(vk_space))
 {
     turn = true;
 }
@@ -184,6 +188,8 @@ if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
 {
     game_end();
 }
+
+global.game_timer++;
 </string>
           </argument>
         </arguments>
@@ -282,9 +288,18 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
         var cell = map_update[a, b];
         // draws the cell's colour, character, etc.
         //TODO: put draw position calculations in the object, rather than in draw?
-        draw_text_colour ( a * map_grid.tile_size /*+ cell.anim*/, b * map_grid.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_text_colour ( a * map_grid.tile_size, b * map_grid.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
+
+/*
+//Faster but draw sequence of instances is a bit weird
+with (oThing)
+{
+    draw_text_colour ( x * map_grid.tile_size, y * map_grid.tile_size, char, colour, colour, colour, colour, 1);
+}
+*/
+
 </string>
           </argument>
         </arguments>

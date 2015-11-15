@@ -53,6 +53,21 @@ audio_listener_orientation(0,1,0,0,0,1);
           <argument>
             <kind>1</kind>
             <string>///Controls
+//NOTE: need this in step begin for HTML5
+//which processes instances in order of when they were created
+
+//TODO: put all do_x functions in oGame? just write: with oPlayer do_player
+//with oCreature do_Creature, etc. that way can explicitly determine instance ordering
+
+
+if (keyboard_check(vk_space) == true)
+{
+    move_moving = false;
+}
+else
+{
+    move_moving = true;
+}
 do_creature();
 audio_listener_position(x, y, 0);
 

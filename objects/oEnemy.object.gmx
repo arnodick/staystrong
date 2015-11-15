@@ -48,6 +48,9 @@ else
     move_target = -1;
 }
 
+//this produce a weird zombie sort of effect where the enemies stutter
+//move_moving = global.game_timer mod 2;
+
 do_creature();
 </string>
           </argument>

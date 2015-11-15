@@ -1,4 +1,4 @@
-move(move_type, move_target);
+move(move_type, move_target, move_moving);
 
 var cell_current = oGame.map[x, y];
 //TODO: put all these into respective oObjects

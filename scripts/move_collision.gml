@@ -71,7 +71,7 @@ else
         }
         oGame.map_update[x, y] = id;    // NOW it updates the active cell with you, whether you moved or not
     }
-
+    
 }
 
 //TODO: just put this in the oGame code? or somewhere

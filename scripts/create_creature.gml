@@ -6,6 +6,7 @@ creature.move_type = argument6;
 creature.solid = true;
 
 //creature.move_type = -1;
+creature.move_moving = true;
 creature.move_target = -1;
 creature.move_distance = 1;
 creature.move_dir[0] = 0;
