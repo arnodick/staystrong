@@ -5,16 +5,16 @@
 //argument3 = char
 //argument4 = colour
 //argument5 = oDead
-//TODO: MAKE THIS VARIABLE INPUT! so if you forget something doesn't freak out
 
 var thing = instance_create(argument0, argument1, argument2);
-var spot = map[argument0, argument1];
+var spot = oGame.map[argument0, argument1];
 
-map[argument0, argument1] = instance_create(argument0, argument1, oSpace);
-map_update[argument0, argument1] = thing;
+oGame.map[argument0, argument1] = instance_create(argument0, argument1, oSpace);
+oGame.map_update[argument0, argument1] = thing;
 thing.char = argument3;
 thing.colour_init = argument4;
-thing.colour = merge_colour(argument4, c_black, y/oGame.r_height);
+thing.colour = thing.colour_init;
+//thing.colour = merge_colour(argument4, c_black, y/oGame.r_height);
 thing.dead = argument5;
 
 with (spot)

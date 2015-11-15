@@ -1,4 +1,4 @@
-if bloody == true
+if (bloody == true)
 {
     oGame.map[x, y].colour = merge_colour(c_black, c_red, bloody_timer/bloody_timer_init);
     colour = c_red;

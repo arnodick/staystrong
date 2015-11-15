@@ -4,5 +4,6 @@ var item = create_thing(argument0, argument1, argument2, argument3, argument4, a
 
 item.item_type = argument6;
 item.dead = -1; //just to ensure item doesn't leave anything behing
+//TODO: make dead work another way bc right now destroy code is just making an oRoad
 
-// TODO: make this return the id of the instance
+return item;

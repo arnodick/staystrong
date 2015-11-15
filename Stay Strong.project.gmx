@@ -31,14 +31,15 @@
       <script>scripts\menu_confirm.gml</script>
       <script>scripts\menu_buttons.gml</script>
     </scripts>
-    <scripts name="Create things">
+    <scripts name="Creates">
       <script>scripts\create_thing.gml</script>
-      <script>scripts\init_creature.gml</script>
       <script>scripts\create_creature.gml</script>
-      <script>scripts\do_creature.gml</script>
       <script>scripts\create_item.gml</script>
-      <script>scripts\do_item.gml</script>
       <script>scripts\create_message.gml</script>
+    </scripts>
+    <scripts name="Dos">
+      <script>scripts\do_creature.gml</script>
+      <script>scripts\do_item.gml</script>
     </scripts>
     <scripts name="Checks">
       <script>scripts\check_OOB.gml</script>

@@ -1,3 +1,5 @@
+//argument0 = x pos to check for collision
+//argument1 = y pos to check for collision
 var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
 var cant_move = cell_next.solid;
 
@@ -30,8 +32,10 @@ if (object_index == oPlayer)
                 }
                 else
                 {
-                    oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-                    oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                    //oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
+                    //oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // BUG: this code makes the game crash when you kill yourself for some reason?
+                    create_item(argument0, argument1, oItem, '~', c_red, oRoad, item_type.bloody);
+                    //TODO BUG: this code cause the game to crash when smashing trees if more than 40 trees because code below can't find cell_next any more. make all destroyed objects drop an item
                 }
                 if (!audio_is_playing(cell_next.dead_sound))
                 {
@@ -75,7 +79,7 @@ else
 }
 
 //TODO: just put this in the oGame code? or somewhere
-if bloody == true
+if (bloody == true)
 {
     bloody_timer -= 1;
 }

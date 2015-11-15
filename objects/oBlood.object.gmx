@@ -90,7 +90,7 @@ if random(100) &lt; 1
     cell_adj[irandom_range(0, 7)].colour = c_red;
 }
 
-if amount &lt;= 0
+if (amount &lt;= 0)
 {
     if instance_exists(oPlayer)
     {

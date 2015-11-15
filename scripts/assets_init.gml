@@ -11,6 +11,7 @@ enum move_type
 enum item_type
 {
     smash,
+    bloody,
     wait,
     invincible
 }
