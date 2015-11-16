@@ -2,7 +2,7 @@
 //agrument0 = x position of destination cell
 //argument1 = y position of destination cell
 
-var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
+var cell_next = oGame.map_update[x + argument0, y + argument1]; // temp var for destination cell contents
 var cant_move = cell_next.solid;
 
 if (object_index == oPlayer)
