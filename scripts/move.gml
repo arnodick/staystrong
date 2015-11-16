@@ -33,7 +33,6 @@ if (oGame.turn == true)
         {
             move_moved(x + move_dir[0], y + move_dir[1]);
         }
-                
                 //if can't kill move
                 //TODO: put navigating around walls here
                 /*

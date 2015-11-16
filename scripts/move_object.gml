@@ -55,7 +55,6 @@ if instance_exists(argument1)
             if (x_pos != obj_x)
             {
                 argument0[0] = x_dist / (abs(x_dist));
-                //x_pos += x_dist / (abs(x_dist));
             }
         }
         else
@@ -63,9 +62,13 @@ if instance_exists(argument1)
             if (y_pos != obj_y)
             {
                 argument0[1] = y_dist / (abs(y_dist));
-                //y_pos += y_dist / (abs(y_dist));
             }
         }
+    }
+    if (move_collision(x + argument0[0], y + argument0[1]))
+    {
+        move_dir = move_rand(move_dir);
+        return move_dir;
     }
 }
 return argument0;
