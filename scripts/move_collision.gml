@@ -1,7 +1,8 @@
-//argument0[0] = x dir
-//argument0[1] = y dir
+//argument0 = x pos to check for collision
+//argument1 = y pos to check for collision
 
-return oGame.map_update[x + argument0[0], y + argument0[1]].solid;
+
+return oGame.map_update[argument0, argument1].solid;
 
 /*
 //TODO: just put this in the oGame code? or somewhere
