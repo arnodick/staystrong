@@ -20,6 +20,14 @@ if (oGame.turn == true)
                 move_dir = move_object(move_dir, argument2);
                 break;
         }
-        move_collision(x + move_dir[0], y + move_dir[1]);
+        var cant_move = move_collision(x + move_dir[0], y + move_dir[1]);
+        if (cant_move == true)
+        {
+            move_collided(x + move_dir[0], y + move_dir[1]);
+        }
+        else
+        {
+            move_moved(x + move_dir[0], y + move_dir[1]);
+        }
     }
 }

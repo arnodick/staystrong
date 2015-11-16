@@ -1,5 +1,12 @@
 //argument0 = x pos to check for collision
 //argument1 = y pos to check for collision
+
+var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
+var cant_move = cell_next.solid;
+
+return cant_move;
+
+/*
 var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
 var cant_move = cell_next.solid;
 
@@ -84,3 +91,4 @@ if (bloody == true)
     bloody_timer -= 1;
 }
 return cant_move;
+*/

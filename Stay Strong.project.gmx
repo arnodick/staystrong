@@ -59,6 +59,8 @@
       <script>scripts\move_object.gml</script>
       <script>scripts\move_collision.gml</script>
       <script>scripts\move_collision_check.gml</script>
+      <script>scripts\move_collided.gml</script>
+      <script>scripts\move_moved.gml</script>
     </scripts>
     <scripts name="Room gen">
       <script>scripts\room_dimensions.gml</script>
