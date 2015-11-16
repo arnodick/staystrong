@@ -8,7 +8,7 @@ move_init(creature, argument6);
 check_bloody_init(creature);
 
 creature.dead_sound = sndDeath;
-creature.items = $0;
+creature.abilities = $0;
 
 
 // todo: make this return the id of the instance

@@ -18,9 +18,13 @@ if (oGame.turn == true)
                 break;
             case 2: // move towards object
                 move_dir = move_object(move_dir, argument2);
+                //TODO: input abilites to move object to check if actor can smash or kill
                 break;
         }
         var cant_move = move_collision(x + move_dir[0], y + move_dir[1]);
+        
+        //if can kill, then kill, otherwise set cant_move to false
+        //TODO: have to implement abilities vs vulnerabilities for this
         if (cant_move == true)
         {
             move_collided(x + move_dir[0], y + move_dir[1]);
@@ -29,5 +33,32 @@ if (oGame.turn == true)
         {
             move_moved(x + move_dir[0], y + move_dir[1]);
         }
+                
+                //if can't kill move
+                //TODO: put navigating around walls here
+                /*
+                else
+                {
+                    if (move_dir[0] != 0)
+                    {
+                        move_dir[0]  = 0;
+                        move_dir[1]  = choose(-1, 1);
+                    }
+                    else
+                    {
+                        move_dir[1] = 0;
+                        move_dir[0] = choose(-1, 1);
+                    }
+                    if (move_collision(x + move_dir[0], y + move_dir[1]) == false)
+                    {
+                        move_moved(x + move_dir[0], y + move_dir[1]);
+                    }
+                    else
+                    {
+                        move_moved(x + move_dir[0], y + move_dir[1]);
+                    }
+                }
+                */
     }
 }
+
