@@ -12,7 +12,6 @@ enum item_type
 {
     smash,
     bloody,
-    kill,
     wait,
     invincible
 }

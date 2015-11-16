@@ -89,7 +89,7 @@ for (var p = 0; p < smashes_count; p++)
 
 //while !(instance_exists(oPlayer))
 
-// generates the map terrain, enemies and pickups, puts them in map and map_update arrays
+// generates the map terrain, enemies and items, puts them in map and map_update arrays
 // TODO: will have to reverse a and b
 for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 {

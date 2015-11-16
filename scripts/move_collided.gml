@@ -1,7 +1,3 @@
-//what to do when actor has collided with an object in destination cell
-//agrument0 = x position of destination cell
-//argument1 = y position of destination cell
-
 var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
 var cant_move = cell_next.solid;
 
@@ -10,7 +6,7 @@ if (object_index == oPlayer)
     screen_shake(10);
     audio_play_sound(sndBump, 1, false);
     //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-    if ( (oPlayer.abilities & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
+    if ( (oPlayer.items & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
     {
         //var cell_next = oGame.map_update[argument0, argument1];
         if (cell_next.object_index != oSuperwall)
@@ -46,55 +42,8 @@ if (object_index == oPlayer)
             }
             if (smashes <= 0)
             {
-                abilities = abilities ^ int_to_bin(item_type.smash);
+                items = items ^ int_to_bin(item_type.smash);
                 colour = colour_init;
-            }
-        }
-    }
-}
-else    //if actor is enemy
-{
-    //if next cell is player then kill them
-    if ( cell_next.object_index == oPlayer )
-    {
-        if global.debug == false
-        {
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, oPlayer.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
-            audio_play_sound(oPlayer.dead_sound, 1, false);
-            with (oPlayer)
-            {
-               instance_destroy();
-            }
-        }
-    }
-    //if next cell is solid and can smash, then smash next cell
-    else if ( (abilities & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
-    {
-        // then if it is not a superwall, smash it
-        if (cell_next.object_index != oSuperwall)
-        {
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
-        }
-        if (!audio_is_playing(cell_next.dead_sound))
-        {
-            audio_play_sound(cell_next.dead_sound, 1, false);
-        }
-        with (cell_next)
-        {
-            instance_destroy();
-        }
-    }
-
-    //TODO: put this in movement code?
-    if instance_exists(oPlayer)
-    {
-        if (point_distance(x, y, oPlayer.x, oPlayer.y) <= 6)
-        {
-            if ( irandom(20) <= 1 )
-            {
-                audio_play_sound_at(sndAlert, x, y, 0, 3, 6, 1, false, 1);
             }
         }
     }

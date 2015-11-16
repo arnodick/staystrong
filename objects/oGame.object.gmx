@@ -240,7 +240,7 @@ if (global.debug == true)
     rubble_string = "Rubble \# = " + string(instance_number(oRubble));
     if (instance_exists(oPlayer))
     {
-        item_string = "abilities = " + string(oPlayer.abilities);
+        item_string = "Items = " + string(oPlayer.items);
         if (instance_exists(oEnemy))
         {
             var enemy = instance_nearest(oPlayer.x, oPlayer.y, oEnemy);
@@ -345,7 +345,7 @@ if (global.debug == true)
     //draw the number of trees smashed
     draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
-    //draw player's abilities
+    //draw player's items
     draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects

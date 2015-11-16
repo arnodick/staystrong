@@ -13,7 +13,7 @@ switch(item_type)
                 {
                     smashes += 1;
                 }
-                abilities = abilities | int_to_bin(other.item_type);
+                items = items | int_to_bin(other.item_type);
                 colour = other.colour;
                 audio_play_sound(sndPickup, 1, false);  //TODO: make sound a variable of item
                 destroy = true; 
