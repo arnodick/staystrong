@@ -1,10 +1,10 @@
 //argument0 = x pos to check for collision
 //argument1 = y pos to check for collision
 
-var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
-var cant_move = cell_next.solid;
+//var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
+//var cant_move = oGame.map_update[argument0, argument1].solid;
 
-return cant_move;
+return oGame.map_update[argument0, argument1].solid;
 
 /*
 var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents

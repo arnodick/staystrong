@@ -16,11 +16,14 @@ if instance_exists(argument1)
         y_dist = obj_y - y;
     
     //if target is vertically close, move left or right
+    //TODO: this conditional is causing problems. have to get rid of it, either by using the direction
+    //method (one vector output instead of array for direction) or do some clever math.
+    //try clever math first. if that doesn't work, do whole direction vector thing with lengthdirs
     if ( abs(x_dist) > abs(y_dist) )
     {
-        var cell_next = oGame.map[x_pos + x_dist / (abs(x_dist)),  y_pos];
+        var cell_next = oGame.map_update[x_pos + x_dist / (abs(x_dist)),  y_pos];
         //if cell in horizontal dir towards target is solid
-        if ( move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).solid == true )
+        if ( move_collision(x_pos + x_dist / (abs(x_dist)), y_pos) == true )
         {
             //and if that cell is also player
             if ( move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).object_index == oPlayer )
@@ -55,7 +58,7 @@ if instance_exists(argument1)
                     instance_destroy();
                 }
             }
-            //otherwise, if you don't have smashes, move vertically? as long as you are not in the same vertical row as target
+            //otherwise, if you don't have smashes, move vertically? as long as you are not in the same vertical column as target
             //ie: move around obstacles if you aren't already in line with target
             else if (y_pos != obj_y)
             {
