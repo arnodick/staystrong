@@ -15,87 +15,17 @@ if instance_exists(argument1)
         x_dist = obj_x - x, 
         y_dist = obj_y - y;
     
-    //if target is vertically close, move left or right
-    //TODO: this conditional is causing problems. have to get rid of it, either by using the direction
-    //method (one vector output instead of array for direction) or do some clever math.
-    //try clever math first. if that doesn't work, do whole direction vector thing with lengthdirs
+    //if target is horizontally far, prepare to move horizontally
     if ( abs(x_dist) > abs(y_dist) )
     {
-        //if cell in horizontal dir towards target is solid
-        if ( move_collision(x_pos + x_dist / (abs(x_dist)), y_pos) == true )
-        {
-            //and if that cell is also player
-            if ( move_collision_check(x_pos + x_dist / (abs(x_dist)), y_pos).object_index == oPlayer )
-            {
-                if global.debug == false
-                {
-                    //then kill player
-                    argument0[0] = x_dist / (abs(x_dist));
-                }
-            }
-            //if cell in horizontal dir towards target is not player and you have smashes
-            else if ( (abilities & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
-            {
-                argument0[0] = x_dist / (abs(x_dist));
-            }
-            //otherwise, if you don't have smashes, move vertically? as long as you are not in the same vertical column as target
-            //ie: move around obstacles if you aren't already in line with target
-            else if (y_pos != obj_y)
-            {
-                argument0[1] = y_dist / (abs(y_dist));
-                if ( move_collision(x_pos + argument0[0], y_pos + argument0[1]) == true )
-                {
-                    argument0 = move_rand(argument0);
-                }
-            }
-            else if ( move_collision(x_pos + argument0[0], y_pos + argument0[1]) == true )
-            {
-                argument0 = move_rand(argument0);
-            }
-            
-        }
-        //if next cell is not solid, just move horizontally
-        else
-        {
-            argument0[0] = x_dist / (abs(x_dist));
-        }
+        argument0[0] = x_dist / (abs(x_dist));
     }
-    //if target is horizontally close, move up or down
+    //if target is vertically far, prepare to move vertically
     else if ( abs(y_dist) > abs(x_dist) )
     {
-        if move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).solid == true
-        {
-            if (move_collision_check(x_pos, y_pos + y_dist / (abs(y_dist))).object_index == oPlayer)
-            {
-                if global.debug == false
-                {
-                    //kill player
-                    argument0[1] = y_dist / (abs(y_dist));
-                }
-            }
-            else if ( (abilities & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
-            {
-                argument0[1] = y_dist / (abs(y_dist));
-            }
-            else if (x_pos != obj_x)
-            {
-                argument0[0] = x_dist / (abs(x_dist));
-                if ( move_collision(x_pos + argument0[0], y_pos + argument0[1]) == true )
-                {
-                    argument0 = move_rand(argument0);
-                }
-            }
-            else if ( move_collision(x_pos + argument0[0], y_pos + argument0[1]) == true )
-            {
-                argument0 = move_rand(argument0);
-            }
-        }
-        else
-        {
-            argument0[1] = y_dist / (abs(y_dist));
-        }
+        argument0[1] = y_dist / (abs(y_dist));
     }
-    //if x and y distance are equal, choose randomly which way to go
+    //if x and y distance are equal, choose randomly which way to go, while still going towards enemy
     else
     {
         if ( (irandom(1)) < 1 )
@@ -113,18 +43,47 @@ if instance_exists(argument1)
             }
         }
     }
-    //TODO: put checks for solid and palyer here
-    //if solid and can't smash or kill, go other direction
-    //if still solid, go random
+
+    //if the destination chosen is solid
+    if ( move_collision( x_pos + argument0[0], y_pos + argument0[1]) == true )
+    {
+        //and it can't be smashed/killed
+        if ( (move_collision_check(x_pos + argument0[0], y_pos + argument0[1]).object_index != oPlayer) and ((abilities & int_to_bin(item_type.smash)) !=  int_to_bin(item_type.smash)) )
+        {
+            //then if perfectly diagonal to target (ie: enemy is following player only 1 step behind) then move randomly
+            //NOTE: this gives you the chance to escape from enemies that are "stuck" to you, by making them bump into walls when following 1 step behind you
+            if (abs(x_dist) == abs(y_dist))
+            {
+                argument0 = move_rand(argument0);
+            }
+            //otherwise, if you should be moving hor, then move vert towards target
+            else if (argument0[0] != 0)
+            {
+                if (y_pos != obj_y)
+                {
+                    argument0[0] = 0;
+                    argument0[1] = y_dist / (abs(y_dist));
+                }
+            }
+            //otherwise, if you should moving vert, then move hor towards target
+            else
+            {
+                if (x_pos != obj_x)
+                {
+                    argument0[0] = x_dist / (abs(x_dist));;
+                    argument0[1] = 0;
+                }
+            }
+            //finally, if can't move hor or vert towards target, then just choose randomly
+            if ( move_collision(x_pos + argument0[0], y_pos + argument0[1]) == true )
+            {
+                argument0 = move_rand(argument0);
+            }
+        }
+    }
 }
 
-/*
-if ( move_collision_check(x + argument0[0], y + argument0[1]).solid == true )
-//if move_collision(x + argument0[0], y + argument0[1]) == true
-{
-    argument0 = move_rand(argument0);
-}
-else */ if instance_exists(oPlayer)
+if instance_exists(oPlayer)
 {
     if (point_distance(x, y, oPlayer.x, oPlayer.y) <= 6)
     {
