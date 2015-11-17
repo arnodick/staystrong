@@ -26,7 +26,7 @@ if (object_index == oPlayer)
         screen_shake(10);
         audio_play_sound(sndBump, 1, false);
         //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-        if ( (oPlayer.items & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
+        if ( (oPlayer.abilities & int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
         {
             //var cell_next = oGame.map_update[argument0, argument1];
             if (cell_next.object_index != oSuperwall)
@@ -62,7 +62,7 @@ if (object_index == oPlayer)
                 }
                 if (smashes <= 0)
                 {
-                    items = items ^ int_to_bin(item_type.smash);
+                    abilities = abilities ^ int_to_bin(item_type.smash);
                     colour = colour_init;
                 }
             }
