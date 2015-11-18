@@ -166,7 +166,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                 if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                 {
                     //create_thing(a, b, oSmash, '!', c_blue, oRoad);
-                    create_item(a, b, oItem, '!', c_blue, oRoad, item_type.smash);
+                    create_item(a, b, oItem, '!', global.item_colours[item_type.smash], oRoad, item_type.smash);
                 }
             }
             //place enemies in map TODO: do i need arrays for this?

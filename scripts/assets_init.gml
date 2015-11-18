@@ -17,7 +17,7 @@ enum item_type
     invincible
 }
 global.item_colours[0] = c_blue;
-global.item_colours[1] = c_yellow;
+global.item_colours[1] = c_maroon;
 global.item_colours[2] = c_red;
 
 //constants for attributes of the map
