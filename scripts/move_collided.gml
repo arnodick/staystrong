@@ -68,16 +68,24 @@ else
     {
         if (cell_next.object_index != oSuperwall)
         {
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
+            if(cell_next != id)
+            {
+                oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
+                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
+                if (!audio_is_playing(cell_next.dead_sound))
+                {
+                    audio_play_sound(cell_next.dead_sound, 1, false);
+                }
+                with (cell_next)
+                {
+                    instance_destroy();
+                }
+            }
         }
-        if (!audio_is_playing(cell_next.dead_sound))
-        {
-            audio_play_sound(cell_next.dead_sound, 1, false);
-        }
-        with (cell_next)
-        {
-            instance_destroy();
-        }
+    }
+    else
+    {
+        //audio_sound_pitch(sndThump, random_range(0.3, 0.32));
+        //audio_play_sound(sndThump, 1, false);
     }
 }

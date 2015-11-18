@@ -13,6 +13,7 @@
     <sound>sound\sndSwish</sound>
     <sound>sound\sndPickup</sound>
     <sound>sound\sndAlert</sound>
+    <sound>sound\sndThump</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
