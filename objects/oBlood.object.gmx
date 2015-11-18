@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oThing</parentName>
+  <parentName>oItem</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,7 +29,8 @@
 event_inherited();
 
 char = '~';
-colour = c_red;
+colour = global.item_colours[item_type.blood];
+item_type = item_type.blood;
 
 if instance_exists(oEnemy)
 {
@@ -67,37 +68,7 @@ else
             <kind>1</kind>
             <string>///Spread blood
 // TODO: put a timer on this, so it's not calculating random numbers every step. more efficient
-
-if random(100) &lt; 1
-{
-    oGame.map[x + choose(-1, 0, 1), y + choose(-1, 0, 1)].colour = c_red;
-}
-
-with (instance_nearest(x, y, oCreature))
-{
-    if ( (x == other.x) and (y == other.y) )
-    {
-        if (bloody == false)
-        {
-            other.amount -= 1;
-        }
-        bloody = true;
-    }
-}
-
-if (amount &lt;= 0)
-{
-    if instance_exists(oPlayer)
-    {
-        oGame.map[x, y] = instance_create(x, y, oRoad);
-        //oGame.map_update[x, y] = oGame.map[x, y];
-        instance_destroy();
-    }
-    else
-    {
-        amount = 1;
-    }
-}
+event_inherited();
 </string>
           </argument>
         </arguments>

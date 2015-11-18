@@ -45,8 +45,6 @@
     <scripts name="Checks">
       <script>scripts\check_OOB.gml</script>
       <script>scripts\check_room_change.gml</script>
-      <script>scripts\check_bloody_init.gml</script>
-      <script>scripts\check_bloody.gml</script>
     </scripts>
     <scripts name="Controls">
       <script>scripts\key_arrows_check.gml</script>
@@ -90,6 +88,7 @@
     <object>objects\oPlayer</object>
     <object>objects\oEnemy</object>
     <object>objects\oItem</object>
+    <object>objects\oBlood</object>
     <object>objects\oTree</object>
     <object>objects\oWall</object>
     <object>objects\oWallH</object>
@@ -99,7 +98,6 @@
     <object>objects\oSpace</object>
     <object>objects\oStamped</object>
     <object>objects\oRubble</object>
-    <object>objects\oBlood</object>
     <object>objects\oExit</object>
     <object>objects\oMessage</object>
   </objects>

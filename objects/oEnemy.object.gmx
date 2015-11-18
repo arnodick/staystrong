@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Controller
 
-if (instance_exists(oBlood) and bloody == false)
+if (instance_exists(oBlood) and ((abilities &amp; int_to_bin(item_type.blood)) != int_to_bin(item_type.blood)) )
 {
     {
         move_type = move_type.obj;
