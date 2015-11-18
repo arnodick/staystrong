@@ -30,20 +30,17 @@
 if (instance_exists(oBlood) and bloody == false)
 {
     {
-        //move(move_type.obj, oBlood);
         move_type = move_type.obj;
         move_target = oBlood;
     }
 }
 else if instance_exists(oPlayer)
 {
-    //move(move_type.obj, oPlayer);
     move_type = move_type.obj;
     move_target = oPlayer;
 }
 else
 {
-    //move(move_type.rand, -1);
     move_type = move_type.rand;
     move_target = -1;
 }

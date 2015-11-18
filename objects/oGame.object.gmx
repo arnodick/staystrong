@@ -122,6 +122,7 @@ turn = false;
 if (key_arrows_check_pressed() or keyboard_check_pressed(vk_space))
 {
     turn = true;
+    global.game_timer++;
 }
 </string>
           </argument>
@@ -188,8 +189,6 @@ if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
 {
     game_end();
 }
-
-global.game_timer++;
 </string>
           </argument>
         </arguments>

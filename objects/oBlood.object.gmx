@@ -43,15 +43,6 @@ else
 {
     amount = 2;
 }
-
-cell_adj[0] = oGame.map[x       ,  y - 1    ];
-cell_adj[1] = oGame.map[x + 1   ,  y - 1    ];
-cell_adj[2] = oGame.map[x + 1   ,  y        ];
-cell_adj[3] = oGame.map[x + 1   ,  y + 1    ];
-cell_adj[4] = oGame.map[x       ,  y + 1    ];
-cell_adj[5] = oGame.map[x - 1   ,  y + 1    ];
-cell_adj[6] = oGame.map[x - 1   ,  y        ];
-cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
 </string>
           </argument>
         </arguments>
@@ -74,20 +65,24 @@ cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// TODO: put a timer on this, so it's not calculating random numbers every step. more efficient
-
-cell_adj[0] = oGame.map[x       ,  y - 1    ];
-cell_adj[1] = oGame.map[x + 1   ,  y - 1    ];
-cell_adj[2] = oGame.map[x + 1   ,  y        ];
-cell_adj[3] = oGame.map[x + 1   ,  y + 1    ];
-cell_adj[4] = oGame.map[x       ,  y + 1    ];
-cell_adj[5] = oGame.map[x - 1   ,  y + 1    ];
-cell_adj[6] = oGame.map[x - 1   ,  y        ];
-cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
+            <string>///Spread blood
+// TODO: put a timer on this, so it's not calculating random numbers every step. more efficient
 
 if random(100) &lt; 1
 {
-    cell_adj[irandom_range(0, 7)].colour = c_red;
+    oGame.map[x + choose(-1, 0, 1), y + choose(-1, 0, 1)].colour = c_red;
+}
+
+with (instance_nearest(x, y, oCreature))
+{
+    if ( (x == other.x) and (y == other.y) )
+    {
+        if (bloody == false)
+        {
+            other.amount -= 1;
+        }
+        bloody = true;
+    }
 }
 
 if (amount &lt;= 0)

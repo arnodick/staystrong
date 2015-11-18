@@ -1,23 +1,18 @@
 move(move_moving, move_type, move_target);
 
-var cell_current = oGame.map[x, y];
-//TODO: put all these into respective oObjects
-if (cell_current.object_index == oGrass)
+if (abilities != 0)
 {
-    audio_play_sound(sndSwish, 1, false);
-    oGame.map[x, y] = instance_create(x, y, oStamped);
-    with (cell_current)
+    for (var a = 0; a < 3; a++) //loop through abilities
     {
-        instance_destroy();
+        if ( (abilities & int_to_bin(a)) == int_to_bin(a) ) //if you have an ability
+        {
+            colour = global.item_colours[a];    //your colour = that ability's colour
+        }
     }
-    cell_current = oGame.map[x, y];
 }
-if (cell_current.object_index == oBlood)
+else
 {
-    if (bloody == false)
-    {
-        cell_current.amount -= 1;
-    }
-    bloody = true;
+    colour = colour_init;   //otherwise, default colour
 }
+
 check_bloody();
