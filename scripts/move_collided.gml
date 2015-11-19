@@ -54,13 +54,16 @@ else
     {
         if global.debug == false
         {
-            //then kill player
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, oPlayer.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
-            audio_play_sound(oPlayer.dead_sound, 1, false);
-            with (oPlayer)
+            if (abilities & int_to_bin(item_type.kill))
             {
-               instance_destroy();
+                //then kill player
+                oGame.map[argument0, argument1] = instance_create(argument0, argument1, oPlayer.dead);
+                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                audio_play_sound(oPlayer.dead_sound, 1, false);
+                with (oPlayer)
+                {
+                   instance_destroy();
+                }
             }
         }
     }

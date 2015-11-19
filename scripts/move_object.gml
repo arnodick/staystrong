@@ -82,6 +82,10 @@ if instance_exists(argument1)
         }
     }
 }
+else
+{
+    argument0 = move_rand(argument0);
+}
 
 if instance_exists(oPlayer)
 {
