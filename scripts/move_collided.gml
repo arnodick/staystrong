@@ -50,23 +50,23 @@ if (object_index == oPlayer)
 }
 else
 {
-    if ( cell_next.object_index == oPlayer )
-    {
-        if global.debug == false
-        {
-            if (abilities & int_to_bin(item_type.kill))
+    //if ( cell_next.object_index == oPlayer )
+    //{
+            if ( (abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill) )
             {
-                //then kill player
-                oGame.map[argument0, argument1] = instance_create(argument0, argument1, oPlayer.dead);
-                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
-                audio_play_sound(oPlayer.dead_sound, 1, false);
-                with (oPlayer)
-                {
-                   instance_destroy();
-                }
+                //if global.debug == false
+                //{
+                    //then kill player
+                    oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
+                    oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                    audio_play_sound(cell_next.dead_sound, 1, false);
+                    with (cell_next)
+                    {
+                       instance_destroy();
+                    }
+                //}
             }
-        }
-    }
+    //}
     else if ( (abilities & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
     {
         if (cell_next.object_index != oSuperwall)

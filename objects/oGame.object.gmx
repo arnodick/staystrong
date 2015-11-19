@@ -183,6 +183,10 @@ else
 if (keyboard_check_pressed(ord('D')))
 {
     global.debug = !global.debug;
+    if (instance_exists(oPlayer))
+    {
+        oPlayer.vulnerabilities = oPlayer.vulnerabilities ^ int_to_bin(item_type.kill);
+    }
 }
 
 if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
@@ -239,7 +243,8 @@ if (global.debug == true)
     rubble_string = "Rubble \# = " + string(instance_number(oRubble));
     if (instance_exists(oPlayer))
     {
-        item_string = "abilities = " + string(oPlayer.abilities);
+        item_string = "Abilities = " + string(oPlayer.abilities);
+        vuln_string = "Vulns = " + string(oPlayer.vulnerabilities);
         if (instance_exists(oEnemy))
         {
             var enemy = instance_nearest(oPlayer.x, oPlayer.y, oEnemy);
@@ -346,6 +351,9 @@ if (global.debug == true)
     
     //draw player's abilities
     draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //draw player's abilities
+    draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
     //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);

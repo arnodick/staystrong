@@ -9,15 +9,15 @@ enum move_type
 }
 
 //array of item colours, so they can be iterated through when determing actor's colour
-global.item_colours[0] = c_blue;
-global.item_colours[1] = c_maroon;
+global.item_colours[0] = c_maroon;
+global.item_colours[1] = c_blue;
 global.item_colours[2] = c_red;
 
 //constants for different item types
 enum item_type
 {
-    smash,
     kill,
+    smash,
     blood,
     wait,
     invincible

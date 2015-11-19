@@ -1,4 +1,4 @@
-//clears a space on the map and creates the player there
+//clears a space on the map and creates an oThing there
 //argument0 = x
 //argument1 = y
 //argument2 = oObject
@@ -16,6 +16,7 @@ thing.colour_init = argument4;
 thing.colour = thing.colour_init;
 //thing.colour = merge_colour(argument4, c_black, y/oGame.r_height);
 thing.dead = argument5;
+thing.vulnerabilities = 0;
 
 with (spot)
 {

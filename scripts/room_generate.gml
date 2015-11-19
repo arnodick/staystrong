@@ -174,7 +174,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                 {
-                    create_creature(a, b, oEnemy, '$', c_white, oBlood, move_type.obj, int_to_bin(item_type.kill));
+                    create_creature(a, b, oEnemy, '$', c_white, oBlood, move_type.obj, int_to_bin(item_type.kill), int_to_bin(item_type.smash));
                 }
             }
         }
@@ -188,7 +188,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 
 if !(instance_exists(oPlayer))
 {
-    create_creature(r_width/2, r_height/2, oPlayer, '@', c_white, oBlood, move_type.key, 0);
+    create_creature(r_width/2, r_height/2, oPlayer, '@', c_white, oBlood, move_type.key, 0, int_to_bin(item_type.kill));
 }
 else
 {

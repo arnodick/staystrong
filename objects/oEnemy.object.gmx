@@ -29,10 +29,8 @@
 
 if (instance_exists(oBlood) and ((abilities &amp; int_to_bin(item_type.blood)) != int_to_bin(item_type.blood)) )
 {
-    {
-        move_type = move_type.obj;
-        move_target = oBlood;
-    }
+    move_type = move_type.obj;
+    move_target = oBlood;
 }
 else if instance_exists(oPlayer)
 {
