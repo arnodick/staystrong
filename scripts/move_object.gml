@@ -1,11 +1,11 @@
 //sets a direction towards a target. returns an array with x and y direction
 //argument0[0] = x direction
 //argument0[1] = y direction
+//argument1 = target object type
 
 argument0[0] = 0;
 argument0[1] = 0;
 
-// TODO: rename this to move_at_object? or just generalize to move_coord and input x, y instead of object
 var x_pos = x, y_pos = y;
 if instance_exists(argument1)
 {
@@ -82,6 +82,7 @@ if instance_exists(argument1)
         }
     }
 }
+//if target doesn't exist, move randomly (this should never happen?)
 else
 {
     argument0 = move_rand(argument0);

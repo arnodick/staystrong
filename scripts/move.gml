@@ -1,4 +1,4 @@
-//function chooses a type of movement from input, then executes collision and relocation of instance
+//chooses a type of movement from input, then executes collision and relocation of instance
 //argument0 = you movin?
 //argument1 = the type of movement
 //argument2 = object to move towards, if applicable (if not, just put -1 or something)
@@ -20,7 +20,6 @@ if (oGame.turn == true)
                 move_dir = move_object(move_dir, argument2);
                 break;
         }
-        //var cant_move = move_collision(x + move_dir[0], y + move_dir[1]);
         if ( move_collision(x + move_dir[0], y + move_dir[1]) )
         {
             move_collided(x + move_dir[0], y + move_dir[1]);

@@ -27,20 +27,30 @@
             <kind>1</kind>
             <string>///Controller
 
-if (instance_exists(oBlood) and ((abilities &amp; int_to_bin(item_type.blood)) != int_to_bin(item_type.blood)) )
-{
-    move_type = move_type.obj;
-    move_target = oBlood;
-}
-else if instance_exists(oPlayer)
+if (instance_exists(oPlayer))
 {
     move_type = move_type.obj;
     move_target = oPlayer;
+    if (instance_exists(oBlood) and ((abilities &amp; int_to_bin(item_type.blood)) != int_to_bin(item_type.blood)) )
+    {
+        move_type = move_type.obj;
+        move_target = oBlood;
+    }
+    if (oPlayer.abilities &amp; int_to_bin(item_type.blood))
+    {
+        move_type = move_type.obj;
+        move_target = oPlayer;
+    }
 }
 else
 {
     move_type = move_type.rand;
     move_target = -1;
+    if (instance_exists(oBlood) and ((abilities &amp; int_to_bin(item_type.blood)) != int_to_bin(item_type.blood)) )
+    {
+        move_type = move_type.obj;
+        move_target = oBlood;
+    }
 }
 
 //this produce a weird zombie sort of effect where the enemies stutter

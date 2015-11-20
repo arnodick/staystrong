@@ -119,10 +119,22 @@ inst_string = "Instance # = " + string(instance_count);
 //NOTE: need this in step begin for HTML5
 //which processes instances in order of when they were created
 turn = false;
-if (key_arrows_check_pressed() or keyboard_check_pressed(vk_space))
+
+if (key_arrows_check_pressed())
 {
     turn = true;
     global.game_timer++;
+}
+if (keyboard_check_pressed(vk_space))
+{
+    if (instance_exists(oPlayer))
+    {
+        if ( (oPlayer.abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
+        {
+            turn = true;
+            global.game_timer++;
+        }
+    }
 }
 </string>
           </argument>

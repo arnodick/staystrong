@@ -8,20 +8,21 @@ enum move_type
     obj
 }
 
-//array of item colours, so they can be iterated through when determing actor's colour
-global.item_colours[0] = c_maroon;
-global.item_colours[1] = c_blue;
-global.item_colours[2] = c_red;
-
 //constants for different item types
 enum item_type
 {
     kill,
+    wait,
     smash,
     blood,
-    wait,
     invincible
 }
+
+//array of item colours, so they can be iterated through when determing actor's colour
+global.item_colours[item_type.kill] = c_maroon;
+global.item_colours[item_type.smash] = c_blue;
+global.item_colours[item_type.wait] = c_purple;
+global.item_colours[item_type.blood] = c_red;
 
 //constants for attributes of the map
 enum map_grid

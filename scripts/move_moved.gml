@@ -1,4 +1,6 @@
-//move an actor to another place
+//moves an actor to another place
+//argument0[0] = x position to move to
+//argument0[1] = y position to move to
 
 if ( (check_OOB(argument0, argument1, oGame.r_width - 2, oGame.r_height - 2) == -1) or object_index == oPlayer)
 {

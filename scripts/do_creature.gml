@@ -1,3 +1,5 @@
+//moves creatures around and checks if their abilities are to be used
+
 move(move_moving, move_type, move_target);
 
 if (abilities != 0)

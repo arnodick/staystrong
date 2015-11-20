@@ -7,7 +7,7 @@
 //argument5 = oDead
 
 var thing = instance_create(argument0, argument1, argument2);
-var spot = oGame.map[argument0, argument1];
+//var spot = oGame.map[argument0, argument1];
 
 oGame.map[argument0, argument1] = instance_create(argument0, argument1, oSpace);
 oGame.map_update[argument0, argument1] = thing;
@@ -18,8 +18,10 @@ thing.colour = thing.colour_init;
 thing.dead = argument5;
 thing.vulnerabilities = 0;
 
+/* will not destroying existing entities cause problems?
 with (spot)
 {
-    instance_destroy();
+    //instance_destroy();
 }
+*/
 return thing;
