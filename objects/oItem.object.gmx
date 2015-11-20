@@ -28,6 +28,7 @@
             <string>///Inits
 event_inherited();
 item_type = $0;
+amount = 1;
 </string>
           </argument>
         </arguments>

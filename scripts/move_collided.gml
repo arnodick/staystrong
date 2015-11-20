@@ -10,7 +10,7 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
 {
     if(cell_next != id) //don't kill yourself!
     {
-        cell_next.hp--;
+        cell_next.hp--; //kill or damage target
         if (object_index == oPlayer)
         {
             if (cell_next.object_index == oTree)
@@ -36,15 +36,6 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
             }
             */
         }
-        //puts the target's dead object in its place
-
-        //TODO: to get rid of this, use HP! in tree, if hp == 0 instance_destroy then break
-        /*
-        with (cell_next)    //destroys the target
-        {
-            instance_destroy();
-        }
-        */
     }
 }
 

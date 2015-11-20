@@ -174,7 +174,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                 {
-                    create_creature(a, b, oEnemy, '$', c_white, oBlood, move_type.obj, int_to_bin(item_type.kill), int_to_bin(item_type.smash));
+                    create_creature(a, b, oEnemy, '$', c_red, oBlood, move_type.obj, int_to_bin(item_type.kill), int_to_bin(item_type.smash));
                 }
             }
         }

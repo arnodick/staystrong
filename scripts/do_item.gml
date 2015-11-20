@@ -16,7 +16,7 @@ with(creature)
                 other.amount--;
             }
         }
-        else    //for non-blood items, just lower amount by 1
+        else if (other.item_type != item_type.rubble)   //for non-blood items, just lower amount by 1
         {
             other.amount--;
         }
@@ -60,11 +60,6 @@ switch(item_type)
 if (amount <= 0)
 {
     //TODO: figure out why this is needed
-    /*
-    if (item_type == item_type.blood)
-    {
-        oGame.map[x, y] = instance_create(x, y, oRoad);
-    }
-    */
+    oGame.map[x, y] = instance_create(x, y, oRoad);
     instance_destroy();
 }

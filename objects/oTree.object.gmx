@@ -31,6 +31,9 @@ event_inherited();
 hp = 1;
 char = '*';
 vulnerabilities = int_to_bin(item_type.smash);
+dead = oRubble;
+dead_type = item_type.rubble;
+dead_sound = sndCrash;
 
 if (oGame.room_horizontal == true)
 {
@@ -44,7 +47,6 @@ else
     val = colour_get_value(c_olive) + (irandom(100) - 50);
     colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 }
-dead = oRubble;
 
 //colour = merge_colour(colour, c_black, y/48);
 
@@ -54,7 +56,7 @@ solid = true;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -72,11 +74,7 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>///Die
-if (hp &lt;= 0)
-{
-    create_item(x, y, oItem, 'w', global.item_colours[item_type.wait], oRoad, item_type.wait);
-    instance_destroy();
-}
+check_dead(dead, dead_type);
 </string>
           </argument>
         </arguments>
