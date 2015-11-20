@@ -48,7 +48,7 @@ if instance_exists(argument1)
     if ( move_collision( x_pos + argument0[0], y_pos + argument0[1]) == true )
     {
         //and it can't be smashed/killed
-        if ( (move_collision_check(x_pos + argument0[0], y_pos + argument0[1]).object_index != oPlayer) and ((abilities & int_to_bin(item_type.smash)) !=  int_to_bin(item_type.smash)) )
+        if ( (oGame.map_update[x_pos + argument0[0], y_pos + argument0[1]].object_index != oPlayer) and ((abilities & int_to_bin(item_type.smash)) !=  int_to_bin(item_type.smash)) )
         {
             //then if perfectly diagonal to target (ie: enemy is following player only 1 step behind) then move randomly
             //NOTE: this gives you the chance to escape from enemies that are "stuck" to you, by making them bump into walls when following 1 step behind you
@@ -87,6 +87,7 @@ else
     argument0 = move_rand(argument0);
 }
 
+//TODO: put this elsewhere
 if instance_exists(oPlayer)
 {
     if (point_distance(x, y, oPlayer.x, oPlayer.y) <= 6)

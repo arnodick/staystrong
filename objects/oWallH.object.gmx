@@ -29,6 +29,7 @@
 event_inherited();
 
 char = '-';
+vulnerabilities = int_to_bin(item_type.smash);
 
 hue = colour_get_hue(c_gray) + (irandom(60) - 20);
 val = colour_get_value(c_gray) + (irandom(100) - 50);

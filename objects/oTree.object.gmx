@@ -29,6 +29,8 @@
 event_inherited();
 
 char = '*';
+vulnerabilities = int_to_bin(item_type.smash);
+
 
 if (oGame.room_horizontal == true)
 {

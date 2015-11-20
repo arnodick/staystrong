@@ -50,12 +50,9 @@ if (object_index == oPlayer)
 }
 else
 {
-    //if ( cell_next.object_index == oPlayer )
-    //{
+/*
             if ( (abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill) )
             {
-                //if global.debug == false
-                //{
                     //then kill player
                     oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
                     oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
@@ -64,10 +61,8 @@ else
                     {
                        instance_destroy();
                     }
-                //}
             }
-    //}
-    else if ( (abilities & int_to_bin(item_type.smash)) ==  int_to_bin(item_type.smash) )
+    else */if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or ((abilities & cell_next.vulnerabilities) ==  int_to_bin(item_type.smash)) )
     {
         if (cell_next.object_index != oSuperwall)
         {

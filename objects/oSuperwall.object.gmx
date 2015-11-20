@@ -29,6 +29,7 @@
 event_inherited();
 
 char = '*';
+vulnerabilities = 0;
 
 colour = c_black;
 
