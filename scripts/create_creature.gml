@@ -2,7 +2,9 @@
 
 var creature = create_thing(argument0, argument1, argument2, argument3, argument4, argument5);
 
+creature.hp = 1;
 creature.solid = true;
+creature.dead_type = item_type.blood;
 
 move_init(creature, argument6);
 creature.abilities = argument7;

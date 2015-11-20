@@ -60,9 +60,11 @@ switch(item_type)
 if (amount <= 0)
 {
     //TODO: figure out why this is needed
+    /*
     if (item_type == item_type.blood)
     {
         oGame.map[x, y] = instance_create(x, y, oRoad);
     }
+    */
     instance_destroy();
 }

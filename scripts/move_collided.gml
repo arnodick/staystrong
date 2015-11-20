@@ -10,31 +10,12 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
 {
     if(cell_next != id) //don't kill yourself!
     {
+        cell_next.hp--;
         if (object_index == oPlayer)
         {
             if (cell_next.object_index == oTree)
             {
                 oGame.smashed += 1;
-            }
-            //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-            //TODO: just put this code in the tree code, make its dead value = oExit when < 10 trees AND oExit ! exist
-            if ( (instance_number(oTree) < 40) and (cell_next.object_index == oTree) and (!instance_exists(oExit)) and ( (random(instance_number(oTree)) < 1) or (instance_number(oTree) == 1) ) )
-            {
-                oGame.map[argument0, argument1] = instance_create(argument0, argument1, oExit);
-                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
-            }
-            else
-            {
-                if ( (oGame.smashed == 1) and (cell_next.object_index == oTree) )
-                {
-                    //TODO: make this destroy cell_next!
-                    create_item(argument0, argument1, oItem, 'w', global.item_colours[item_type.wait], oRoad, item_type.wait);
-                }
-                else
-                {
-                    oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-                    oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
-                }
             }
             if (global.debug == false)
             {
@@ -45,22 +26,25 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
                 abilities = abilities ^ int_to_bin(item_type.smash);
                 colour = colour_init;
             }
+            //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
+            //TODO: just put this code in the tree code, make its dead value = oExit when < 10 trees AND oExit ! exist
+            /*
+            if ( (instance_number(oTree) < 40) and (cell_next.object_index == oTree) and (!instance_exists(oExit)) and ( (random(instance_number(oTree)) < 1) or (instance_number(oTree) == 1) ) )
+            {
+                oGame.map[argument0, argument1] = instance_create(argument0, argument1, oExit);
+                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
+            }
+            */
         }
         //puts the target's dead object in its place
-        else
-        {
-            oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_next.dead);
-            oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
-        }
-        if (!audio_is_playing(cell_next.dead_sound))
-        {
-            audio_play_sound(cell_next.dead_sound, 1, false);
-        }
+
         //TODO: to get rid of this, use HP! in tree, if hp == 0 instance_destroy then break
+        /*
         with (cell_next)    //destroys the target
         {
             instance_destroy();
         }
+        */
     }
 }
 

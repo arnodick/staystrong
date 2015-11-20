@@ -26,6 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>///Controller
+if (hp &lt;= 0)
+{
+    create_item(x, y, oBlood, '~', global.item_colours[item_type.blood], oRoad, item_type.blood);
+    instance_destroy();
+    exit;
+}
 
 if (instance_exists(oPlayer))
 {

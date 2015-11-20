@@ -18,10 +18,15 @@ enum item_type
     invincible
 }
 
+global.item_char[item_type.kill] = 'K';
+global.item_char[item_type.wait] = '!';
+global.item_char[item_type.smash] = 'w';
+global.item_char[item_type.blood] = '~';
+
 //array of item colours, so they can be iterated through when determing actor's colour
 global.item_colours[item_type.kill] = c_maroon;
-global.item_colours[item_type.smash] = c_blue;
 global.item_colours[item_type.wait] = c_purple;
+global.item_colours[item_type.smash] = c_blue;
 global.item_colours[item_type.blood] = c_red;
 
 //constants for attributes of the map
