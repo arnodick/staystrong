@@ -31,7 +31,6 @@ event_inherited();
 char = '*';
 vulnerabilities = int_to_bin(item_type.smash);
 
-
 if (oGame.room_horizontal == true)
 {
     hue = colour_get_hue(c_purple) + (irandom(60) - 20);
