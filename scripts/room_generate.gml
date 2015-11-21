@@ -165,8 +165,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                 {
-                    //create_thing(a, b, oSmash, '!', c_blue, oRoad);
-                    create_item(a, b, oItem, '!', global.item_colours[item_type.smash], oRoad, item_type.smash);
+                    create_item(a, b, oItem, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash);
                 }
             }
             //place enemies in map TODO: do i need arrays for this?
@@ -174,7 +173,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                 {
-                    create_creature(a, b, oEnemy, '$', c_red, oBlood, move_type.obj, int_to_bin(item_type.kill), int_to_bin(item_type.smash));
+                    create_creature(a, b, oEnemy, '$', c_red, 1, oBlood, sndDeath, int_to_bin(item_type.kill), int_to_bin(item_type.smash), move_type.obj);
                 }
             }
         }
@@ -188,7 +187,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 
 if !(instance_exists(oPlayer))
 {
-    create_creature(r_width/2, r_height/2, oPlayer, '@', c_white, oBlood, move_type.key, 0, int_to_bin(item_type.kill));
+    create_creature(r_width/2, r_height/2, oPlayer, '@', c_white, 1, oBlood, sndDeath, 0, int_to_bin(item_type.kill), move_type.key);
 }
 else
 {

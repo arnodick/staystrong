@@ -4,7 +4,7 @@
 
 if (hp <= 0)
 {
-    create_item(x, y, argument0, global.item_char[argument1], global.item_colours[argument1], oRoad, argument1);
+    create_item(x, y, argument0, global.item_char[argument1], global.item_colours[argument1], 1, oRoad, sndPickup, argument1);
     if (!audio_is_playing(dead_sound))
     {
         audio_play_sound(dead_sound, 1, false);
