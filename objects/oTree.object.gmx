@@ -31,7 +31,7 @@ event_inherited();
 hp = 1;
 char = '*';
 vulnerabilities = int_to_bin(item_type.smash);
-dead = oRubble;
+drop = oRubble;
 dead_type = item_type.rubble;
 dead_sound = sndCrash;
 
@@ -74,7 +74,7 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>///Die
-check_dead(dead, dead_type);
+check_dead(drop, dead_type);
 </string>
           </argument>
         </arguments>

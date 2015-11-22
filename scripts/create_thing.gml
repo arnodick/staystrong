@@ -18,7 +18,6 @@ thing.colour_init = argument4;
 thing.colour = thing.colour_init;
 thing.hp = argument5;
 thing.drop = argument6;
-thing.dead = argument6; //TODO: get rid of this
 thing.dead_sound = -1;
 thing.abilities = 0;
 thing.vulnerabilities = 0;

@@ -13,5 +13,5 @@ map[argument0, argument1] = thing;
 thing.char = argument3;
 thing.colour_init = argument4;
 thing.colour = argument4;//merge_colour(argument4, c_black, y/oGame.r_height);
-thing.dead = argument5;
+thing.drop = argument5;
 return thing;
