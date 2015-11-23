@@ -26,23 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>///Attributes
-event_inherited();
 
-char = '~';
-colour = global.item_colours[item_type.blood];
-item_type = item_type.blood;
-
+//NOTE: this code doesn't work right now because of way create_item works
 if instance_exists(oEnemy)
 {
-    amount = instance_number(oEnemy);
-    if amount &gt; 1
+    hp = instance_number(oEnemy);
+    if hp &gt; 1
     {
-        amount -= 1;
+        hp -= 1;
     }
 }
 else
 {
-    amount = 2;
+    hp = 2;
 }
 </string>
           </argument>
@@ -67,8 +63,7 @@ else
           <argument>
             <kind>1</kind>
             <string>///Spread blood
-// TODO: put a timer on this, so it's not calculating random numbers every step. more efficient
-event_inherited();
+do_item();
 </string>
           </argument>
         </arguments>
