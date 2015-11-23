@@ -183,6 +183,14 @@ if (!instance_exists(oPlayer) )
         background_colour = c_maroon;
         create_message(10, 10, "U DIDN'T MAKE IT#PRESS ENTER");
     }
+    else if (oScreen.alpha &gt;= 1)
+    {
+        background_colour = c_black;
+    }
+    else
+    {
+        oScreen.alpha += 0.05;
+    }
     if keyboard_check_pressed(vk_enter)
     {
         audio_stop_all();
