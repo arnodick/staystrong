@@ -14,8 +14,15 @@
     <sound>sound\sndPickup</sound>
     <sound>sound\sndAlert</sound>
     <sound>sound\sndThump</sound>
+    <sound>sound\splat1</sound>
+    <sound>sound\splat2</sound>
+    <sound>sound\splat3</sound>
+    <sound>sound\splat4</sound>
+    <sound>sound\splat5</sound>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprite0</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -38,6 +45,7 @@
       <script>scripts\create_item.gml</script>
       <script>scripts\create_creature.gml</script>
       <script>scripts\create_message.gml</script>
+      <script>scripts\create_blood_splash.gml</script>
     </scripts>
     <scripts name="Dos">
       <script>scripts\do_creature.gml</script>
@@ -101,6 +109,7 @@
     <object>objects\oRubble</object>
     <object>objects\oExit</object>
     <object>objects\oMessage</object>
+    <object>objects\oSprite</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rStart</room>

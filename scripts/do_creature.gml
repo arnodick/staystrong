@@ -26,7 +26,7 @@ if (abilities != 0)
             if (bloody_timer < 1)
             {
                 abilities = abilities ^ int_to_bin(item_type.blood);
-                bloody_timer = bloody_timer_init;
+                bloody_timer = choose(4, 11, 12);
             }
         }
     }

@@ -12,7 +12,13 @@ with(creature)
         {
             if ( (abilities & int_to_bin(other.item_type)) !=  int_to_bin(other.item_type))
             {
+                create_blood_splash();
                 other.hp--;
+                var sound = choose(splat1, splat2, splat3, splat4, splat5);
+                if (!audio_is_playing(sound))
+                {
+                    sound = audio_play_sound(sound, 1, false);
+                }
             }
         }
         else if (other.item_type != item_type.rubble)   //for non-blood items, just lower hp by 1

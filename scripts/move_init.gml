@@ -9,5 +9,5 @@ argument0.move_distance = 1;  // how far it moves per step. could this be someth
 argument0.move_dir[0] = 0;    //just arrays for hor and ver move direction
 argument0.move_dir[1] = 0;
 
-argument0.bloody_timer_init = 12;
+argument0.bloody_timer_init = choose(4, 11, 12);
 argument0.bloody_timer = argument0.bloody_timer_init;

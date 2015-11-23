@@ -40,6 +40,9 @@ window_top = window_centre[1] - window_height;
 window_bot = window_centre[1] + window_height;
 
 //parent = 0;
+
+alpha[0] = 0;
+alpha[1] = 0;
 </string>
           </argument>
         </arguments>
@@ -80,6 +83,28 @@ if (!instance_exists(parent))
     instance_destroy();
 }
 */
+alpha[1] = ( abs((cos(alpha[0]))) ) ;
+
+if (alpha[1] &gt; 0.8)
+{
+    alpha[0] += 0.008; 
+}
+else if (alpha[1] &gt; 0.55)
+{
+    alpha[0] += 0.02;
+}
+else if (alpha[1] &gt; 0.3)
+{
+    alpha[0] += 0.0125;
+}
+else if (alpha[1] &gt; 0.05)
+{
+    alpha[0] += 0.005;   
+}
+else
+{
+    alpha[0] += 0.001;   
+}
 </string>
           </argument>
         </arguments>
@@ -104,12 +129,14 @@ if (!instance_exists(parent))
             <kind>1</kind>
             <string>///Draw message
 draw_set_halign(fa_center);
-draw_set_alpha(0.6);
+draw_set_alpha(alpha[1]);
 draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
+draw_text_colour(window_centre[0], window_centre[1] - 10, message_string, c_white, c_white, c_white, c_white, alpha[1]);
 draw_set_alpha(1);
-draw_text_colour(window_centre[0], window_centre[1] - 10, message_string, c_white, c_white, c_white, c_white, 1);
 draw_set_halign(fa_left); //NOTE: remove this to make the screen actually shift when the tells you to shift things around
+
+
 </string>
           </argument>
         </arguments>
