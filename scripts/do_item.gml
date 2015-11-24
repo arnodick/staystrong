@@ -17,7 +17,8 @@ with(creature)
                 var sound = choose(splat1, splat2, splat3, splat4, splat5);
                 if (!audio_is_playing(sound))
                 {
-                    sound = audio_play_sound(sound, 1, false);
+                    //sound = audio_play_sound(sound, 1, false);
+                    sound = audio_play_sound_at(sound, x, y, 0, 1, 2, 1, false, 1);
                 }
             }
         }

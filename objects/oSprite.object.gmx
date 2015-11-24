@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Destroy
-instance_destroy();
+//instance_destroy();
+//var w = 0;
 </string>
           </argument>
         </arguments>
@@ -60,6 +61,7 @@ else
     hspeed = 0;
     vspeed = 0;
     speed = 0;
+    depth = 0;
 }
 </string>
           </argument>

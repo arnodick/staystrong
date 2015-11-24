@@ -1,3 +1,10 @@
+if (instance_exists(oSprite))
+{
+    with (oSprite)
+    {
+        instance_destroy();
+    }
+}
 for (a = 0; a < 8; a++)
 {
     sprite = instance_create((x * map_grid.tile_size) + map_grid.tile_size/2, (y * map_grid.tile_size) + map_grid.tile_size/2, oSprite);

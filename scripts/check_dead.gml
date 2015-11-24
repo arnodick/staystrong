@@ -4,10 +4,11 @@
 
 if (hp <= 0)
 {
-    var drop = create_item(x, y, argument0, global.item_char[argument1], global.item_colours[argument1], 1, oRoad, sndPickup, argument1);
+    var drop = create_item(x, y, argument0, global.item_char[argument1], global.item_colours[argument1], choose(1, 2), oRoad, sndPickup, argument1);
     if (!audio_is_playing(dead_sound))
     {
-        audio_play_sound(dead_sound, 1, false);
+        //audio_play_sound(dead_sound, 1, false);
+        sound = audio_play_sound_at(dead_sound, x, y, 0, 1, 2, 0.5, false, 1);
     }
     instance_destroy();
     exit;

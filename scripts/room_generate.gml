@@ -7,6 +7,10 @@ with(oThing)    // destroys all the oThings in the room except the player
         instance_destroy();
     }
 }
+with (oSprite)
+{
+    instance_destroy();
+}
 
 //sets amount of enemies
 var enemy_count = 2;    //default 2 enemies
