@@ -4,7 +4,7 @@
 //      if you leave the room on x axis, it doesn't change your y pos, so you can end up "off the grid" so to speak
 if instance_exists(oPlayer)
 {
-    var side = check_OOB(oPlayer.x, oPlayer.y, r_width - 2, r_height - 2);
+    var side = check_OOB(oPlayer.x, oPlayer.y, 1, 1, r_width - 2, r_height - 2);
     switch(side)
     {
         case -2:

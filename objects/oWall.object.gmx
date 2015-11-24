@@ -65,7 +65,7 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>///Die
-check_dead(drop, dead_type);
+check_dead(hp, drop, dead_type);
 </string>
           </argument>
         </arguments>

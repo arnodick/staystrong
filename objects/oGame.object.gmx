@@ -98,6 +98,35 @@ inst_string = "Instance # = " + string(instance_count);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bodies get eaten
+with (oBlood)
+{
+    oGame.map[x, y] = instance_create(x, y, oRoad);
+    oGame.map_update[x, y] = instance_create(x, y, oRoad);
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
@@ -195,6 +224,18 @@ if (!instance_exists(oPlayer) )
     {
         audio_stop_all();
         room_restart();
+    }
+    if (!instance_exists(oBlood))
+    {
+        with (oEnemy)
+        {
+            if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
+            {
+                oGame.map[x, y] = instance_create(x, y, oRoad);
+                oGame.map_update[x, y] = instance_create(x, y, oRoad);
+                instance_destroy();
+            }
+        }
     }
 }
 else

@@ -48,14 +48,14 @@
       <script>scripts\create_message.gml</script>
       <script>scripts\create_blood_splash.gml</script>
     </scripts>
-    <scripts name="Dos">
-      <script>scripts\do_creature.gml</script>
-      <script>scripts\do_item.gml</script>
-    </scripts>
     <scripts name="Checks">
       <script>scripts\check_OOB.gml</script>
       <script>scripts\check_room_change.gml</script>
       <script>scripts\check_dead.gml</script>
+    </scripts>
+    <scripts name="Dos">
+      <script>scripts\do_creature.gml</script>
+      <script>scripts\do_item.gml</script>
     </scripts>
     <scripts name="Controls">
       <script>scripts\key_arrows_check.gml</script>
