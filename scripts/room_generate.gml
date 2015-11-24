@@ -153,7 +153,8 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     }
                     else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
-                        map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
+                        //map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
+                        create_object( a, b, oWall, true, 'I', c_dkgray, 2, oRubble, sndCrash, 0, int_to_bin(item_type.smash) );
                     }
                     else
                     {
