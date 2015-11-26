@@ -25,6 +25,7 @@ with(creature)
         else if (other.item_type != item_type.rubble)   //for non-blood items, just lower hp by 1
         {
             other.hp--;
+            audio_play_sound(other.dead_sound, 1, false);
         }
         abilities = abilities | int_to_bin(other.item_type);    //gives actor item's ability
         colour = global.item_colours[other.item_type];  //changes actor's colour to item's colour
@@ -37,7 +38,6 @@ switch(item_type)
     case item_type.smash:
         if (picked_up == true)
         {
-            audio_play_sound(sndPickup, 1, false);  //TODO: make sound a variable of item 
             if (creature.object_index == oPlayer)
             {
                 oPlayer.smashes += 1;
