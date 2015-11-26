@@ -162,7 +162,8 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     }
                     break;
                 default:    //any other room, generate trees like normal
-                    map[a, b] = instance_create(a, b, choose(oRoad, oTree, oSpace) );
+                    //map[a, b] = instance_create(a, b, choose(oRoad, oTree, oSpace) );
+                    map[a, b] = create_object(a, b, choose("road", "tree", "space") );
                     break;
             }
             //place smashes in room TODO: do i need arrays for this?

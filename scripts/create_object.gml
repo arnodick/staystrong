@@ -24,7 +24,11 @@ if (argument_count == 3)
     var char3 = ini_read_string(argument[2], 'char3', char1);
     var char4 = ini_read_string(argument[2], 'char4', char1);
     var char5 = ini_read_string(argument[2], 'char5', char1);
-    var colour = ini_read_real(argument[2], 'colour', 0);
+    var colour1 = ini_read_real(argument[2], 'colour1', 255);
+    var colour2 = ini_read_real(argument[2], 'colour2', colour1);
+    var colour3 = ini_read_real(argument[2], 'colour3', colour1);
+    var colour4 = ini_read_real(argument[2], 'colour4', colour1);
+    var colour5 = ini_read_real(argument[2], 'colour5', colour1);
     var hp1 = ini_read_real(argument[2], 'hp1', 1);
     var hp2 = ini_read_real(argument[2], 'hp2', hp1);
     var hp3 = ini_read_real(argument[2], 'hp3', hp1);
@@ -50,7 +54,12 @@ if (argument_count == 3)
     }
     ini_close();
     
-    object = create_thing(argument[0], argument[1], object_type, choose(char1, char2, char3, char4, char5), colour, choose(hp1, hp2, hp3), choose(drop1, drop2, drop3, drop4, drop5));
+    object = create_thing(argument[0], argument[1], object_type, 
+        choose(char1, char2, char3, char4, char5), 
+        choose(colour1, colour2, colour3, colour4, colour5), 
+        choose(hp1, hp2, hp3), 
+        choose(drop1, drop2, drop3, drop4, drop5)
+        );
     
     object.solid = solidity;
     object.dead_sound = choose(dead_sound1, dead_sound2, dead_sound3, dead_sound4, dead_sound5);
@@ -72,4 +81,5 @@ else
     oGame.map[argument[0], argument[1]] = object;
     oGame.map_update[argument[0], argument[1]] = object;
 }
+//TODO: MAKE A DEFAULT VALUE AT END OF FUNCTION IF object == -1
 return object;

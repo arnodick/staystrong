@@ -33,6 +33,7 @@ if !(instance_exists(oScreen))
 
 //TODO: make left alignment unnecessary
 draw_set_halign(fa_left);
+randomize();
 
 global.game_timer = 1;
 global.final_score = 0;
@@ -93,6 +94,10 @@ fps_string = "FPS = " + string(round(fps_real));
 debug_colour = c_white;
 
 inst_string = "Instance # = " + string(instance_count);
+
+var hue = colour_get_hue(c_olive) + (irandom(60) - 20);
+var val = colour_get_value(c_olive) + (irandom(100) - 50);
+colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 </string>
           </argument>
         </arguments>
@@ -419,7 +424,7 @@ if (global.debug == true)
     draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw player's abilities
-    draw_text_ext_colour(10, 100, string(make_colour_rgb(120, 75, 0)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 100, string(colour), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
     //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
