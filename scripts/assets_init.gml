@@ -30,7 +30,7 @@ global.item_colours[item_type.kill] = c_maroon;
 global.item_colours[item_type.wait] = c_purple;
 global.item_colours[item_type.smash] = c_blue;
 global.item_colours[item_type.blood] = c_red;
-global.item_colours[item_type.rubble] = make_colour_rgb(120, 75, 0);;
+global.item_colours[item_type.rubble] = make_colour_rgb(120, 75, 0);
 
 //constants for attributes of the map
 enum map_grid

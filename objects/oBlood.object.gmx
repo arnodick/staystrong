@@ -28,6 +28,7 @@
             <string>///Attributes
 dead_type = 0;
 //NOTE: this code doesn't work right now because of way create_item works
+/*
 if instance_exists(oEnemy)
 {
     hp = instance_number(oEnemy);
@@ -40,6 +41,7 @@ else
 {
     hp = 2;
 }
+*/
 </string>
           </argument>
         </arguments>

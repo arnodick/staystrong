@@ -154,7 +154,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
                         //map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
-                        create_object( a, b, oWall, true, 'I', c_dkgray, 2, oRubble, sndCrash, 0, int_to_bin(item_type.smash) );
+                        create_object( a, b, oWall, true, 'I', c_dkgray, 1, 'rubble', sndCrash, 0, int_to_bin(item_type.smash) );
                     }
                     else
                     {
@@ -170,7 +170,9 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                 {
-                    create_item(a, b, oItem, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash);
+                    //create_item(a, b, oItem, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash);
+                    //create_object( a, b, oItem, false, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash, 0 );
+                    create_object( a, b, "smash");
                 }
             }
             //place enemies in map TODO: do i need arrays for this?
@@ -178,7 +180,8 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                 {
-                    create_creature(a, b, oEnemy, '$', c_red, 1, oBlood, sndDeath, int_to_bin(item_type.kill), int_to_bin(item_type.smash), move_type.obj);
+                    //create_creature(a, b, oEnemy, true, '$', c_red, 1, oBlood, sndDeath, int_to_bin(item_type.kill), int_to_bin(item_type.smash), move_type.obj);
+                    create_creature(a, b, "fly");
                 }
             }
         }
@@ -192,7 +195,8 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 
 if !(instance_exists(oPlayer))
 {
-    create_creature(r_width/2, r_height/2, oPlayer, '@', c_white, 1, oBlood, sndDeath, 0, int_to_bin(item_type.kill), move_type.key);
+    //create_creature(r_width/2, r_height/2, oPlayer, true, '@', c_white, 1, oBlood, sndDeath, 0, int_to_bin(item_type.kill), move_type.key);
+    create_creature(r_width/2, r_height/2, "player");
 }
 else
 {
