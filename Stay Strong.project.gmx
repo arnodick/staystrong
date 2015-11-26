@@ -76,7 +76,6 @@
     </scripts>
     <scripts name="Creates">
       <script>scripts\create_thing.gml</script>
-      <script>scripts\create_terrain.gml</script>
       <script>scripts\create_object.gml</script>
       <script>scripts\create_creature.gml</script>
       <script>scripts\create_message.gml</script>

@@ -32,7 +32,6 @@ hp = 1;
 char = '*';
 vulnerabilities = int_to_bin(item_type.smash);
 drop = "smash";
-dead_type = item_type.rubble;
 dead_sound = sndCrash;
 
 if (oGame.room_horizontal == true)
@@ -74,7 +73,6 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>///Die
-//check_dead(hp, drop, dead_type);
 check_dead(hp);
 </string>
           </argument>

@@ -26,14 +26,18 @@ if (argument_count == 3)
     var char5 = ini_read_string(argument[2], 'char5', char1);
     var colour = ini_read_real(argument[2], 'colour', 0);
     var hp1 = ini_read_real(argument[2], 'hp1', 1);
-    var hp2 = ini_read_real(argument[2], 'hp2', 1);
-    var hp3 = ini_read_real(argument[2], 'hp3', 1);
-    var drop = ini_read_string(argument[2], 'drop', 'blood');
+    var hp2 = ini_read_real(argument[2], 'hp2', hp1);
+    var hp3 = ini_read_real(argument[2], 'hp3', hp1);
+    var drop1 = ini_read_string(argument[2], 'drop1', 'blood');
+    var drop2 = ini_read_string(argument[2], 'drop2', drop1);
+    var drop3 = ini_read_string(argument[2], 'drop3', drop1);
+    var drop4 = ini_read_string(argument[2], 'drop4', drop1);
+    var drop5 = ini_read_string(argument[2], 'drop5', drop1);
     var dead_sound1 = ini_read_real(argument[2], 'dead_sound1', -1);
-    var dead_sound2 = ini_read_real(argument[2], 'dead_sound2', -1);
-    var dead_sound3 = ini_read_real(argument[2], 'dead_sound3', -1);
-    var dead_sound4 = ini_read_real(argument[2], 'dead_sound4', -1);
-    var dead_sound5 = ini_read_real(argument[2], 'dead_sound5', -1);
+    var dead_sound2 = ini_read_real(argument[2], 'dead_sound2', dead_sound1);
+    var dead_sound3 = ini_read_real(argument[2], 'dead_sound3', dead_sound1);
+    var dead_sound4 = ini_read_real(argument[2], 'dead_sound4', dead_sound1);
+    var dead_sound5 = ini_read_real(argument[2], 'dead_sound5', dead_sound1);
     var item_type = ini_read_real(argument[2], 'item_type', 0);
     var vulnerabilities = ini_read_real(argument[2], 'vulnerabilities', 0);
     if (vulnerabilities == -1)
@@ -46,7 +50,7 @@ if (argument_count == 3)
     }
     ini_close();
     
-    object = create_thing(argument[0], argument[1], object_type, choose(char1, char2, char3, char4, char5), colour, choose(hp1, hp2, hp3), drop);
+    object = create_thing(argument[0], argument[1], object_type, choose(char1, char2, char3, char4, char5), colour, choose(hp1, hp2, hp3), choose(drop1, drop2, drop3, drop4, drop5));
     
     object.solid = solidity;
     object.dead_sound = choose(dead_sound1, dead_sound2, dead_sound3, dead_sound4, dead_sound5);

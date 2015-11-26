@@ -1,7 +1,6 @@
 //kills an object when it has 0 HP, creating its drop item, and exiting its event immediately
 //argument0 = hp
-//argument1 = oObject index to create
-//argument2 = item_type to create. (input is usually dead_type)
+//argument1 = string of object ot load from ini file
 
 if (argument0 <= 0)
 {

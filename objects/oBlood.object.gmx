@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Attributes
-dead_type = 0;
 //NOTE: this code doesn't work right now because of way create_item works
 /*
 if instance_exists(oEnemy)

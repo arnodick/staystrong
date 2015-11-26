@@ -48,12 +48,7 @@ if (argument_count == 3)
     creature.vulnerabilities = int_to_bin(vulnerabilities);
     move_init(creature, move_type);
     
-    //creature.solid = true;
-    
     oGame.map_update[argument[0], argument[1]] = creature;
-    
-    //TODO: either get rid of this or integrate it properly
-    creature.dead_type = item_type.blood; //do we need this?
 }
 else
 {
@@ -65,11 +60,6 @@ else
     creature.vulnerabilities = argument[10];
     move_init(creature, argument[11]);
     
-    //creature.solid = true;
-    
     oGame.map_update[argument[0], argument[1]] = creature;
-    
-    //TODO: either get rid of this or integrate it properly
-    creature.dead_type = item_type.blood; //do we need this?
 }
 return creature;
