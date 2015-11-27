@@ -97,7 +97,7 @@ inst_string = "Instance # = " + string(instance_count);
 
 var hue = colour_get_hue(c_olive) + (irandom(60) - 20);
 var val = colour_get_value(c_olive) + (irandom(100) - 50);
-colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
+colour = make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colour_get_saturation(c_green), (colour_get_value(c_green) + (irandom(60) - 30)) )
 </string>
           </argument>
         </arguments>
@@ -123,8 +123,7 @@ colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
             <string>///Bodies get eaten
 with (oBlood)
 {
-    oGame.map[x, y] = instance_create(x, y, oRoad);
-    oGame.map_update[x, y] = instance_create(x, y, oRoad);
+    create_object(x, y, "road");
     instance_destroy();
 }
 </string>
@@ -236,8 +235,7 @@ if (!instance_exists(oPlayer) )
         {
             if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
             {
-                oGame.map[x, y] = instance_create(x, y, oRoad);
-                oGame.map_update[x, y] = instance_create(x, y, oRoad);
+                create_object(x, y, "road");
                 instance_destroy();
             }
         }
@@ -424,7 +422,7 @@ if (global.debug == true)
     draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw player's abilities
-    draw_text_ext_colour(10, 100, string(c_dkgray), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 100, string(colour), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
     //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);

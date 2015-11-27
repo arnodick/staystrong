@@ -65,7 +65,8 @@ switch(item_type)
 //make used up items disappear
 if (hp <= 0)
 {
-    //TODO: figure out why this is needed
-    oGame.map[x, y] = instance_create(x, y, oRoad);
+    create_object(x, y, "road");
     instance_destroy();
+    //NOTE: kind of hacky but easiest way to get rid of instance_create and dependance on oObjects
+    oGame.map_update[x, y] = creature;
 }

@@ -54,13 +54,16 @@ colour = c_gray;
           <argument>
             <kind>1</kind>
             <string>///Grass stomp
+//TODO: put this in do_item
 var destroy = false;
-with (instance_nearest(x, y, oCreature))
+var creature = instance_nearest(x, y, oCreature);
+with (creature)
 {
     if ( (x == other.x) and (y == other.y) )
     {
-        oGame.map[x, y] = instance_create(x, y, oStamped);
         audio_play_sound(sndSwish, 1, false);
+        create_object(x, y, "stamped");
+        oGame.map_update[x, y] = creature;
         destroy = true;
     }
 }

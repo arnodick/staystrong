@@ -118,13 +118,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             switch(oGame.room_count)    // specific actions for each room
             {
                 case -1:    //winner's room (makes green grass everywhere)
-                    map[a, b] = room_generate_terrain(
-                        a, 
-                        b, 
-                        oGrass, 
-                        '/', 
-                        ( make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colour_get_saturation(c_green), (colour_get_value(c_green) + (irandom(60) - 30)) ) ), 
-                        oRubble);
+                    create_object(a, b, "grass_green");
                     break;
                 case 0: //first room TODO: make this load from map
                     if      ( a == ( floor(r_width/2) - 2 ) )
@@ -153,18 +147,14 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     }
                     else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
-                        //map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
-                        //create_object( a, b, oWall, true, 'I', c_dkgray, 1, 'rubble', sndCrash, 0, int_to_bin(item_type.smash) );
                         create_object( a, b, "pillar");
                     }
                     else
                     {
-                        //map[a, b] = instance_create( a, b, choose(oRoad, oGrass, oSpace) );
-                        create_object( a, b, choose("road", "grass", "space") );
+                        create_object( a, b, choose("road", "grass_green", "space") );
                     }
                     break;
                 default:    //any other room, generate trees like normal
-                    //map[a, b] = instance_create(a, b, choose(oRoad, oTree, oSpace) );
                     create_object(a, b, choose("road", "tree", "space") );
                     break;
             }
@@ -173,8 +163,6 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == smashes_pos[q, 0] and b == smashes_pos[q, 1])
                 {
-                    //create_item(a, b, oItem, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash);
-                    //create_object( a, b, oItem, false, '!', global.item_colours[item_type.smash], 1, oRoad, sndPickup, item_type.smash, 0 );
                     create_object( a, b, "smash");
                 }
             }
@@ -183,7 +171,6 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
             {
                 if (a == enemy_pos[k, 0] and b == enemy_pos[k, 1])
                 {
-                    //create_creature(a, b, oEnemy, true, '$', c_red, 1, oBlood, sndDeath, int_to_bin(item_type.kill), int_to_bin(item_type.smash), move_type.obj);
                     create_creature(a, b, "fly");
                 }
             }
@@ -198,7 +185,6 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 
 if !(instance_exists(oPlayer))
 {
-    //create_creature(r_width/2, r_height/2, oPlayer, true, '@', c_white, 1, oBlood, sndDeath, 0, int_to_bin(item_type.kill), move_type.key);
     create_creature(r_width/2, r_height/2, "player");
 }
 else
@@ -223,7 +209,7 @@ if instance_exists(oTree)
         //get x and y coords of tree we're going to replace w rubble
         var tree_x = temp_tree.x, tree_y = temp_tree.y;
         //put rubble in tree's position on map + map_update
-        map[tree_x, tree_y] = instance_create(tree_x, tree_y, oRubble);
+        map[tree_x, tree_y] = create_object(tree_x, tree_y, "rubble");
         map_update[tree_x, tree_y] = map[tree_x, tree_y];
         //destroy the tree that was replaced
         with(tree[tree_rand])   //  BUG: this causes the game to crash when it randomly selects a tree that's already been destroyed
@@ -244,16 +230,4 @@ if (oGame.room_count == -1) //if in win room, set win to true TODO: do this some
 }
 
 oGame.room_count += 1;  // increment room count (this is 1 higher than actual CURRENT room?)
-                                                                // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
-                                                                
-//map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
-//TODO: here is where you can put in creatures!
-//have list of possible objects
-//  0 = nothing
-//  1 = player
-//  2 = npc etc.
-// array init to 0
-// put creatures in cell ie: [a,b] = npc
-// loop through each cell
-// if 0 then map_update[a,b] = map[a,b]
-// else map_update[a,b] = instance_create npc (2)
+// NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
