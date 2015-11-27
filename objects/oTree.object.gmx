@@ -30,7 +30,7 @@ event_inherited();
 
 hp = 1;
 char = '*';
-vulnerabilities = int_to_bin(item_type.smash);
+//vulnerabilities = int_to_bin(item_type.smash);
 drop = "smash";
 dead_sound = sndCrash;
 

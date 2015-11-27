@@ -15,10 +15,12 @@ if (abilities != 0)
         }
         colour = global.item_colours[item_type.blood];
         cell.colour = merge_colour(c_black, global.item_colours[item_type.blood], colour_blend_amount);
-        if (cell.char == ' ')
+        /*
+        if (cell.char == " ")
         {
             cell.char = '.';
         }
+        */
         //if a turn is happening, get less bloody
         if ( oGame.turn == true )
         {

@@ -43,7 +43,7 @@ if (argument_count == 3)
     var dead_sound4 = ini_read_real(argument[2], 'dead_sound4', dead_sound1);
     var dead_sound5 = ini_read_real(argument[2], 'dead_sound5', dead_sound1);
     var item_type = ini_read_real(argument[2], 'item_type', 0);
-    var vulnerabilities = ini_read_real(argument[2], 'vulnerabilities', 0);
+    var vulnerabilities = ini_read_real(argument[2], 'vulnerabilities', 2);
     if (vulnerabilities == -1)
     {
         vulnerabilities = 0;

@@ -129,41 +129,43 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                 case 0: //first room TODO: make this load from map
                     if      ( a == ( floor(r_width/2) - 2 ) )
                     {
-                        map[a, b] =  instance_create(a, b, oSpace);
+                        create_object(a, b, "space");
                     }
                     else if ( a == (floor(r_width/2) - 1) )
                     {
-                        map[a, b] =  instance_create(a, b, oRoad);
+                        create_object(a, b, "road");
                     }
                     else if ( a == (floor(r_width/2)    ) )
                     {
-                        map[a, b] =  instance_create(a, b, oSpace);
+                        create_object(a, b, "space");
                     }
                     else if ( b == ( floor(r_height/2) - 2 ) )
                     {
-                        map[a, b] =  instance_create(a, b, oSpace);
+                        create_object(a, b, "space");
                     }
                     else if ( b == (floor(r_height/2) - 1) )
                     {
-                        map[a, b] =  instance_create(a, b, oRoad);
+                        create_object(a, b, "road");
                     }
                     else if ( b == (floor(r_height/2)    ) )
                     {
-                        map[a, b] =  instance_create(a, b, oSpace);
+                        create_object(a, b, "space");
                     }
                     else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
                         //map[a, b] = room_generate_terrain(a, b, oWall, 'I', c_dkgray, oRubble);
-                        create_object( a, b, oWall, true, 'I', c_dkgray, 1, 'rubble', sndCrash, 0, int_to_bin(item_type.smash) );
+                        //create_object( a, b, oWall, true, 'I', c_dkgray, 1, 'rubble', sndCrash, 0, int_to_bin(item_type.smash) );
+                        create_object( a, b, "pillar");
                     }
                     else
                     {
-                        map[a, b] = instance_create( a, b, choose(oRoad, oGrass, oSpace) );
+                        //map[a, b] = instance_create( a, b, choose(oRoad, oGrass, oSpace) );
+                        create_object( a, b, choose("road", "grass", "space") );
                     }
                     break;
                 default:    //any other room, generate trees like normal
                     //map[a, b] = instance_create(a, b, choose(oRoad, oTree, oSpace) );
-                    map[a, b] = create_object(a, b, choose("road", "tree", "space") );
+                    create_object(a, b, choose("road", "tree", "space") );
                     break;
             }
             //place smashes in room TODO: do i need arrays for this?

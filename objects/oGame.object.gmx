@@ -424,7 +424,7 @@ if (global.debug == true)
     draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw player's abilities
-    draw_text_ext_colour(10, 100, string(c_purple), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 100, string(c_dkgray), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
     //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
