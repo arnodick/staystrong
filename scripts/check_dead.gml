@@ -4,7 +4,6 @@
 
 if (argument0 <= 0)
 {
-    //var drop = create_item(x, y, argument1, global.item_char[argument2], global.item_colours[argument2], choose(1, 2), oRoad, sndPickup, argument2);
     var dropped = create_object(x, y, drop);
     if (!audio_is_playing(dead_sound))
     {

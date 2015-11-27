@@ -306,7 +306,7 @@ if (global.debug == true)
     }
     smashed_string = "Trees Smashed = " + string(smashed);
     trees_string = "Trees \# = " + string(instance_number(oTree));
-    rubble_string = "Rubble \# = " + string(instance_number(oRubble));
+    //rubble_string = "Rubble \# = " + string(instance_number(oRubble));
     if (instance_exists(oPlayer))
     {
         item_string = "Abilities = " + string(oPlayer.abilities);
@@ -413,7 +413,7 @@ if (global.debug == true)
     draw_text_ext_colour(10, 60, trees_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //draw player's abilities
     draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
