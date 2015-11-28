@@ -134,6 +134,7 @@
     <object>objects\oTerrain</object>
     <object>objects\oTree</object>
     <object>objects\oGrass</object>
+    <object>objects\oZap</object>
     <object>objects\oExit</object>
     <object>objects\oMessage</object>
     <object>objects\oSprite</object>

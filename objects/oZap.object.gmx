@@ -25,17 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attributes
-//TODO: make init_player and do_player functions
-smashes = 0;
-
-audio_listener_orientation(0,1,0,0,0,1);
+            <string>///Death timer start
+alarm[0] = room_speed/3;
+move_moving = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="1">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,32 +50,44 @@ audio_listener_orientation(0,1,0,0,0,1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controls
-//NOTE: need this in step begin for HTML5
-//which processes instances in order of when they were created
-
-//TODO: put all do_x functions in oGame? just write: with oPlayer do_player
-//with oCreature do_Creature, etc. that way can explicitly determine instance ordering
-
-
-if ( (keyboard_check(vk_space)) and ((abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait)) )
+            <string>///Destroy self
+instance_destroy();
+if ( (abilities &amp; int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
 {
-    move_moving = false;
-    abilities = abilities ^ int_to_bin(item_type.wait);
-    zap = true;
+    oGame.map [x, y] = create_object(x, y, "smash");
 }
-else
+if ( (abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
 {
-    move_moving = true;
+    oGame.map [x, y] = create_object(x, y, "wait");
 }
-audio_listener_position(x, y, 0);
-do_creature();
 
-//colour = merge_colour(colour_init, c_black, y/48);
-/*  
-    code for getting drugged. doesn't always show a character though
-    not sure if bc some chars not mapped in font, or problem with char array
-*/
+oGame.map_update[x, y] = oGame.map[x, y];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Override spot on map, set drop
+
+
+oGame.map_update[x, y] = id;
 </string>
           </argument>
         </arguments>

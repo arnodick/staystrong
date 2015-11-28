@@ -50,3 +50,40 @@ else
 {
     colour = colour_init;   //if yuou have no abilities, set actor to default colour
 }
+
+if (zap == true)
+{
+    var target = oGame.map_update[x - 1, y];
+    with (target)
+    {
+        hp -= 2;
+        do_dead(hp);
+    }
+    create_creature(x - 1, y, "zap");
+    
+    target = oGame.map_update[x + 1, y];
+    with (target)
+    {
+        hp -= 2;
+        do_dead(hp);
+    }
+    create_creature(x + 1, y, "zap");
+    
+    target = oGame.map_update[x, y - 1];
+    with (target)
+    {
+        hp -= 2;
+        do_dead(hp);
+    }
+    create_creature(x, y - 1, "zap");
+    
+    target = oGame.map_update[x, y + 1];
+    with (target)
+    {
+        hp -= 2;
+        do_dead(hp);
+    }
+    create_creature(x, y + 1, "zap");
+
+    zap = false;
+}

@@ -70,6 +70,8 @@ if (argument_count == 3)
     creature.abilities = abilities;
     creature.vulnerabilities = int_to_bin(vulnerabilities);
     
+    creature.zap = false;
+    
     move_init(creature, move_type);
     oGame.map_update[argument[0], argument[1]] = creature;
 }
@@ -81,6 +83,8 @@ else
     creature.dead_sound = argument[8];
     creature.abilities = argument[9];
     creature.vulnerabilities = argument[10];
+    
+    creature.zap = false;
     
     move_init(creature, argument[11]);
     oGame.map_update[argument[0], argument[1]] = creature;
