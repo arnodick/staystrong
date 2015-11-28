@@ -12,6 +12,7 @@
 //argument[9] = item type (same as abilities, except an int instead of binary)
 //argument[10] = vulnerabilities
 
+
 var object = -1;
 
 if (argument_count == 3)
@@ -32,7 +33,9 @@ if (argument_count == 3)
     var hp1 = ini_read_real(argument[2], 'hp1', 1);
     var hp2 = ini_read_real(argument[2], 'hp2', hp1);
     var hp3 = ini_read_real(argument[2], 'hp3', hp1);
-    var drop1 = ini_read_string(argument[2], 'drop1', 'blood');
+    var hp4 = ini_read_real(argument[2], 'hp4', hp1);
+    var hp5 = ini_read_real(argument[2], 'hp5', hp1);
+    var drop1 = ini_read_string(argument[2], 'drop1', 'error');
     var drop2 = ini_read_string(argument[2], 'drop2', drop1);
     var drop3 = ini_read_string(argument[2], 'drop3', drop1);
     var drop4 = ini_read_string(argument[2], 'drop4', drop1);
@@ -57,7 +60,7 @@ if (argument_count == 3)
     object = create_thing(argument[0], argument[1], object_type, 
         choose(char1, char2, char3, char4, char5), 
         choose(colour1, colour2, colour3, colour4, colour5), 
-        choose(hp1, hp2, hp3), 
+        choose(hp1, hp2, hp3, hp4, hp5), 
         choose(drop1, drop2, drop3, drop4, drop5)
         );
     
@@ -81,5 +84,4 @@ else
     oGame.map[argument[0], argument[1]] = object;
     oGame.map_update[argument[0], argument[1]] = object;
 }
-//TODO: MAKE A DEFAULT VALUE AT END OF FUNCTION IF object == -1
 return object;

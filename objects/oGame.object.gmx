@@ -123,7 +123,7 @@ colour = make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colou
             <string>///Bodies get eaten
 with (oBlood)
 {
-    create_object(x, y, "road");
+    create_object(x, y, "space");
     instance_destroy();
 }
 </string>
@@ -235,7 +235,7 @@ if (!instance_exists(oPlayer) )
         {
             if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
             {
-                create_object(x, y, "road");
+                oGame.map_update[x, y] = oGame.map[x, y];
                 instance_destroy();
             }
         }

@@ -5,56 +5,9 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oThing</parentName>
+  <parentName>oTerrain</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Variables
-event_inherited();
-
-hp = 1;
-char = '*';
-//vulnerabilities = int_to_bin(item_type.smash);
-drop = "smash";
-dead_sound = sndCrash;
-
-if (oGame.room_horizontal == true)
-{
-    hue = colour_get_hue(c_purple) + (irandom(60) - 20);
-    val = colour_get_value(c_purple) + (irandom(100) - 50);
-    colour = make_colour_hsv(hue, colour_get_saturation(c_purple), val);
-}
-else
-{
-    hue = colour_get_hue(c_olive) + (irandom(60) - 20);
-    val = colour_get_value(c_olive) + (irandom(100) - 50);
-    colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
-}
-
-//colour = merge_colour(colour, c_black, y/48);
-
-solid = true;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
@@ -73,7 +26,7 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>///Die
-check_dead(hp);
+do_dead(hp);
 </string>
           </argument>
         </arguments>

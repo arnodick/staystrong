@@ -23,10 +23,28 @@ if (argument_count == 3)
     var char1 = ini_read_string(argument[2], 'char1', 'D');
     var char2 = ini_read_string(argument[2], 'char2', char1);
     var char3 = ini_read_string(argument[2], 'char3', char1);
-    var colour = ini_read_real(argument[2], 'colour', 0);
-    var hp = ini_read_real(argument[2], 'hp', 1);
-    var drop = ini_read_string(argument[2], 'drop', 'blood');
-    var dead_sound = ini_read_real(argument[2], 'dead_sound', -1);
+    var char4 = ini_read_string(argument[2], 'char4', char1);
+    var char5 = ini_read_string(argument[2], 'char5', char1);
+    var colour1 = ini_read_real(argument[2], 'colour1', 255);
+    var colour2 = ini_read_real(argument[2], 'colour2', colour1);
+    var colour3 = ini_read_real(argument[2], 'colour3', colour1);
+    var colour4 = ini_read_real(argument[2], 'colour4', colour1);
+    var colour5 = ini_read_real(argument[2], 'colour5', colour1);
+    var hp1 = ini_read_real(argument[2], 'hp1', 1);
+    var hp2 = ini_read_real(argument[2], 'hp2', hp1);
+    var hp3 = ini_read_real(argument[2], 'hp3', hp1);
+    var hp4 = ini_read_real(argument[2], 'hp4', hp1);
+    var hp5 = ini_read_real(argument[2], 'hp5', hp1);
+    var drop1 = ini_read_string(argument[2], 'drop1', 'error');
+    var drop2 = ini_read_string(argument[2], 'drop2', drop1);
+    var drop3 = ini_read_string(argument[2], 'drop3', drop1);
+    var drop4 = ini_read_string(argument[2], 'drop4', drop1);
+    var drop5 = ini_read_string(argument[2], 'drop5', drop1);
+    var dead_sound1 = ini_read_real(argument[2], 'dead_sound1', -1);
+    var dead_sound2 = ini_read_real(argument[2], 'dead_sound2', dead_sound1);
+    var dead_sound3 = ini_read_real(argument[2], 'dead_sound3', dead_sound1);
+    var dead_sound4 = ini_read_real(argument[2], 'dead_sound4', dead_sound1);
+    var dead_sound5 = ini_read_real(argument[2], 'dead_sound5', dead_sound1);
     var abilities = ini_read_real(argument[2], 'abilities', 0);
     if (abilities < 0)
     {
@@ -40,14 +58,19 @@ if (argument_count == 3)
     var move_type = ini_read_real(argument[2], 'move_type', 1);
     ini_close();
     
-    creature = create_thing(argument[0], argument[1], object, choose(char1, char2, char3), colour, hp, drop);
+    creature = create_thing(argument[0], argument[1], object,
+        choose(char1, char2, char3, char4, char5),
+        choose(colour1, colour2, colour3, colour4, colour5), 
+        choose(hp1, hp2, hp3, hp4, hp5), 
+        choose(drop1, drop2, drop3, drop4, drop5)
+        );
     
     creature.solid = solidity;
-    creature.dead_sound = dead_sound;
+    creature.dead_sound = choose(dead_sound1, dead_sound2, dead_sound3, dead_sound4, dead_sound5);
     creature.abilities = abilities;
     creature.vulnerabilities = int_to_bin(vulnerabilities);
-    move_init(creature, move_type);
     
+    move_init(creature, move_type);
     oGame.map_update[argument[0], argument[1]] = creature;
 }
 else
@@ -58,8 +81,8 @@ else
     creature.dead_sound = argument[8];
     creature.abilities = argument[9];
     creature.vulnerabilities = argument[10];
-    move_init(creature, argument[11]);
     
+    move_init(creature, argument[11]);
     oGame.map_update[argument[0], argument[1]] = creature;
 }
 return creature;

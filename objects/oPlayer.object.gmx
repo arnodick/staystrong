@@ -53,7 +53,7 @@ audio_listener_orientation(0,1,0,0,0,1);
           <argument>
             <kind>1</kind>
             <string>///Die
-check_dead(hp);
+do_dead(hp);
 </string>
           </argument>
         </arguments>

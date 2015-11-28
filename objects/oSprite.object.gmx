@@ -61,7 +61,7 @@ else
     hspeed = 0;
     vspeed = 0;
     speed = 0;
-    depth = 0;
+    //depth = 0;
 }
 </string>
           </argument>

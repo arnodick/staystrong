@@ -12,7 +12,7 @@ with(creature)
         {
             if ( (abilities & int_to_bin(other.item_type)) !=  int_to_bin(other.item_type))
             {
-                create_blood_splash();
+                create_splash();
                 other.hp--;
                 var sound = choose(splat1, splat2, splat3, splat4, splat5);
                 if (!audio_is_playing(sound))
@@ -65,7 +65,7 @@ switch(item_type)
 //make used up items disappear
 if (hp <= 0)
 {
-    create_object(x, y, "road");
+    create_object(x, y, drop);
     instance_destroy();
     //NOTE: kind of hacky but easiest way to get rid of instance_create and dependance on oObjects
     oGame.map_update[x, y] = creature;

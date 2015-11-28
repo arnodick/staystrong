@@ -63,6 +63,15 @@
   <scripts name="scripts">
     <script>scripts\assets_init.gml</script>
     <script>scripts\screen_shake.gml</script>
+    <scripts name="Misc">
+      <script>scripts\draw_random_char_init.gml</script>
+      <script>scripts\draw_random_char.gml</script>
+      <script>scripts\int_to_bin.gml</script>
+    </scripts>
+    <scripts name="Controls">
+      <script>scripts\key_arrows_check.gml</script>
+      <script>scripts\key_arrows_check_pressed.gml</script>
+    </scripts>
     <scripts name="Text files">
       <script>scripts\textfile_length.gml</script>
       <script>scripts\textfile_readlines.gml</script>
@@ -74,25 +83,9 @@
       <script>scripts\menu_confirm.gml</script>
       <script>scripts\menu_buttons.gml</script>
     </scripts>
-    <scripts name="Creates">
-      <script>scripts\create_thing.gml</script>
-      <script>scripts\create_object.gml</script>
-      <script>scripts\create_creature.gml</script>
-      <script>scripts\create_message.gml</script>
-      <script>scripts\create_blood_splash.gml</script>
-    </scripts>
     <scripts name="Checks">
       <script>scripts\check_OOB.gml</script>
       <script>scripts\check_room_change.gml</script>
-      <script>scripts\check_dead.gml</script>
-    </scripts>
-    <scripts name="Dos">
-      <script>scripts\do_creature.gml</script>
-      <script>scripts\do_item.gml</script>
-    </scripts>
-    <scripts name="Controls">
-      <script>scripts\key_arrows_check.gml</script>
-      <script>scripts\key_arrows_check_pressed.gml</script>
     </scripts>
     <scripts name="Movement">
       <script>scripts\move_init.gml</script>
@@ -104,17 +97,24 @@
       <script>scripts\move_collided.gml</script>
       <script>scripts\move_moved.gml</script>
     </scripts>
+    <scripts name="Creates">
+      <script>scripts\create_thing.gml</script>
+      <script>scripts\create_object.gml</script>
+      <script>scripts\create_creature.gml</script>
+      <script>scripts\create_message.gml</script>
+      <script>scripts\create_splash.gml</script>
+    </scripts>
+    <scripts name="Dos">
+      <script>scripts\do_creature.gml</script>
+      <script>scripts\do_dead.gml</script>
+      <script>scripts\do_item.gml</script>
+    </scripts>
     <scripts name="Room gen">
       <script>scripts\room_dimensions.gml</script>
       <script>scripts\room_generate.gml</script>
       <script>scripts\room_generate_OOB_edges.gml</script>
       <script>scripts\room_generate_LR_edges.gml</script>
       <script>scripts\room_generate_TB_edges.gml</script>
-    </scripts>
-    <scripts name="Misc">
-      <script>scripts\draw_random_char_init.gml</script>
-      <script>scripts\draw_random_char.gml</script>
-      <script>scripts\int_to_bin.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

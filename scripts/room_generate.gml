@@ -151,11 +151,11 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     }
                     else
                     {
-                        create_object( a, b, choose("road", "grass_green", "space") );
+                        create_object( a, b, choose("grass_green", "grass_green", "space") );
                     }
                     break;
                 default:    //any other room, generate trees like normal
-                    create_object(a, b, choose("road", "tree", "space") );
+                    create_object(a, b, choose("grass_green", "tree", "space") );
                     break;
             }
             //place smashes in room TODO: do i need arrays for this?
@@ -212,7 +212,7 @@ if instance_exists(oTree)
         map[tree_x, tree_y] = create_object(tree_x, tree_y, "rubble");
         map_update[tree_x, tree_y] = map[tree_x, tree_y];
         //destroy the tree that was replaced
-        with(tree[tree_rand])   //  BUG: this causes the game to crash when it randomly selects a tree that's already been destroyed
+        with(tree[tree_rand])
         {
             instance_destroy();
         }
