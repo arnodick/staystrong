@@ -29,6 +29,10 @@ if (abilities != 0)
             {
                 abilities = abilities ^ int_to_bin(item_type.blood);
                 bloody_timer = choose(4, 11, 12);
+                if (hp > 1)
+                {
+                    hp--;
+                }
             }
         }
     }

@@ -12,8 +12,9 @@ with(creature)
         {
             if ( (abilities & int_to_bin(other.item_type)) !=  int_to_bin(other.item_type))
             {
-                create_splash();
+                hp++;
                 other.hp--;
+                create_splash();
                 var sound = choose(splat1, splat2, splat3, splat4, splat5);
                 if (!audio_is_playing(sound))
                 {

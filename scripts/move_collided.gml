@@ -10,7 +10,6 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
 {
     if(cell_next != id) //don't kill yourself!
     {
-        cell_next.hp--; //kill or damage target
         if (object_index == oPlayer)
         {
             if (cell_next.object_index == oTree)
@@ -35,6 +34,11 @@ if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or 
                 oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
             }
             */
+        }
+        with (cell_next)
+        {
+            hp--; //kill or damage target
+            do_dead(hp);
         }
     }
 }

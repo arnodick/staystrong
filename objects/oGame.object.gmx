@@ -231,6 +231,7 @@ if (!instance_exists(oPlayer) )
     }
     if (!instance_exists(oBlood))
     {
+        //sets enemies to leave the room
         with (oEnemy)
         {
             if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
@@ -414,6 +415,12 @@ if (global.debug == true)
     
     //draw the number of trees smashed
     //draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //player health
+    if (instance_exists(oPlayer))
+    {
+    draw_text_ext_colour(10, 70, string(oPlayer.hp), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    }
     
     //draw player's abilities
     draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
