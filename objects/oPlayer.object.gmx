@@ -62,9 +62,8 @@ audio_listener_orientation(0,1,0,0,0,1);
 
 if ( (keyboard_check(vk_space)) and ((abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait)) )
 {
-    move_moving = false;
-    abilities = abilities ^ int_to_bin(item_type.wait);
     zap = true;
+    move_moving = false;
 }
 else
 {

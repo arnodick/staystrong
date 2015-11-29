@@ -54,6 +54,7 @@
     <sound>sound\splat3</sound>
     <sound>sound\splat4</sound>
     <sound>sound\splat5</sound>
+    <sound>sound\sndZap</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>

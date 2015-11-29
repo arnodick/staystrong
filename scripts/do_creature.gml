@@ -37,6 +37,20 @@ if (abilities != 0)
         }
     }
     
+    if ( (abilities & int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
+    {
+        if (object_index == oEnemy)
+        {
+            if (oGame.turn == true)
+            {
+                if (irandom(10) < 1)
+                {
+                    zap = true;
+                }
+            }
+        }
+    }
+    
     //sets actor's colour to the colour of highest value ability
     for (var a = 0; a < array_length_1d(global.item_colours); a++) //loop through abilities
     {
@@ -53,6 +67,8 @@ else
 
 if (zap == true)
 {
+    abilities = abilities ^ int_to_bin(item_type.wait);
+    audio_play_sound_at(sndZap, x, y, 0, 1, 2, 0.5, false, 1);
     var target = oGame.map_update[x - 1, y];
     with (target)
     {
