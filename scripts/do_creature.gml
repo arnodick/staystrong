@@ -55,9 +55,26 @@ if (abilities != 0)
     {
         if (oGame.turn == true)
         {
+            bomb_timer++;
             var sound = audio_play_sound_at(sndBeep, x, y, 0, 1, 2, 1, false, 1);
-            audio_sound_pitch( sound, bomb_timer * (1/(bomb_timer * 3)) );
-            bomb_timer--;
+            //audio_sound_pitch( sound, bomb_timer * (1/(bomb_timer * 3)) );
+            audio_sound_pitch( sound, (bomb_timer/(bomb_timer_max)) );
+        }
+        
+        if (bomb_timer == bomb_timer_max)
+        {
+            abilities = abilities ^ int_to_bin(item_type.bomb);
+            
+            create_zap("explosion", 
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+                );
+            
+            //bomb_timer = 0;
         }
     }
     
@@ -83,7 +100,8 @@ if (zap == true)
 
     zap = false;
 }
-if (bomb_timer == 0)
+/*
+if (bomb_timer == bomb_timer_max)
 {
     abilities = abilities ^ int_to_bin(item_type.bomb);
     
@@ -96,5 +114,6 @@ if (bomb_timer == 0)
         x + irandom_range(-2, 2), y + irandom_range(-2, 2),
         );
     
-    bomb_timer = 3;
+    //bomb_timer = 0;
 }
+*/

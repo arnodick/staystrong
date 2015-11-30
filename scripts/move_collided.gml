@@ -3,10 +3,35 @@
 //argument0[1] = y position being collided with
 
 var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
-var cant_move = cell_next.solid;
+//var cant_move = cell_next.solid;
+
+if ( (abilities & int_to_bin(item_type.bomb)) == int_to_bin(item_type.bomb) )
+{
+    if (cell_next.object_index == oEnemy)
+    {
+        abilities = abilities ^ int_to_bin(item_type.bomb);
+        with (cell_next)
+        {
+            abilities = abilities | int_to_bin(item_type.bomb);
+        }
+    }
+    /*
+    if (cell_next.object_index == oEnemy)
+    {
+        abilities = abilities ^ int_to_bin(item_type.bomb);
+        hp++;
+        with (cell_next)
+        {
+            abilities = abilities | int_to_bin(item_type.bomb);
+            //move_moving = false;
+        }
+        
+    }
+    */
+}
 
 //if actor can kill or smash, amd target is vulnerable to either, destroy target
-if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or ((abilities & cell_next.vulnerabilities) ==  int_to_bin(item_type.smash)) )
+else if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)) or ((abilities & cell_next.vulnerabilities) ==  int_to_bin(item_type.smash)) )
 {
     if(cell_next != id) //don't kill yourself!
     {

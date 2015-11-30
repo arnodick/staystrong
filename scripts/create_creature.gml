@@ -71,8 +71,8 @@ if (argument_count == 3)
     creature.vulnerabilities = int_to_bin(vulnerabilities);
     
     creature.zap = false;
-    creature.bomb_timer = 3;
-    creature.bomb_timer_max = 3;
+    creature.bomb_timer = 0;
+    creature.bomb_timer_max = 5;
     
     move_init(creature, move_type);
     oGame.map_update[argument[0], argument[1]] = creature;
