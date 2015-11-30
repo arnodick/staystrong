@@ -51,6 +51,16 @@ if (abilities != 0)
         }
     }
     
+    if ( (abilities & int_to_bin(item_type.bomb)) == int_to_bin(item_type.bomb) )
+    {
+        if (oGame.turn == true)
+        {
+            var sound = audio_play_sound_at(sndBeep, x, y, 0, 1, 2, 1, false, 1);
+            audio_sound_pitch( sound, bomb_timer * (1/(bomb_timer * 3)) );
+            bomb_timer--;
+        }
+    }
+    
     //sets actor's colour to the colour of highest value ability
     for (var a = 0; a < array_length_1d(global.item_colours); a++) //loop through abilities
     {
@@ -68,38 +78,23 @@ else
 if (zap == true)
 {
     abilities = abilities ^ int_to_bin(item_type.wait);
-    audio_play_sound_at(sndZap, x, y, 0, 1, 2, 0.5, false, 1);
-    var target = oGame.map_update[x - 1, y];
-    with (target)
-    {
-        hp -= 2;
-        do_dead(hp);
-    }
-    create_creature(x - 1, y, "zap");
     
-    target = oGame.map_update[x + 1, y];
-    with (target)
-    {
-        hp -= 2;
-        do_dead(hp);
-    }
-    create_creature(x + 1, y, "zap");
-    
-    target = oGame.map_update[x, y - 1];
-    with (target)
-    {
-        hp -= 2;
-        do_dead(hp);
-    }
-    create_creature(x, y - 1, "zap");
-    
-    target = oGame.map_update[x, y + 1];
-    with (target)
-    {
-        hp -= 2;
-        do_dead(hp);
-    }
-    create_creature(x, y + 1, "zap");
+    create_zap("zap", x - 1, y, x + 1, y, x, y - 1, x, y + 1);
 
     zap = false;
+}
+if (bomb_timer == 0)
+{
+    abilities = abilities ^ int_to_bin(item_type.bomb);
+    
+    create_zap("explosion", 
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+        );
+    
+    bomb_timer = 3;
 }

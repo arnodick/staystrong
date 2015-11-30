@@ -55,6 +55,7 @@ instance_destroy();
 if ( (abilities &amp; int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
 {
     oGame.map [x, y] = create_object(x, y, "smash");
+    //TODO: make sure this is killing the object at x, y cell
 }
 if ( (abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
 {
@@ -86,9 +87,8 @@ oGame.map_update[x, y] = oGame.map[x, y];
             <kind>1</kind>
             <string>///Override spot on map, set drop
 
-
 oGame.map_update[x, y] = id;
-colour = c_purple;
+colour = colour_init;
 </string>
           </argument>
         </arguments>

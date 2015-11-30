@@ -23,7 +23,7 @@ with(creature)
                 }
             }
         }
-        else if (other.item_type != item_type.rubble)   //for non-blood items, just lower hp by 1
+        else //if (other.item_type != item_type.rubble)   //for non-blood items, just lower hp by 1
         {
             other.hp--;
             audio_play_sound(other.dead_sound, 1, false);
