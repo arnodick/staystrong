@@ -74,7 +74,7 @@ if (abilities != 0)
                 x + irandom_range(-2, 2), y + irandom_range(-2, 2),
                 );
             
-            //bomb_timer = 0;
+            bomb_timer = 0;
         }
     }
     

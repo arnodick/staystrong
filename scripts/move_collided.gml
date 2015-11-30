@@ -10,9 +10,11 @@ if ( (abilities & int_to_bin(item_type.bomb)) == int_to_bin(item_type.bomb) )
     if (cell_next.object_index == oEnemy)
     {
         abilities = abilities ^ int_to_bin(item_type.bomb);
+        bomb_timer = 0;
         with (cell_next)
         {
             abilities = abilities | int_to_bin(item_type.bomb);
+            bomb_timer = 0;
         }
     }
     /*
