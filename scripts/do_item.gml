@@ -26,7 +26,8 @@ with(creature)
         else //if (other.item_type != item_type.rubble)   //for non-blood items, just lower hp by 1
         {
             other.hp--;
-            audio_play_sound(other.dead_sound, 1, false);
+            //audio_play_sound(other.dead_sound, 1, false);
+            audio_play_sound_at(other.dead_sound, x, y, 0, 1, 2, 1, false, 1);
         }
         abilities = abilities | int_to_bin(other.item_type);    //gives actor item's ability
         colour = global.item_colours[other.item_type];  //changes actor's colour to item's colour
