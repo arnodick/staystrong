@@ -72,6 +72,7 @@ if (abilities != 0)
                 x + irandom_range(-2, 2), y + irandom_range(-2, 2),
                 x + irandom_range(-2, 2), y + irandom_range(-2, 2),
                 x + irandom_range(-2, 2), y + irandom_range(-2, 2),
+                x + irandom_range(-2, 2), y + irandom_range(-2, 2)
                 );
             
             bomb_timer = 0;
@@ -95,9 +96,7 @@ else
 if (zap == true)
 {
     abilities = abilities ^ int_to_bin(item_type.wait);
-    
     create_zap("zap", x - 1, y, x + 1, y, x, y - 1, x, y + 1);
-
     zap = false;
 }
 /*

@@ -12,15 +12,21 @@ for (var i = 1; i < argument_count; i++)
     var x_pos = argument[i];
     i++;
     var y_pos = argument[i];
-    var target = oGame.map_update[x_pos, y_pos];
-    with (target)
+    if (check_OOB(x_pos, y_pos, 1, 1, oGame.r_width - 2, oGame.r_height - 2) == -1)
     {
-        hp -= 2;
-        do_dead(hp);
-    }
-    var creature = create_creature(x_pos, y_pos, argument[0]);
-    with (creature)
-    {
-        audio_play_sound_at(dead_sound, x, y, 0, 1, 2, 0.5, false, 1);
+        var target = oGame.map_update[x_pos, y_pos];
+        if (target.object_index != oZap)
+        {
+            with (target)
+            {
+                hp -= 2;
+                do_dead(hp);
+            }
+            var creature = create_creature(x_pos, y_pos, argument[0]);
+            with (creature)
+            {
+                audio_play_sound_at(dead_sound, x, y, 0, 1, 2, 0.5, false, 1);
+            }
+        }
     }
 }

@@ -87,7 +87,7 @@ oGame.map_update[x, y] = oGame.map[x, y];
             <kind>1</kind>
             <string>///Override spot on map, set drop
 
-oGame.map_update[x, y] = id;
+//oGame.map_update[x, y] = id;
 colour = colour_init;
 </string>
           </argument>

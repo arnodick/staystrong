@@ -72,7 +72,7 @@ if (argument_count == 3)
     
     creature.zap = false;
     creature.bomb_timer = 0;
-    creature.bomb_timer_max = 5;
+    creature.bomb_timer_max = 4;
     
     move_init(creature, move_type);
     oGame.map_update[argument[0], argument[1]] = creature;

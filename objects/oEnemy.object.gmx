@@ -55,6 +55,15 @@ else
 
 //this produce a weird zombie sort of effect where the enemies stutter
 //move_moving = global.game_timer mod 2;
+if ( (abilities &amp; int_to_bin(item_type.bomb)) == int_to_bin(item_type.bomb) )
+{
+    move_moving = false;
+}
+else
+{
+    move_moving = true;
+}
+
 
 do_creature();
 </string>

@@ -59,7 +59,6 @@ audio_listener_orientation(0,1,0,0,0,1);
 //TODO: put all do_x functions in oGame? just write: with oPlayer do_player
 //with oCreature do_Creature, etc. that way can explicitly determine instance ordering
 
-
 if ( (keyboard_check(vk_space)) and ((abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait)) )
 {
     zap = true;
