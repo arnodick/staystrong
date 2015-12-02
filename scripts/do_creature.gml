@@ -37,7 +37,7 @@ if (abilities != 0)
         }
     }
     
-    if ( (abilities & int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
+    if ( (abilities & int_to_bin(item_type.wand)) == int_to_bin(item_type.wand) )
     {
         if (object_index == oEnemy)
         {
@@ -65,7 +65,7 @@ if (abilities != 0)
         {
             abilities = abilities ^ int_to_bin(item_type.bomb);
             
-            create_zap("explosion", 
+            create_crowd("explosion", 
                 x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
                 x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
                 x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
@@ -95,24 +95,7 @@ else
 
 if (zap == true)
 {
-    abilities = abilities ^ int_to_bin(item_type.wait);
-    create_zap("zap", x - 1, y, x + 1, y, x, y - 1, x, y + 1);
+    abilities = abilities ^ int_to_bin(item_type.wand);
+    create_crowd("zap", x - 1, y, x + 1, y, x, y - 1, x, y + 1);
     zap = false;
 }
-/*
-if (bomb_timer == bomb_timer_max)
-{
-    abilities = abilities ^ int_to_bin(item_type.bomb);
-    
-    create_zap("explosion", 
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2), 
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-        x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-        );
-    
-    //bomb_timer = 0;
-}
-*/

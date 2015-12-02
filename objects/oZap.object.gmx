@@ -57,9 +57,9 @@ if ( (abilities &amp; int_to_bin(item_type.smash)) == int_to_bin(item_type.smash
     oGame.map [x, y] = create_object(x, y, "smash");
     //TODO: make sure this is killing the object at x, y cell
 }
-if ( (abilities &amp; int_to_bin(item_type.wait)) == int_to_bin(item_type.wait) )
+if ( (abilities &amp; int_to_bin(item_type.wand)) == int_to_bin(item_type.wand) )
 {
-    oGame.map [x, y] = create_object(x, y, "wait");
+    oGame.map [x, y] = create_object(x, y, "wand");
 }
 
 oGame.map_update[x, y] = oGame.map[x, y];
