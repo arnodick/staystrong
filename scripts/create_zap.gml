@@ -5,7 +5,7 @@
 //argument0[4] = y pos of 2nd zap
 //...
 //var spot = choose(-1, 0, 1);
-//var target = oGame.map_update[x + spot, y];
+//var target = oGame.map_creatures[x + spot, y];
 
 for (var i = 1; i < argument_count; i++)
 {
@@ -14,7 +14,7 @@ for (var i = 1; i < argument_count; i++)
     var y_pos = argument[i];
     if (check_OOB(x_pos, y_pos, 1, 1, oGame.r_width - 2, oGame.r_height - 2) == -1)
     {
-        var target = oGame.map_update[x_pos, y_pos];
+        var target = oGame.map_creatures[x_pos, y_pos];
         if (target.object_index != oZap)
         {
             with (target)

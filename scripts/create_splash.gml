@@ -7,7 +7,7 @@ if (instance_exists(oSprite))
 }
 for (a = 0; a < 8; a++)
 {
-    sprite = instance_create((x * map_grid.tile_size) + map_grid.tile_size/2, (y * map_grid.tile_size) + map_grid.tile_size/2, oSprite);
+    sprite = instance_create((x * map.tile_size) + map.tile_size/2, (y * map.tile_size) + map.tile_size/2, oSprite);
     //sprite.speed = choose(2, 2.25, 2.5, 2.75, 3);
     sprite.hacceleration = 0.05;
     sprite.hspeed = random_range(-2, 2);

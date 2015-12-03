@@ -56,7 +56,7 @@ tree[100] = 0;  //used in room generate for some reason? TODO: might not need
 enemy_pos[5, 2] = 0;
 smashes_pos[2, 2] = 0;
 
-room_generate(map_grid.middle);
+room_generate(map.middle);
 
 /*
 //animation stuff(?)
@@ -236,7 +236,7 @@ if (!instance_exists(oPlayer) )
         {
             if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
             {
-                oGame.map_update[x, y] = oGame.map[x, y];
+                oGame.map_creatures[x, y] = oGame.map_objects[x, y];
                 instance_destroy();
             }
         }
@@ -361,10 +361,10 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     for (var b = 0; b &lt; r_height; b++)
     {
         // captures the current cell of the array in a temp var
-        var cell = map_update[a, b];
+        var cell = map_creatures[a, b];
         // draws the cell's colour, character, etc.
         //TODO: put draw position calculations in the object, rather than in draw?
-        draw_text_colour ( a * map_grid.tile_size, b * map_grid.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_text_colour ( a * map.tile_size, b * map.tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
 
@@ -372,7 +372,7 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 //Faster but draw sequence of instances is a bit weird
 with (oThing)
 {
-    draw_text_colour ( x * map_grid.tile_size, y * map_grid.tile_size, char, colour, colour, colour, colour, 1);
+    draw_text_colour ( x * map.tile_size, y * map.tile_size, char, colour, colour, colour, colour, 1);
 }
 */
 

@@ -36,7 +36,7 @@ with (creature)
         //audio_play_sound(sndSwish, 1, false);
         audio_play_sound_at(other.dead_sound, other.x, other.y, 0, 1, 2, 0.5, false, 1);
         create_object(x, y, other.drop);
-        oGame.map_update[x, y] = creature;
+        oGame.map_creatures[x, y] = creature;
         destroy = true;
     }
 }

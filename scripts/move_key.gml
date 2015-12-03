@@ -47,7 +47,7 @@ if (key_arrows_check_pressed() == true)
     }
     move_collision(x_pos, y_pos);
 }
-oGame.map_update[x, y] = oPlayer;
+oGame.map_creatures[x, y] = oPlayer;
 */
 
 /*

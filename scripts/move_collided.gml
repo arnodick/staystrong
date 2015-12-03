@@ -2,7 +2,7 @@
 //argument0[0] = x position being collided with
 //argument0[1] = y position being collided with
 
-var cell_next = oGame.map_update[argument0, argument1]; // temp var for destination cell contents
+var cell_next = oGame.map_creatures[argument0, argument1]; // temp var for destination cell contents
 //var cant_move = cell_next.solid;
 
 if ( (abilities & int_to_bin(item_type.bomb)) == int_to_bin(item_type.bomb) )
@@ -57,8 +57,8 @@ else if ( ((abilities & cell_next.vulnerabilities) == int_to_bin(item_type.kill)
             /*
             if ( (instance_number(oTree) < 40) and (cell_next.object_index == oTree) and (!instance_exists(oExit)) and ( (random(instance_number(oTree)) < 1) or (instance_number(oTree) == 1) ) )
             {
-                oGame.map[argument0, argument1] = instance_create(argument0, argument1, oExit);
-                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
+                oGame.map_objects[argument0, argument1] = instance_create(argument0, argument1, oExit);
+                oGame.map_creatures[argument0, argument1] = oGame.map_objects[argument0, argument1];
             }
             */
         }

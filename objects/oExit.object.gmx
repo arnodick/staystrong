@@ -55,7 +55,7 @@ global.final_score = oGame.room_count;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var cell_current = oGame.map_update[x, y];
+            <string>var cell_current = oGame.map_creatures[x, y];
 if (cell_current.object_index == oPlayer)
 {
     oGame.generate = true;

@@ -1,5 +1,5 @@
 //creates an item and gives it some default variables
-//then puts it in the map and map_update array
+//then puts it in the map and map_creatures array
 //argument[0] = x
 //argument[1] = y
 //argument[2] = oObject or object string for ini input
@@ -69,8 +69,8 @@ if (argument_count == 3)
     object.item_type = item_type;
     object.vulnerabilities = vulnerabilities;
     
-    oGame.map[argument[0], argument[1]] = object;
-    oGame.map_update[argument[0], argument[1]] = object;
+    oGame.map_objects[argument[0], argument[1]] = object;
+    oGame.map_creatures[argument[0], argument[1]] = object;
 }
 else
 {
@@ -81,7 +81,7 @@ else
     object.item_type = argument[9];
     object.vulnerabilities = argument[10];
     
-    oGame.map[argument[0], argument[1]] = object;
-    oGame.map_update[argument[0], argument[1]] = object;
+    oGame.map_objects[argument[0], argument[1]] = object;
+    oGame.map_creatures[argument[0], argument[1]] = object;
 }
 return object;

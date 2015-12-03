@@ -93,13 +93,13 @@ for (var p = 0; p < smashes_count; p++)
 
 //while !(instance_exists(oPlayer))
 
-// generates the map terrain, enemies and pickups, puts them in map and map_update arrays
+// generates the map terrain, enemies and pickups, puts them in map and map_creatures arrays
 // TODO: will have to reverse a and b
 for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
 {
     for (var b = 0; b < r_height; b++)
     {
-        map_update[a, b] = 0;
+        map_creatures[a, b] = 0;
         // deal with edges of map first (exits, super walls, etc.)
         if          (a == 0 or a == r_width - 1 or b == 0 or b == r_height - 1)
         {
@@ -175,10 +175,10 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                 }
             }
         }
-        // copy map cells to map_update cells if map_update cell is empty
-        if (map_update[a, b] == 0)
+        // copy map cells to map_creatures cells if map_creatures cell is empty
+        if (map_creatures[a, b] == 0)
         {
-            map_update[a, b] = map[a, b];
+            map_creatures[a, b] = map_objects[a, b];
         }
     }
 }
@@ -189,7 +189,7 @@ if !(instance_exists(oPlayer))
 }
 else
 {
-    map_update[oPlayer.x, oPlayer.y] = oPlayer;
+    map_creatures[oPlayer.x, oPlayer.y] = oPlayer;
 }
 
 //convert random trees into rubble for each tree that has been smashed
@@ -208,16 +208,16 @@ if instance_exists(oTree)
         var temp_tree = tree[tree_rand];
         //get x and y coords of tree we're going to replace w rubble
         var tree_x = temp_tree.x, tree_y = temp_tree.y;
-        //put rubble in tree's position on map + map_update
-        map[tree_x, tree_y] = create_object(tree_x, tree_y, "rubble");
-        map_update[tree_x, tree_y] = map[tree_x, tree_y];
+        //put rubble in tree's position on map + map_creatures
+        map_objects[tree_x, tree_y] = create_object(tree_x, tree_y, "rubble");
+        map_creatures[tree_x, tree_y] = map_objects[tree_x, tree_y];
         //destroy the tree that was replaced
         with(tree[tree_rand])
         {
             instance_destroy();
         }
         //set the spot in the array that formerly held a tree to hold the new rubble? maybe in case this spot is selected, since the tree is now destroyed. stops crashes
-        tree[tree_rand] = map[tree_x, tree_y];
+        tree[tree_rand] = map_objects[tree_x, tree_y];
         
     }
 }

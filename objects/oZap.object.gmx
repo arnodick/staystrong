@@ -62,7 +62,7 @@ if ( (abilities &amp; int_to_bin(item_type.wand)) == int_to_bin(item_type.wand) 
     oGame.map [x, y] = create_object(x, y, "wand");
 }
 
-oGame.map_update[x, y] = oGame.map[x, y];
+oGame.map_creatures[x, y] = oGame.map_objects[x, y];
 </string>
           </argument>
         </arguments>
@@ -87,7 +87,7 @@ oGame.map_update[x, y] = oGame.map[x, y];
             <kind>1</kind>
             <string>///Override spot on map, set drop
 
-//oGame.map_update[x, y] = id;
+//oGame.map_creatures[x, y] = id;
 colour = colour_init;
 </string>
           </argument>

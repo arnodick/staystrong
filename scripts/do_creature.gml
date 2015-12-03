@@ -7,7 +7,7 @@ if (abilities != 0)
     //if you are bloody, spread blood around
     if ( (abilities & int_to_bin(item_type.blood)) == int_to_bin(item_type.blood) )
     {
-        var cell = oGame.map[x, y];
+        var cell = oGame.map_objects[x, y];
         var colour_blend_amount = (bloody_timer + 2)/bloody_timer_init;
         if (colour_blend_amount > 1)
         {

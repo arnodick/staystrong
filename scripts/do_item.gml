@@ -50,7 +50,7 @@ switch(item_type)
         //makes adjacent tiles turn red randomly
         if random(100) < 1
         {
-            oGame.map[x + choose(-1, 0, 1), y + choose(-1, 0, 1)].colour = global.item_colours[item_type];
+            oGame.map_objects[x + choose(-1, 0, 1), y + choose(-1, 0, 1)].colour = global.item_colours[item_type];
         }
         //if blood has been picked up enough times, it disappears
         //unless the player is dead. then it never disappears
@@ -70,5 +70,5 @@ if (hp <= 0)
     create_object(x, y, drop);
     instance_destroy();
     //NOTE: kind of hacky but easiest way to get rid of instance_create and dependance on oObjects
-    oGame.map_update[x, y] = creature;
+    oGame.map_creatures[x, y] = creature;
 }

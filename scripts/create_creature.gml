@@ -1,5 +1,5 @@
 //creates a creature and gives it some default variables
-//then puts it in the map_update array
+//then puts it in the map_creatures array
 //argument[0] = x
 //argument[1] = y
 //argument[2] = oObject or object string for ini input
@@ -75,7 +75,7 @@ if (argument_count == 3)
     creature.bomb_timer_max = 4;
     
     move_init(creature, move_type);
-    oGame.map_update[argument[0], argument[1]] = creature;
+    oGame.map_creatures[argument[0], argument[1]] = creature;
 }
 else
 {
@@ -89,6 +89,6 @@ else
     creature.zap = false;
     
     move_init(creature, argument[11]);
-    oGame.map_update[argument[0], argument[1]] = creature;
+    oGame.map_creatures[argument[0], argument[1]] = creature;
 }
 return creature;

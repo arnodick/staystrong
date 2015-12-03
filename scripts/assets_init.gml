@@ -29,7 +29,7 @@ global.item_colours[item_type.bomb] = c_orange;
 //global.item_colours[item_type.rubble] = make_colour_rgb(120, 75, 0);
 
 //constants for attributes of the map
-enum map_grid
+enum map
 {
     right_side,
     top_side,
