@@ -224,6 +224,8 @@ if instance_exists(oTree)
 
 generate = false;   // set generate to false, so room doesn't keep regenerating
 
+global.room_timer = global.game_timer;
+
 if (oGame.room_count == -1) //if in win room, set win to true TODO: do this somewhere else?
 {
     oGame.win = true;

@@ -36,6 +36,7 @@ draw_set_halign(fa_left);
 randomize();
 
 global.game_timer = 1;
+global.room_timer = global.game_timer;
 global.final_score = 0;
 global.debug = false;
 
@@ -247,6 +248,17 @@ else
     check_room_change();
 }
 
+if (turn == true)
+{
+    if ((global.game_timer - global.room_timer) &gt;= 40)
+    {
+        if (irandom(10) == 0)
+        {
+            create_creature(irandom_range(1, r_width - 1), choose(1, r_height - 1), "fly");
+        }
+    }
+}
+
 if (keyboard_check_pressed(ord('D')))
 {
     global.debug = !global.debug;
@@ -435,6 +447,12 @@ if (global.debug == true)
     
     //draw player's abilities
     draw_text_ext_colour(10, 100, string(c_orange), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //draw game timer + room timer
+    draw_text_ext_colour(10, 110, string(global.game_timer) + " " + string(global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    
+    //draw game timer minus room timer
+    draw_text_ext_colour(10, 120, string(global.game_timer - global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
     
     //num of screen objects
     //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
