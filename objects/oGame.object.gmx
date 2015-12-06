@@ -254,7 +254,7 @@ if (turn == true)
     {
         if (irandom(10) == 0)
         {
-            create_creature(irandom_range(1, r_width - 1), choose(1, r_height - 1), "fly");
+            create_creature(irandom_range(1, r_width - 2), choose(1, r_height - 2), "fly");
         }
     }
 }
