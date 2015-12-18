@@ -15,8 +15,15 @@ for (var i = 1; i < argument_count; i++)
     if (check_OOB(x_pos, y_pos, 1, 1, oGame.r_width - 2, oGame.r_height - 2) == -1)
     {
         var target = oGame.map_creatures[x_pos, y_pos];
-        if (target.object_index != oZap)
+        while (target.object_index == oZap)
         {
+            x_pos = x + irandom_range(-2, 2); 
+            y_pos = y + irandom_range(-2, 2);
+            target = oGame.map_creatures[x_pos, y_pos];
+        }
+        
+        //if (target.object_index != oZap)
+        //{
             with (target)
             {
                 hp -= 2;
@@ -28,6 +35,7 @@ for (var i = 1; i < argument_count; i++)
                 //TODO: implement action noises for creatures, use that instead of dead_sound here
                 audio_play_sound_at(dead_sound, x, y, 0, 1, 2, 0.5, false, 1);
             }
-        }
+        //}
+        
     }
 }
