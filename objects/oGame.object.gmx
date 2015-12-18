@@ -268,10 +268,12 @@ if (keyboard_check_pressed(ord('D')))
     }
 }
 
+/*
 if (keyboard_check_pressed(ord('C')))
 {
     create_crowd("fly", irandom_range(10, 20), irandom_range(10,20));
 }
+*/
 
 if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
 {

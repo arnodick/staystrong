@@ -7,6 +7,56 @@
 //var spot = choose(-1, 0, 1);
 //var target = oGame.map_creatures[x + spot, y];
 
+//argument0 = x position/range
+//argument1 = y position/range
+//argument2 = string of creature to create
+//argument3 = amount of creatures to create
+//argument4 = true = random placement
+
+for (i = 0; i < argument3; i++)
+{
+    var x_pos = x;
+    var y_pos = y;
+    var target = -1;
+    if (argument4 == true)
+    {
+        x_pos = x + irandom_range(-argument0, argument0);
+        y_pos = y + irandom_range(-argument1, argument1);
+        target = oGame.map_creatures[x_pos, y_pos];
+        while (target.object_index == oZap)
+        {
+            x_pos = x + irandom_range(-argument0, argument0);
+            y_pos = y + irandom_range(-argument1, argument1);
+            target = oGame.map_creatures[x_pos, y_pos];
+        }
+    }
+    else
+    {
+        x_pos = x + argument0;
+        y_pos = y + argument1;
+        target = oGame.map_creatures[x_pos, y_pos];
+        while (target.object_index == oZap)
+        {
+            x_pos = x + choose(-argument0, argument0);
+            y_pos = y + choose(-argument1, argument1);
+            target = oGame.map_creatures[x_pos, y_pos];
+        }
+    }
+    
+    with (target)
+    {
+        hp -= 2;
+        do_dead(hp);
+    }
+    var creature = create_creature(x_pos, y_pos, argument2);
+    with (creature)
+    {
+        //TODO: implement action noises for creatures, use that instead of dead_sound here
+        audio_play_sound_at(dead_sound, x, y, 0, 1, 2, 0.5, false, 1);
+    }
+}
+
+/*
 for (var i = 1; i < argument_count; i++)
 {
     var x_pos = argument[i];
@@ -39,3 +89,4 @@ for (var i = 1; i < argument_count; i++)
         
     }
 }
+*/
