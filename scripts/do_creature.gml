@@ -64,19 +64,7 @@ if (abilities != 0)
         if (bomb_timer == bomb_timer_max)
         {
             abilities = abilities ^ int_to_bin(item_type.bomb);
-            
-            /*
-            create_crowd("explosion", 
-                x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
-                x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
-                x + irandom_range(-1, 1), y + irandom_range(-1, 1), 
-                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-                x + irandom_range(-2, 2), y + irandom_range(-2, 2),
-                x + irandom_range(-2, 2), y + irandom_range(-2, 2)
-                );
-            */
-            create_crowd(2, 2, "explosion", 10, true);
+            create_crowd(2, 2, "explosion", 10, spell_pattern.explosion);
             bomb_timer = 0;
         }
     }
@@ -98,7 +86,7 @@ else
 if (zap == true)
 {
     abilities = abilities ^ int_to_bin(item_type.wand);
-    //create_crowd("zap", x - 1, y, x + 1, y, x, y - 1, x, y + 1);
-    create_crowd(1, 1, "zap", 4, false);
+    //create_crowd(1, 1, "zap", 4, false);
+    create_crowd(1, 1, "zap", 4, spell_pattern.cross);
     zap = false;
 }

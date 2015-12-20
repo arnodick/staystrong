@@ -52,7 +52,7 @@ move_moving = false;
             <kind>1</kind>
             <string>///Destroy self
 instance_destroy();
-/*
+
 if ( (abilities &amp; int_to_bin(item_type.smash)) == int_to_bin(item_type.smash) )
 {
     oGame.map [x, y] = create_object(x, y, "smash");
@@ -62,9 +62,16 @@ if ( (abilities &amp; int_to_bin(item_type.wand)) == int_to_bin(item_type.wand) 
 {
     oGame.map [x, y] = create_object(x, y, "wand");
 }
-*/
 
 oGame.map_creatures[x, y] = oGame.map_objects[x, y];
+
+/*
+//crazy recursive moving spells
+if ( check_OOB(x+1, y, 1, 1, oGame.r_width - 2, oGame.r_height - 2) == -1 )
+{
+    create_crowd(1, 1, "zap", 1, false);
+}
+*/
 </string>
           </argument>
         </arguments>

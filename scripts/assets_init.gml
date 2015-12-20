@@ -38,3 +38,10 @@ enum map
     middle = -1,
     tile_size = 10
 }
+
+//spell shapes
+enum spell_pattern
+{
+    cross,
+    explosion
+}
