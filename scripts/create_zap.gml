@@ -1,7 +1,7 @@
 //argument0[0] = string of attack creature to create
 //argument0[1] = x pos of first zap
 //argument0[2] = y pos of first zap
-//argument0[1] = x pos of 2nd zap
+//argument0[3] = x pos of 2nd zap
 //argument0[4] = y pos of 2nd zap
 //...
 //var spot = choose(-1, 0, 1);

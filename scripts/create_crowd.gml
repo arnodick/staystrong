@@ -1,12 +1,12 @@
 //argument0 = x position/range
 //argument1 = y position/range
 //argument2 = string of creature to create
-//argument1 = amount of creatures to create
+//argument3 = amount of creatures to create
 //argument4 = id of pattern. determines shape of spell effect
 
-for (i = 0; i < argument1; i++)
+for (i = 0; i < argument3; i++)
 { 
-    var dir = irandom(159);
+    var dir = irandom(359);
 
     var x_pos = x;
     var y_pos = y;
@@ -28,7 +28,7 @@ for (i = 0; i < argument1; i++)
                     x_pos = x;
                     y_pos = y + argument1;
                    break;
-                case 1:
+                case 3:
                     x_pos = x;
                     y_pos = y - argument1;
                    break;
@@ -51,7 +51,7 @@ for (i = 0; i < argument1; i++)
             }
             while (target.object_index == oZap)
             {
-                dir = irandom(159);
+                dir = irandom(359);
                 x_pos = round( x + lengthdir_x(random(argument0), dir) );
                 y_pos = round( y + lengthdir_y(random(argument1), dir) );
                 if (check_OOB(x_pos, y_pos, 1, 1, oGame.r_width - 2, oGame.r_height - 2) == -1)

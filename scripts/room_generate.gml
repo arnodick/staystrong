@@ -1,5 +1,5 @@
 //Generates a new room
-//argument0 = side of room used to exit (0=left, 1=right, 2=top, 1=bottom)
+//argument0 = side of room used to exit (0=left, 1=right, 2=top, 3=bottom)
 with(oThing)    // destroys all the oThings in the room except the player
 {
     if (object_index != oPlayer)
@@ -16,9 +16,9 @@ with (oSprite)
 var enemy_count = 2;    //default 2 enemies
 if (instance_exists(oPlayer))
 {
-    if (oPlayer.smashes > 0)    //if you have smashes, 1 - 5 enemies
+    if (oPlayer.smashes > 0)    //if you have smashes, 3 - 5 enemies
     {
-        enemy_count = irandom_range(1, 5);
+        enemy_count = irandom_range(3, 5);
     }
 }
 if (oGame.last_room_smashes == 0)   // if you had no smashes last room, 5 enemies
@@ -41,11 +41,11 @@ for (var i = 0; i < enemy_count; i++)
     {
         if (j == 0)
         {
-            enemy_pos[i, j] = irandom_range(2, r_width - 1);    //set enemy's x coord
+            enemy_pos[i, j] = irandom_range(2, r_width - 3);    //set enemy's x coord
         }
         else if (j == 1)
         {
-            enemy_pos[i, j] = irandom_range(2, r_height - 1);   //set enemy's y coord
+            enemy_pos[i, j] = irandom_range(2, r_height - 3);   //set enemy's y coord
         }
     }
 }
@@ -60,7 +60,7 @@ if (instance_exists(oPlayer))
         smashes_count += (irandom(1) + 1);  // if out of smashes, get 1 or 2 smashes min
     }
 }
-if ( (oGame.room_count mod 1) == 0) // if in room divisble by 1, extra 2 or 1 smashes spawn
+if ( (oGame.room_count mod 3) == 0) // if in room divisble by 3, extra 2 or 3 smashes spawn
 {
     smashes_count += (irandom(1) + 2);
 }
@@ -68,9 +68,9 @@ if ( (oGame.room_count mod 5) == 0 )    // if in room div by 5, extra 2 - 4 smas
 {
     smashes_count += (irandom(2) + 2);
 }
-if ( (argument0 == 0) or (argument0 == 1) ) //if in horizontal room, 0 - 1 extra smashes
+if ( (argument0 == 0) or (argument0 == 1) ) //if in horizontal room, 0 - 3 extra smashes
 {
-    smashes_count += irandom(1);
+    smashes_count += irandom(3);
     oGame.room_horizontal = true;
 }
 //set smash coordinates
@@ -81,11 +81,11 @@ for (var p = 0; p < smashes_count; p++)
     {
         if (t == 0)
         {
-            smashes_pos[p, t] = irandom_range(2, r_width - 1);  //set smash's x coord
+            smashes_pos[p, t] = irandom_range(2, r_width - 3);  //set smash's x coord
         }
         else if (t == 1)
         {
-            smashes_pos[p, t] = irandom_range(2, r_height - 1); //set smash's y coord
+            smashes_pos[p, t] = irandom_range(2, r_height - 3); //set smash's y coord
         }
     }
 }
@@ -145,7 +145,7 @@ for (var a = 0; a < r_width; a++)   // loops through each cell of the map array
                     {
                         create_object(a, b, "space");
                     }
-                    else if ( (a == 1 and b == 1) or (a == 1 and b == 4) or (a == 4 and b == 1) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
+                    else if ( (a == 3 and b == 3) or (a == 3 and b == 4) or (a == 4 and b == 3) or (a == (r_width - 4) and b == (r_height - 4)) or (a == (r_width - 4) and b == (r_height - 5)) or (a == (r_width - 5) and b == (r_height - 4)) )
                     {
                         create_object( a, b, "pillar");
                     }

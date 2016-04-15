@@ -11,7 +11,7 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>601</id>
+        <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -45,10 +45,10 @@ pixelation_rate = 0.1;
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>601</id>
+        <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -111,10 +111,10 @@ if (transition == true)
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="71">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
-        <id>601</id>
+        <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -154,7 +154,7 @@ if (transition == true)
     <event eventtype="8" enumb="72">
       <action>
         <libid>1</libid>
-        <id>601</id>
+        <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -195,7 +195,7 @@ draw_clear(0);  // Removing draw_clear makes this into a painting game!
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
-  <PhysicsObjectFriction>0.200000002980212</PhysicsObjectFriction>
+  <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints/>

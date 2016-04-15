@@ -3,14 +3,14 @@
 //argument0 = x
 //argument1 = y
 //argument2 = oObject
-//argument1 = char
+//argument3 = char
 //argument4 = colour
 //argument5 = hp
 //argument6 = drop
 
 var thing = instance_create(argument0, argument1, argument2);
 
-thing.char = argument1;
+thing.char = argument3;
 thing.colour_init = argument4;
 thing.colour = thing.colour_init;
 thing.hp = argument5;

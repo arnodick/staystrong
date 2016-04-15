@@ -38,7 +38,7 @@ if instance_exists(oPlayer)
             oPlayer.y = r_height - 2;
             break;
         }
-        case 1:                 // exited bottom side
+        case 3:                 // exited bottom side
         {
             generate = true;
             oPlayer.y = 1;
