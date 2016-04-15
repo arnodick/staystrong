@@ -27,7 +27,7 @@
 !endif
 
 !ifndef COPYRIGHT_TXT
-!define COPYRIGHT_TXT     "(c)Copyright 2013"
+!define COPYRIGHT_TXT     "(c)Copyright 2011"
 !endif
 
 !ifndef FILE_DESC
@@ -86,12 +86,12 @@ RequestExecutionLevel user
 
 
 VIProductVersion "${FULL_VERSION}"
-VIAddVersionKey /LANG=1033 "FileVersion" "${FULL_VERSION}"
-VIAddVersionKey /LANG=1033 "ProductVersion" "${FULL_VERSION}"
-VIAddVersionKey /LANG=1033 "ProductName" "${PRODUCT_NAME}"
-VIAddVersionKey /LANG=1033 "CompanyName" "${PRODUCT_PUBLISHER}"
-VIAddVersionKey /LANG=1033 "LegalCopyright" "${COPYRIGHT_TXT}"
-VIAddVersionKey /LANG=1033 "FileDescription" "${FILE_DESC}"
+VIAddVersionKey /LANG=1011 "FileVersion" "${FULL_VERSION}"
+VIAddVersionKey /LANG=1011 "ProductVersion" "${FULL_VERSION}"
+VIAddVersionKey /LANG=1011 "ProductName" "${PRODUCT_NAME}"
+VIAddVersionKey /LANG=1011 "CompanyName" "${PRODUCT_PUBLISHER}"
+VIAddVersionKey /LANG=1011 "LegalCopyright" "${COPYRIGHT_TXT}"
+VIAddVersionKey /LANG=1011 "FileDescription" "${FILE_DESC}"
 
 
 

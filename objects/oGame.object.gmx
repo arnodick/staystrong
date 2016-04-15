@@ -11,7 +11,7 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -64,7 +64,7 @@ room_generate(map.middle);
 font[0] = font2;
 font[1] = font2it;
 
-font_timer_init = 30;
+font_timer_init = 10;
 font_timer = font_timer_init;
 */
 </string>
@@ -73,7 +73,7 @@ font_timer = font_timer_init;
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -98,7 +98,7 @@ inst_string = "Instance # = " + string(instance_count);
 
 var hue = colour_get_hue(c_olive) + (irandom(60) - 20);
 var val = colour_get_value(c_olive) + (irandom(100) - 50);
-colour = make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colour_get_saturation(c_green), (colour_get_value(c_green) + (irandom(60) - 30)) )
+colour = make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 10) ), colour_get_saturation(c_green), (colour_get_value(c_green) + (irandom(60) - 10)) )
 </string>
           </argument>
         </arguments>
@@ -107,7 +107,7 @@ colour = make_colour_hsv( (colour_get_hue(c_green) + (irandom(60) - 30) ), colou
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -132,10 +132,10 @@ with (oBlood)
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="1">
+    <event eventtype="1" enumb="1">
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -175,10 +175,10 @@ if (keyboard_check_pressed(vk_space))
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -235,7 +235,7 @@ if (!instance_exists(oPlayer) )
         //sets enemies to leave the room
         with (oEnemy)
         {
-            if (check_OOB(x, y, 2, 2, oGame.r_width - 3, oGame.r_height - 3) &gt;= 0)
+            if (check_OOB(x, y, 2, 2, oGame.r_width - 1, oGame.r_height - 1) &gt;= 0)
             {
                 oGame.map_creatures[x, y] = oGame.map_objects[x, y];
                 instance_destroy();
@@ -286,7 +286,7 @@ if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -354,7 +354,7 @@ if (global.debug == true)
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -397,7 +397,7 @@ with (oThing)
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
+        <id>601</id>
         <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
@@ -416,55 +416,55 @@ with (oThing)
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_text_ext_colour(10, 10, fps_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 10, fps_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of instances
-    draw_text_ext_colour(10, 20, inst_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 20, inst_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 30, rooms_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 10, rooms_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of rooms
-    draw_text_ext_colour(10, 40, smashes_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 40, smashes_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of trees smashed
-    draw_text_ext_colour(10, 50, smashed_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 50, smashed_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of trees 
-    draw_text_ext_colour(10, 60, trees_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 60, trees_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw the number of trees smashed
-    //draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 70, rubble_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //player health
     if (instance_exists(oPlayer))
     {
-    draw_text_ext_colour(10, 70, string(oPlayer.hp), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 70, string(oPlayer.hp), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     }
     
     //draw player's abilities
-    draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 80, item_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw player's abilities
-    draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 90, vuln_string, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw player's abilities
-    draw_text_ext_colour(10, 100, string(c_orange), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 100, string(c_orange), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw game timer + room timer
-    draw_text_ext_colour(10, 110, string(global.game_timer) + " " + string(global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 110, string(global.game_timer) + " " + string(global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //draw game timer minus room timer
-    draw_text_ext_colour(10, 120, string(global.game_timer - global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    draw_text_ext_colour(10, 120, string(global.game_timer - global.room_timer), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //num of screen objects
-    //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 90, "Screens = " + string(instance_number(oScreen)), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //enemy dieciton
-    //draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 100, "Enemy dir = " + dir_string + " " + dir_mod, 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
     
     //player's move_type
-    //draw_text_ext_colour(10, 110, "Move_type = " + string(oPlayer.move_type), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.3);
+    //draw_text_ext_colour(10, 110, "Move_type = " + string(oPlayer.move_type), 12, 200, debug_colour, debug_colour, debug_colour, debug_colour, 0.1);
 }
 </string>
           </argument>
@@ -480,7 +480,7 @@ if (global.debug == true)
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
-  <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
+  <PhysicsObjectFriction>0.200000002980212</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints/>

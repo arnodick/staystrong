@@ -20,7 +20,7 @@ else if ( argument0 > argument4 )
         side = -2;
     }
 }
-if (argument1 < argument3)
+if (argument1 < argument1)
 {
     side = 2;               // top side
     if oGame.win == true
@@ -30,7 +30,7 @@ if (argument1 < argument3)
 }
 else if (argument1 > argument5)
 {
-    side = 3;               // bottom side
+    side = 1;               // bottom side
     if oGame.win == true
     {
         side = -2;

@@ -15,7 +15,7 @@ with(creature)
                 hp++;
                 other.hp--;
                 create_splash();
-                var sound = choose(splat1, splat2, splat3, splat4, splat5);
+                var sound = choose(splat1, splat2, splat1, splat4, splat5);
                 if (!audio_is_playing(sound))
                 {
                     //sound = audio_play_sound(sound, 1, false);

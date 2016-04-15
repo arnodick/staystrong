@@ -95,7 +95,7 @@ if instance_exists(oPlayer)
     {
         if ( irandom(20) <= 1 )
         {
-            //audio_play_sound_at(sndAlert, x, y, 0, 3, 6, 1, false, 1);
+            //audio_play_sound_at(sndAlert, x, y, 0, 1, 6, 1, false, 1);
             audio_play_sound_at(sndAlert, x, y, 0, 1, 2, 1, false, 1);
         }
     }

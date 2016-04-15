@@ -57,7 +57,7 @@ if (abilities != 0)
         {
             bomb_timer++;
             var sound = audio_play_sound_at(sndBeep, x, y, 0, 1, 2, 1, false, 1);
-            //audio_sound_pitch( sound, bomb_timer * (1/(bomb_timer * 3)) );
+            //audio_sound_pitch( sound, bomb_timer * (1/(bomb_timer * 1)) );
             audio_sound_pitch( sound, (bomb_timer/(bomb_timer_max)) );
         }
         

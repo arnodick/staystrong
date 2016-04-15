@@ -35,7 +35,7 @@ else if (argument0 == 2)
         create_object( argument1, argument2, "space");
     }
 }
-else if (argument0 == 3)
+else if (argument0 == 1)
 {
     if (argument2 == 0)
     {
